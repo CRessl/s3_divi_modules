@@ -14,3 +14,4 @@ foreach ( (array) $module_files as $module_file ) {
 }
 
 //some comment
+// another comment
