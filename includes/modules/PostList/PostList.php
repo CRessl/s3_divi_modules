@@ -261,7 +261,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             case 'first_post_right':
 
                 //special layout only for archive site 
-                
+                //new comment
                 s3dm_get_template_part('post_list', 'first_post_right');
                 $output = 'First Post Right';
 
