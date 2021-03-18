@@ -18,7 +18,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
     public function get_fields(){
 
         $fields = array(
-            'posts_number'            => array(
+            'posts_number' => array(
 				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
@@ -28,7 +28,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 					'__postData',
 				),
 			),
-            'include_categories'      => array(
+            'include_categories' => array(
 				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
 				'type'             => 'categories',
 				'meta_categories'  => array(
@@ -58,7 +58,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                     '__posts',
                 )
             ),
-            'show_image'              => array(
+            'show_image' => array(
 				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
@@ -85,7 +85,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 ),
                 'default_on_front'  => 'top'
             ),
-            'show_excerpt'         => array(
+            'show_excerpt' => array(
 				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
@@ -99,7 +99,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'mobile_options'   => true,
                 'show_if_not'      => 'first_post_right',
 			),
-            'show_meta'               => array(
+            'show_meta' => array(
 				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
@@ -116,7 +116,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 's3dm-s3-divi-modules' ),
 			),
-            'show_date'               => array(
+            'show_date' => array(
 				'label'            => esc_html__( 'Show Date', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
@@ -132,7 +132,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                     'date_format'
                 )
 			),
-            'date_format'               => array(
+            'date_format' => array(
 				'label'            => esc_html__( 'Date Format', 'et_builder' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
@@ -143,7 +143,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                     '__postData'
                 )
 			),
-            'show_tags'               => array(
+            'show_tags' => array(
 				'label'            => esc_html__( 'Show Tags', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
