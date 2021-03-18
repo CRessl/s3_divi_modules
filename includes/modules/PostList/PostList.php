@@ -42,21 +42,20 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 					'__postData',
 				),
 			),
-            'layout' => array(
+            'post_list_layout' => array(
                 'label'     => esc_html__('Layout', 's3dm-s3-divi-modules'),
                 'type'      => 'select',
                 'options'   => array(
                     'default'           => esc_html__('Default List', 's3dm-s3-divi-modules'),
-                    'first_post_right'  => esc_html__('First post right', 's3dm-s3-divi-modules'),
+                    'first_post_left'  => esc_html__('First post right', 's3dm-s3-divi-modules'),
                     'grid'              => esc_html__('Grid', 's3dm-s3-divi-modules'),
                 ),
+                'toggle_slug' => 'main_content',
                 'affects'   => array(
                     'show_image',
                     'show_excerpt'
                 ),
-                'computed_affects' => array(
-                    '__posts',
-                )
+                'default_on_front' => 'default',
             ),
             'show_image' => array(
 				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
@@ -66,24 +65,29 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 					'on'  => et_builder_i18n( 'Yes' ),
 					'off' => et_builder_i18n( 'No' ),
 				),
-                'toggle_slug'      => 'elements',
+                'toggle_slug'      => 'featured_image',
 				'default_on_front' => 'off',
-				'toggle_slug'      => 'featured_image',
 				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
-                'show_if_not'      => 'first_post_right',
+                'show_if_not'      => array(
+                    'post_list_layout' => 'first_post_right'
+                ),
                 'affects'          => array(
                     'image_position'
                 )
 			),
             'image_position' => array(
-                'label'     => esc_html__('Layout', 's3dm-s3-divi-modules'),
+                'label'     => esc_html__('Image position', 's3dm-s3-divi-modules'),
                 'type'      => 'select',
+                'toggle_slug' => 'featured_image',
                 'options'   => array(
                     'top'          => esc_html__('Before Title and Meta', 's3dm-s3-divi-modules'),
                     'bottom'       => esc_html__('After Title and Meta', 's3dm-s3-divi-modules'),
                     'between'      => esc_html__('Between Title and Meta', 's3dm-s3-divi-modules'),
                 ),
-                'default_on_front'  => 'top'
+                'default_on_front'  => 'top',
+                'show_if'   => array(
+                    'show_image' => 'on',
+                )
             ),
             'show_excerpt' => array(
 				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
@@ -97,7 +101,9 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
-                'show_if_not'      => 'first_post_right',
+                'show_if_not'      => array(
+                    'post_list_layout' => 'first_post_right',
+                )
 			),
             'show_meta' => array(
 				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
@@ -110,7 +116,6 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 'affects'          => array(
                     'show_date',
                     'show_tags',
-                    'show_author'
                 ),
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
@@ -127,7 +132,9 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the date section.', 's3dm-s3-divi-modules' ),
-                'show_if'          => 'on',
+                'show_if'          => array(
+                    'show_meta' => 'on'
+                ),
                 'affects'          => array(
                     'date_format'
                 )
@@ -138,10 +145,13 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'If you would like to adjust the date format, input the appropriate PHP date format here.', 'et_builder' ),
 				'default'          => 'M j, Y',
-                'show_if'          => 'on',
+                'show_if'          => array(
+                    'show_date' => 'on',
+                ),
                 'computed_affects' => array(
                     '__postData'
-                )
+                ),
+                'toggle_slug'      => 'elements',
 			),
             'show_tags' => array(
 				'label'            => esc_html__( 'Show Tags', 's3dm-s3-divi-modules' ),
@@ -154,7 +164,9 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the tag section.', 's3dm-s3-divi-modules' ),
-                'show_if'          => 'on',
+                'show_if'          => array(
+                    'show_meta' => 'on'
+                ),
 			),
             '__postData'                 => array(
 				'type'                => 'computed',
@@ -196,80 +208,94 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
     }
 
 
-    public function render($attrs, $content = null, $render_slug){
+    public function render( $attrs, $content = null, $render_slug ) {
 
-        $layout = $this->props['layout'];
+        //create instance of our template class
+        $view = s3dm_view();
+
+        $layout = $this->props['post_list_layout'];
+
+        $settings = array(
+
+            'show_meta' => $this->props['show_meta'],
+            'show_date' => $this->props['show_date'],
+            'show_image' => $this->props['show_image'],
+            'show_excerpt' => $this->props['show_excerpt'],
+            'image_position' => $this->props['image_position'],
+            'show_tags' => $this->props['show_tags'],
+
+        );
+        
         
         $posts_per_page = $this->props['posts_number'];
         $categories = $this->props['include_categories'];
         $dateFormat = $this->props['date_format'];
         
-        $show_meta = $this->props['show_meta'];
-        $show_date = $this->props['show_date'];
-        $show_image = $this->props['show_image'];
-        $show_excerpt = $this->props['show_excerpt'];
+        $queryArgs = array(
+            'numberposts' => $posts_per_page,
+            'category'  => $categories
+        );
 
-        $image_position = $this->props['image_position'];
-
-        $queryArgs = [
-            'posts_per_page' => $posts_per_page,
-            'include_categories' => $categories,
-            'post_type' => 'post',
-            'post_status' => 'publish',
-        ];
+        if(!$categories){
+            unset($queryArgs['category']);
+        }
 
         $postData = get_posts($queryArgs);
 
         $templateData = array();
+
         $count = 0;
 
-        foreach($postData as $postObject){
-
-            $postID = $postObject->ID;
-        
+        foreach($postData as $data){
+            $postID = $data->ID;
             
-            $templateData[$count]['title'] = get_the_title($postID);
-            $templateData[$count]['date'] = get_the_date($dateFormat, $postID);
-            $templateData[$count]['link'] = get_the_permalink($postID);
-            $templateData[$count]['excerpt'] = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $postObject)));
-            $templateData[$count]['image'] = get_the_post_thumbnail($postID, 'full');
-          
+            $templateData['posts'][$count]['link'] = get_the_permalink($postID);
+            $templateData['posts'][$count]['title'] = get_the_title($postID);
+            $templateData['posts'][$count]['image'] = get_the_post_thumbnail($postID, 'full');
+            $templateData['posts'][$count]['tags'] = get_the_tags($postID);
+            $templateData['posts'][$count]['excerpt'] = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data)));
+            $templateData['posts'][$count]['date'] = get_the_date($dateFormat, $postID);            
 
             $count++;
         }
+        $templateData['settings'] = $settings;
 
-        switch($layout){
 
-            case 'default':
+        if($layout === 'default'):
+            
+            
+            $view->load('/post_list/default.php');
 
-                //standard list with image options
-                
-                s3dm_get_template_part('post_list', 'default');
-                $output = 'Default';
+            ob_start();
+                $view->display();
+            $template = ob_get_clean();    
+        endif;
 
-            break;
 
-            case 'grid':
+        if($layout === 'grid'):
+            $view->load('/post_list/grid.php');
 
-                // grid layout with selectable columns
-                
-                s3dm_get_template_part('post_list', 'grid');
-                $output = 'Grid';
+            ob_start();
+                $view->display();
+            $template = ob_get_clean();   
+        endif;
 
-            break;
 
-            case 'first_post_right':
+        if($layout === 'first_post_left'):
+            $view->load('/post_list/first_post_left.php');
 
-                //special layout only for archive site 
-                //new comment
-                s3dm_get_template_part('post_list', 'first_post_right');
-                $output = 'First Post Right';
+            ob_start();
+                $view->display();
+            $template = ob_get_clean();   
+        endif;
 
-            break;
 
-        }
+        $output = sprintf(
+            '<div>%1$s</div>',
+            $template
+        );
 
-        return $layout;
+        return $output;
 
     }//end of render function
 
