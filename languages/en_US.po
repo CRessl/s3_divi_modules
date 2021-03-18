@@ -1,0 +1,266 @@
+# Copyright (C) 2021 S3 Advertising
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: S3 Divi Modules 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
+"POT-Creation-Date: 2021-03-15 14:33:19+00:00\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/modules/EventList/EventList.php:15
+msgid "Event List"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:21
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:32
+#: includes/modules/PostTabSlider/PostTabSlider.php:21
+msgid "Post Count"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:24
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:35
+msgid "Choose how much posts you would like to display per page."
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:31
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:58
+msgid "Show Read More Button"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:41
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:68
+msgid ""
+"Here you can define whether to show \"read more\" link after the excerpts or "
+"not."
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:45
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:72
+msgid "Read More Button Text"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:49
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:76
+msgid "Here you can define which text the button should have"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:52
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:125
+msgid "Date Format"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:55
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:128
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:142
+msgid ""
+"If you would like to adjust the date format, input the appropriate PHP date "
+"format here."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:15
+msgid "Extended Post Slider"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:21
+msgid "Post Type"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:25
+msgid "Choose posts of which post type you would like to display."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:42
+#: includes/modules/PostTabSlider/PostTabSlider.php:31
+msgid "Included Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
+#: includes/modules/PostTabSlider/PostTabSlider.php:34
+msgid "All Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:46
+#: includes/modules/PostTabSlider/PostTabSlider.php:35
+msgid "Current Category"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
+msgid "Choose which categories you would like to include in the feed."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:79
+msgid "Show Author"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:86
+msgid "Turn on or off the author link."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:90
+msgid "Show Date"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:97
+msgid "Turn the date on or off."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:103
+msgid "Show Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:110
+msgid "Turn the category links on or off."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:114
+msgid "Show navigation arrows"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:121
+msgid "Show or hide navigation arrows."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:132
+msgid "Slider animation"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:136
+msgid "Slide"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:137
+msgid "Fade"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
+msgid "Scale"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:139
+msgid "Pull"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:140
+msgid "Push"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:146
+msgid "Slider interval"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:149
+msgid "Slider interval in seconds"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:152
+msgid "Slider min height"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:155
+msgid "Slider min-height in px"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:15
+msgid "Post Tab Slider"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:24
+msgid "Choose how many posts you would like to display in the slider."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:38
+msgid "Choose which categories you would like to include in the slider."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:45
+msgid "Order By"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:49
+msgid "Date: new to old"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:50
+msgid "Date: old to new"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:51
+msgid "Title: a-z"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:52
+msgid "Title: z-a"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:53
+msgid "Random"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:56
+msgid "Here you can adjust the order in which posts are displayed."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:66
+msgid "Show Featured Image"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:75
+msgid "This setting will turn on and off the featured image in the slider."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:79
+msgid "Show Excerpt"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:88
+msgid "This setting will display the excerpt of the post"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:92
+msgid "Show Post Meta"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:101
+msgid "This setting will turn on and off the meta section."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:105
+msgid "Featured Image Placement"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:116
+msgid "Select how you would like to display the featured image in slides"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "S3 Divi Modules"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Some Custom Modules based on uikit"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "S3 Advertising"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://s3-advertising.com"
+msgstr ""
