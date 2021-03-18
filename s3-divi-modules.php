@@ -34,27 +34,26 @@ if ( ! function_exists( 's3dm_initialize_extension' ) ):
  */
 function s3dm_initialize_extension() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/S3DiviModules.php';
-	
 	load_assets();
 }
 add_action( 'divi_extensions_init', 's3dm_initialize_extension' );
 
 function load_assets(){
 
+	
 	wp_enqueue_style( 'uikit-v3', plugins_url('/assets/css/uikit.min.css', __FILE__) );
 
 	wp_enqueue_script( 'uikit-v3', plugins_url('/assets/js/uikit.min.js', __FILE__), array(), false, false );
 	wp_enqueue_script('gsap', plugins_url('/assets/js/gsap.min.js', __FILE__), array(), true,  false);
 
+
 }
 
 endif;
 
-//maybe deprecated later on as i implement my template engine
 
-function s3dm_get_template_part($module, $name, $data = array()){
+function s3dm_get_template_part($module, $name){
 
-	$templateData = $data;
-	include_once plugin_dir_path( __FILE__ ).'templates/'.$module.'/'.$name.'.php';
+	include plugin_dir_path( __FILE__ ).'assets/templates/'.$module.'/'.$name;
 
 }

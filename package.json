@@ -29,7 +29,5 @@
   "cde": {
     "gettext": "s3dm-s3-divi-modules",
     "prefix": "s3dm"
-  },
-  "main": "index.js",
-  "license": "MIT"
+  }
 }
