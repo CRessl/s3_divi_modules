@@ -1,0 +1,613 @@
+# Copyright (C) 2021 S3 Advertising
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: S3 Divi Modules 1.1.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
+"POT-Creation-Date: 2021-05-12 09:16:25+00:00\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/modules/ContactPerson/ContactPerson.php:16
+msgid "Contact Person / Author"
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:32
+#: includes/modules/PostList/PostList.php:104
+#: includes/modules/PostTabSlider/PostTabSlider.php:76
+msgid "Show Featured Image"
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:41
+#: includes/modules/PostList/PostList.php:113
+#: includes/modules/PostTabSlider/PostTabSlider.php:85
+msgid "This setting will turn on and off the featured image in the slider."
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:50
+#: includes/modules/PostList/PostList.php:153
+#: includes/modules/PostTabSlider/PostTabSlider.php:102
+msgid "Show Post Meta"
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:63
+#: includes/modules/ContactPerson/ContactPerson.php:78
+#: includes/modules/ContactPerson/ContactPerson.php:93
+#: includes/modules/PostList/PostList.php:166
+#: includes/modules/PostTabSlider/PostTabSlider.php:111
+msgid "This setting will turn on and off the meta section."
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:66
+msgid "Show E-Mail"
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:81
+msgid "Show phone number"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:25
+msgid "Event List"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:31
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:42
+#: includes/modules/PostList/PostList.php:32
+#: includes/modules/PostTabSlider/PostTabSlider.php:31
+msgid "Post Count"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:34
+#: includes/modules/EventList/EventList.php:44
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
+msgid "Choose how much posts you would like to display per page."
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:41
+#: includes/modules/FACTFinder/FACTFinder.php:62
+msgid "Columns"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:48
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:68
+msgid "Show Read More Button"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:58
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:78
+msgid ""
+"Here you can define whether to show \"read more\" link after the excerpts or "
+"not."
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:62
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:82
+msgid "Read More Button Text"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:66
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:86
+msgid "Here you can define which text the button should have"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:69
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:135
+#: includes/modules/PostList/PostList.php:187
+msgid "Date Format"
+msgstr ""
+
+#: includes/modules/EventList/EventList.php:72
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:150
+#: includes/modules/PostList/PostList.php:190
+msgid ""
+"If you would like to adjust the date format, input the appropriate PHP date "
+"format here."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:25
+msgid "Extended Post Slider"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:31
+#: includes/modules/PostList/PostList.php:42
+msgid "Post Type"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:35
+#: includes/modules/PostList/PostList.php:46
+msgid "Choose posts of which post type you would like to display."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
+#: includes/modules/PostList/PostList.php:57
+#: includes/modules/PostTabSlider/PostTabSlider.php:41
+msgid "Included Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:55
+#: includes/modules/PostList/PostList.php:60
+#: includes/modules/PostTabSlider/PostTabSlider.php:44
+msgid "All Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
+#: includes/modules/PostList/PostList.php:61
+#: includes/modules/PostTabSlider/PostTabSlider.php:45
+msgid "Current Category"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:62
+msgid "Choose which categories you would like to include in the feed."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:89
+msgid "Show Author"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:96
+msgid "Turn on or off the author link."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:100
+#: includes/modules/PostList/PostList.php:169
+msgid "Show Date"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:107
+msgid "Turn the date on or off."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:113
+msgid "Show Categories"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:120
+msgid "Turn the category links on or off."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:124
+msgid "Show navigation arrows"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:131
+msgid "Show or hide navigation arrows."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:142
+msgid "Slider animation"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:146
+msgid "Slide"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:147
+msgid "Fade"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:148
+msgid "Loop"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:154
+msgid "Activate autoplay"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:161
+msgid "Activate autoplay."
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:165
+msgid "Slider interval"
+msgstr ""
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:168
+msgid "Slider interval in seconds"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:16
+msgid "FACT Finder result list"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:21
+msgid "Layout options"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:40
+#: includes/modules/LinkList/LinkList.php:32
+#: includes/modules/LinkList/LinkList.php:52
+#: includes/modules/PostList/PostList.php:75
+#: includes/modules/PostList/PostList.php:90
+msgid "Layout"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:43
+#: includes/modules/LinkList/LinkList.php:55
+msgid "List"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:44
+#: includes/modules/PostList/PostList.php:80
+msgid "Grid"
+msgstr ""
+
+#: includes/modules/FACTFinder/FACTFinder.php:50
+#: includes/modules/FACTFinder/FACTFinder.php:56
+msgid "Show Image"
+msgstr ""
+
+#: includes/modules/LinkList/LinkList.php:24
+#: includes/modules/LinkListItem/LinkListItem.php:16
+msgid "Link List"
+msgstr ""
+
+#: includes/modules/LinkList/LinkList.php:31
+msgid "List items"
+msgstr ""
+
+#: includes/modules/LinkList/LinkList.php:56
+msgid "Bubble"
+msgstr ""
+
+#: includes/modules/LinkList/LinkList.php:59
+msgid "Choose how which layout should be displayed"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:24
+msgid "Settings"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:25
+msgid "Position"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:47
+msgid "Item Title"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:53
+msgid "Is category"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:64
+msgid "Size initial (Scaling)"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:78
+msgid "Current Item category"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:93
+msgid "Link to category"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:108
+msgid "Connect to chosen category"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:120
+msgid "Link URL"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:123
+msgid "Input the destination URL for your button."
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:131
+msgid "Use Image"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:140
+#: includes/modules/PostList/PostList.php:178
+msgid "This setting will turn on and off the date section."
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:147
+msgid "Choose an Image"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:148
+msgid "Set As Image"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:153
+msgid ""
+"Upload your desired image, or type in the URL to the image you would like to "
+"display."
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:159
+msgid "Position left"
+msgstr ""
+
+#: includes/modules/LinkListItem/LinkListItem.php:164
+msgid "Position top"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:16
+msgid "Post List"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:35
+#: includes/modules/PostTabSlider/PostTabSlider.php:34
+msgid "Choose how many posts you would like to display in the slider."
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:64
+#: includes/modules/PostTabSlider/PostTabSlider.php:48
+msgid "Choose which categories you would like to include in the slider."
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:78
+msgid "Default List"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:79
+msgid "First post left"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:93
+msgid "Two Columns"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:94
+msgid "Three Columns"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:95
+msgid "Four Columns"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:122
+msgid "Image position"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:126
+msgid "Before Title and Meta"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:127
+msgid "After Title and Meta"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:128
+msgid "Between Meta and Excerpt"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:137
+#: includes/modules/PostTabSlider/PostTabSlider.php:89
+msgid "Show Excerpt"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:146
+#: includes/modules/PostTabSlider/PostTabSlider.php:98
+msgid "This setting will display the excerpt of the post"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:201
+msgid "Show Tags"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:210
+msgid "This setting will turn on and off the tag section."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:16
+msgid "Post Tab Slider"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:55
+msgid "Order By"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:59
+msgid "Date: new to old"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:60
+msgid "Date: old to new"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:61
+msgid "Title: a-z"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:62
+msgid "Title: z-a"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:63
+msgid "Random"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:66
+msgid "Here you can adjust the order in which posts are displayed."
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:115
+msgid "Featured Image Placement"
+msgstr ""
+
+#: includes/modules/PostTabSlider/PostTabSlider.php:126
+msgid "Select how you would like to display the featured image in slides"
+msgstr ""
+
+#: includes/settings_config.php:60
+msgid "Default"
+msgstr ""
+
+#: includes/settings_config.php:66
+msgid "FACT-Finder"
+msgstr ""
+
+#: includes/settings_config.php:76
+msgid "Activate FACT-Finder"
+msgstr ""
+
+#: includes/settings_config.php:81
+msgid "If deactivated the settings in the FACT-Finder Tab are ignored"
+msgstr ""
+
+#: includes/settings_config.php:85
+msgid "FACT-Finder Search result Page"
+msgstr ""
+
+#: includes/settings_config.php:90
+msgid "Set the default search result page"
+msgstr ""
+
+#: includes/settings_config.php:106
+msgid "FACT-Finder URL"
+msgstr ""
+
+#: includes/settings_config.php:111
+msgid "Set the FACT-Finder URL for the communication markup"
+msgstr ""
+
+#: includes/settings_config.php:117
+msgid "FACT-Finder Version"
+msgstr ""
+
+#: includes/settings_config.php:128
+msgid "Set the FACT-Finder Version for the communication markup"
+msgstr ""
+
+#: includes/settings_config.php:132
+msgid "FACT-Finder API Version"
+msgstr ""
+
+#: includes/settings_config.php:142
+msgid ""
+"Set the FACT-Finder API Version for the communication markup. Only necessary "
+"if you are using FactFinder NG"
+msgstr ""
+
+#: includes/settings_config.php:146
+msgid "FACT-Finder Channel"
+msgstr ""
+
+#: includes/settings_config.php:151
+msgid "Set the FACT-Finder Channel for the communication markup"
+msgstr ""
+
+#: includes/settings_config.php:155
+msgid "Use URL Parameter"
+msgstr ""
+
+#: includes/settings_config.php:160
+msgid ""
+"If set to false, FACT-Finder parameters are not pushed to the URL unless "
+"explicitly whitelisted. Note that this attribute has no effect when only-"
+"search-params is set."
+msgstr ""
+
+#: includes/settings_config.php:164
+msgid "Use \"only-search-params\""
+msgstr ""
+
+#: includes/settings_config.php:169
+msgid ""
+"If set, only current search related parameters are pushed to the URL, i.e. "
+"query, filter, sort, page and productsPerPage. This can be used in "
+"conjunction with parameter-whitelist. Note that setting this attribute "
+"overrides the behavior of use-url-parameters."
+msgstr ""
+
+#: includes/settings_config.php:173
+msgid "Use parameter whitelist"
+msgstr ""
+
+#: includes/settings_config.php:178
+msgid ""
+"If deactivated, the value of the FACT-Finder Parameter Whitelist are ignored "
+"in the FACT-Finder Communication Service"
+msgstr ""
+
+#: includes/settings_config.php:182
+msgid "FACT-Finder Parameter Whitelist"
+msgstr ""
+
+#: includes/settings_config.php:187
+msgid ""
+"Comma separated values; if set, only specified parameters are pushed to the "
+"URL. E.g. parameter-whitelist=\"query,page\"."
+msgstr ""
+
+#: includes/settings_config.php:191
+msgid "Use ASN (After Serach Navigation)"
+msgstr ""
+
+#: includes/settings_config.php:196
+msgid ""
+"Determines if the the ASN is returned. Can be set to \"false\" to increase "
+"performance, if the ASN is not required."
+msgstr ""
+
+#: includes/settings_config.php:200
+msgid "Disable Cache"
+msgstr ""
+
+#: includes/settings_config.php:205
+msgid ""
+"Controls the usage of search result caches. true = cache is ignored, false "
+"cache is used."
+msgstr ""
+
+#: includes/settings_config.php:209
+msgid "Use ASO(Automated Search Optimization)"
+msgstr ""
+
+#: includes/settings_config.php:214
+msgid ""
+"Allows activating/deactivating of automated search optimization. true = the "
+"search result is automatically optimized. false = the search result is not "
+"optimized."
+msgstr ""
+
+#: includes/settings_config.php:218
+msgid "Use browser history"
+msgstr ""
+
+#: includes/settings_config.php:223
+msgid ""
+"If set to true, the search history is pushed to the browser history, even "
+"without using URL parameter."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "S3 Divi Modules"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Some Custom Modules based on uikit"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "S3 Advertising"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://s3-advertising.com"
+msgstr ""
+
+#: includes/settings_config.php:10
+msgctxt "s3dm settings"
+msgid "S3 Module Settings"
+msgstr ""

@@ -1,0 +1,32 @@
+
+.s3dm_contact_person{
+    background-color: #e6e6e6;
+    justify-content: center;
+    position: relative;
+}
+
+.s3dm_contact_person::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: -100%;
+    background: #e6e6e6;
+    z-index: -1;
+}
+
+.s3dm_contact_person_image_container img{
+    max-width: 50%;
+}
+
+.s3dm_contact_person_content p{
+    padding-bottom: 0;
+    line-height: 25px;
+}
+
+.s3dm_contact_person_name{
+    padding-bottom: 10px;
+    color: #00b2b2;
+    font-size: 24px !important;
+}
