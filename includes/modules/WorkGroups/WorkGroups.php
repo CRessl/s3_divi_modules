@@ -75,8 +75,8 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 			),
             'workgroup' => array(
 				'label'            => esc_html__( 'Work group', 'et_builder' ),
-				'type'             => 's3dm_select',
-				'post_type'		   => 'workgroup',
+				'type'             => 'select',
+				'options'		   => $this->workgroups(),
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
 				'computed_affects' => array(
@@ -139,15 +139,47 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
                 ));
 
             endif;
-
-
-
-
+		
 
         }
 
-		return 'Workgroup Module';
+		if($query_type === 'select'):
+
+			
+
+
+            $workgroups = get_post($workgroup);
+
+			$output = $this->view->render('modules/WorkGroups/single', array(
+				'workgroups' => $workgroups
+			));
+
+		endif;
+
+		return $output;
 		
+	}
+
+	public function workgroups(){
+
+		$workgroups = [];
+
+		$args = array(
+			'post_type' 	=> 'workgroup',
+			'post_status'	=> 'publish',
+		);
+
+		$wg = get_posts($args);
+
+		foreach($wg as $g){
+
+			$workgroups[$g->ID] = $g->post_title;
+
+		}
+
+		return $workgroups;
+
+
 	}
 
 }
