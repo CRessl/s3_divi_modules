@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: S3 Divi Modules 1.1.6\n"
+"Project-Id-Version: S3 Divi Modules 1.1.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-05-12 09:16:25+00:00\n"
+"POT-Creation-Date: 2021-05-20 09:38:38+00:00\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,148 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/config/settings.php:60
+msgid "Default"
+msgstr ""
+
+#: includes/config/settings.php:66
+msgid "FACT-Finder"
+msgstr ""
+
+#: includes/config/settings.php:76
+msgid "Activate FACT-Finder"
+msgstr ""
+
+#: includes/config/settings.php:81
+msgid "If deactivated the settings in the FACT-Finder Tab are ignored"
+msgstr ""
+
+#: includes/config/settings.php:85
+msgid "FACT-Finder Search result Page"
+msgstr ""
+
+#: includes/config/settings.php:90
+msgid "Set the default search result page"
+msgstr ""
+
+#: includes/config/settings.php:106
+msgid "FACT-Finder URL"
+msgstr ""
+
+#: includes/config/settings.php:111
+msgid "Set the FACT-Finder URL for the communication markup"
+msgstr ""
+
+#: includes/config/settings.php:117
+msgid "FACT-Finder Version"
+msgstr ""
+
+#: includes/config/settings.php:128
+msgid "Set the FACT-Finder Version for the communication markup"
+msgstr ""
+
+#: includes/config/settings.php:132
+msgid "FACT-Finder API Version"
+msgstr ""
+
+#: includes/config/settings.php:142
+msgid ""
+"Set the FACT-Finder API Version for the communication markup. Only necessary "
+"if you are using FactFinder NG"
+msgstr ""
+
+#: includes/config/settings.php:146
+msgid "FACT-Finder Channel"
+msgstr ""
+
+#: includes/config/settings.php:151
+msgid "Set the FACT-Finder Channel for the communication markup"
+msgstr ""
+
+#: includes/config/settings.php:155
+msgid "Use URL Parameter"
+msgstr ""
+
+#: includes/config/settings.php:160
+msgid ""
+"If set to false, FACT-Finder parameters are not pushed to the URL unless "
+"explicitly whitelisted. Note that this attribute has no effect when only-"
+"search-params is set."
+msgstr ""
+
+#: includes/config/settings.php:164
+msgid "Use \"only-search-params\""
+msgstr ""
+
+#: includes/config/settings.php:169
+msgid ""
+"If set, only current search related parameters are pushed to the URL, i.e. "
+"query, filter, sort, page and productsPerPage. This can be used in "
+"conjunction with parameter-whitelist. Note that setting this attribute "
+"overrides the behavior of use-url-parameters."
+msgstr ""
+
+#: includes/config/settings.php:173
+msgid "Use parameter whitelist"
+msgstr ""
+
+#: includes/config/settings.php:178
+msgid ""
+"If deactivated, the value of the FACT-Finder Parameter Whitelist are ignored "
+"in the FACT-Finder Communication Service"
+msgstr ""
+
+#: includes/config/settings.php:182
+msgid "FACT-Finder Parameter Whitelist"
+msgstr ""
+
+#: includes/config/settings.php:187
+msgid ""
+"Comma separated values; if set, only specified parameters are pushed to the "
+"URL. E.g. parameter-whitelist=\"query,page\"."
+msgstr ""
+
+#: includes/config/settings.php:191
+msgid "Use ASN (After Serach Navigation)"
+msgstr ""
+
+#: includes/config/settings.php:196
+msgid ""
+"Determines if the the ASN is returned. Can be set to \"false\" to increase "
+"performance, if the ASN is not required."
+msgstr ""
+
+#: includes/config/settings.php:200
+msgid "Disable Cache"
+msgstr ""
+
+#: includes/config/settings.php:205
+msgid ""
+"Controls the usage of search result caches. true = cache is ignored, false "
+"cache is used."
+msgstr ""
+
+#: includes/config/settings.php:209
+msgid "Use ASO(Automated Search Optimization)"
+msgstr ""
+
+#: includes/config/settings.php:214
+msgid ""
+"Allows activating/deactivating of automated search optimization. true = the "
+"search result is automatically optimized. false = the search result is not "
+"optimized."
+msgstr ""
+
+#: includes/config/settings.php:218
+msgid "Use browser history"
+msgstr ""
+
+#: includes/config/settings.php:223
+msgid ""
+"If set to true, the search history is pushed to the browser history, even "
+"without using URL parameter."
+msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:16
 msgid "Contact Person / Author"
@@ -70,12 +212,16 @@ msgstr ""
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:42
 #: includes/modules/PostList/PostList.php:32
 #: includes/modules/PostTabSlider/PostTabSlider.php:31
+#: includes/modules/WorkGroups/WorkGroups.php:31
+#: includes/modules/WorkGroups/WorkGroups.php:64
 msgid "Post Count"
 msgstr ""
 
 #: includes/modules/EventList/EventList.php:34
 #: includes/modules/EventList/EventList.php:44
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
+#: includes/modules/WorkGroups/WorkGroups.php:67
+#: includes/modules/WorkGroups/WorkGroups.php:82
 msgid "Choose how much posts you would like to display per page."
 msgstr ""
 
@@ -138,18 +284,21 @@ msgstr ""
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
 #: includes/modules/PostList/PostList.php:57
 #: includes/modules/PostTabSlider/PostTabSlider.php:41
+#: includes/modules/WorkGroups/WorkGroups.php:46
 msgid "Included Categories"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:55
 #: includes/modules/PostList/PostList.php:60
 #: includes/modules/PostTabSlider/PostTabSlider.php:44
+#: includes/modules/WorkGroups/WorkGroups.php:49
 msgid "All Categories"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
 #: includes/modules/PostList/PostList.php:61
 #: includes/modules/PostTabSlider/PostTabSlider.php:45
+#: includes/modules/WorkGroups/WorkGroups.php:50
 msgid "Current Category"
 msgstr ""
 
@@ -352,6 +501,7 @@ msgstr ""
 
 #: includes/modules/PostList/PostList.php:64
 #: includes/modules/PostTabSlider/PostTabSlider.php:48
+#: includes/modules/WorkGroups/WorkGroups.php:53
 msgid "Choose which categories you would like to include in the slider."
 msgstr ""
 
@@ -449,146 +599,26 @@ msgstr ""
 msgid "Select how you would like to display the featured image in slides"
 msgstr ""
 
-#: includes/settings_config.php:60
-msgid "Default"
+#: includes/modules/WorkGroups/WorkGroups.php:25
+msgid "Work Groups"
 msgstr ""
 
-#: includes/settings_config.php:66
-msgid "FACT-Finder"
+#: includes/modules/WorkGroups/WorkGroups.php:34
+msgid "Category"
 msgstr ""
 
-#: includes/settings_config.php:76
-msgid "Activate FACT-Finder"
+#: includes/modules/WorkGroups/WorkGroups.php:35
+msgid "Single select"
 msgstr ""
 
-#: includes/settings_config.php:81
-msgid "If deactivated the settings in the FACT-Finder Tab are ignored"
-msgstr ""
-
-#: includes/settings_config.php:85
-msgid "FACT-Finder Search result Page"
-msgstr ""
-
-#: includes/settings_config.php:90
-msgid "Set the default search result page"
-msgstr ""
-
-#: includes/settings_config.php:106
-msgid "FACT-Finder URL"
-msgstr ""
-
-#: includes/settings_config.php:111
-msgid "Set the FACT-Finder URL for the communication markup"
-msgstr ""
-
-#: includes/settings_config.php:117
-msgid "FACT-Finder Version"
-msgstr ""
-
-#: includes/settings_config.php:128
-msgid "Set the FACT-Finder Version for the communication markup"
-msgstr ""
-
-#: includes/settings_config.php:132
-msgid "FACT-Finder API Version"
-msgstr ""
-
-#: includes/settings_config.php:142
+#: includes/modules/WorkGroups/WorkGroups.php:38
 msgid ""
-"Set the FACT-Finder API Version for the communication markup. Only necessary "
-"if you are using FactFinder NG"
+"Choose which selection you would prefer (Category = current Category | "
+"Single select = Select one Workgrioup"
 msgstr ""
 
-#: includes/settings_config.php:146
-msgid "FACT-Finder Channel"
-msgstr ""
-
-#: includes/settings_config.php:151
-msgid "Set the FACT-Finder Channel for the communication markup"
-msgstr ""
-
-#: includes/settings_config.php:155
-msgid "Use URL Parameter"
-msgstr ""
-
-#: includes/settings_config.php:160
-msgid ""
-"If set to false, FACT-Finder parameters are not pushed to the URL unless "
-"explicitly whitelisted. Note that this attribute has no effect when only-"
-"search-params is set."
-msgstr ""
-
-#: includes/settings_config.php:164
-msgid "Use \"only-search-params\""
-msgstr ""
-
-#: includes/settings_config.php:169
-msgid ""
-"If set, only current search related parameters are pushed to the URL, i.e. "
-"query, filter, sort, page and productsPerPage. This can be used in "
-"conjunction with parameter-whitelist. Note that setting this attribute "
-"overrides the behavior of use-url-parameters."
-msgstr ""
-
-#: includes/settings_config.php:173
-msgid "Use parameter whitelist"
-msgstr ""
-
-#: includes/settings_config.php:178
-msgid ""
-"If deactivated, the value of the FACT-Finder Parameter Whitelist are ignored "
-"in the FACT-Finder Communication Service"
-msgstr ""
-
-#: includes/settings_config.php:182
-msgid "FACT-Finder Parameter Whitelist"
-msgstr ""
-
-#: includes/settings_config.php:187
-msgid ""
-"Comma separated values; if set, only specified parameters are pushed to the "
-"URL. E.g. parameter-whitelist=\"query,page\"."
-msgstr ""
-
-#: includes/settings_config.php:191
-msgid "Use ASN (After Serach Navigation)"
-msgstr ""
-
-#: includes/settings_config.php:196
-msgid ""
-"Determines if the the ASN is returned. Can be set to \"false\" to increase "
-"performance, if the ASN is not required."
-msgstr ""
-
-#: includes/settings_config.php:200
-msgid "Disable Cache"
-msgstr ""
-
-#: includes/settings_config.php:205
-msgid ""
-"Controls the usage of search result caches. true = cache is ignored, false "
-"cache is used."
-msgstr ""
-
-#: includes/settings_config.php:209
-msgid "Use ASO(Automated Search Optimization)"
-msgstr ""
-
-#: includes/settings_config.php:214
-msgid ""
-"Allows activating/deactivating of automated search optimization. true = the "
-"search result is automatically optimized. false = the search result is not "
-"optimized."
-msgstr ""
-
-#: includes/settings_config.php:218
-msgid "Use browser history"
-msgstr ""
-
-#: includes/settings_config.php:223
-msgid ""
-"If set to true, the search history is pushed to the browser history, even "
-"without using URL parameter."
+#: includes/modules/WorkGroups/WorkGroups.php:77
+msgid "Work group"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -607,7 +637,7 @@ msgstr ""
 msgid "https://s3-advertising.com"
 msgstr ""
 
-#: includes/settings_config.php:10
+#: includes/config/settings.php:10
 msgctxt "s3dm settings"
 msgid "S3 Module Settings"
 msgstr ""

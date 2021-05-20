@@ -1,3 +1,7 @@
+import Select from './Select/Select';
 import Input from './Input/Input';
 
-export default [Input];
+export default [
+    Select,
+    Input
+];

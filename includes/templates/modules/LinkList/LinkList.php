@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 
     connect_items(itemsToConnect);
     
-    /*itemsToConnect.each(function(i, el){
+    itemsToConnect.each(function(i, el){
         
         var $this = jQuery(this);
 
@@ -25,9 +25,9 @@ jQuery(document).ready(function() {
         var tl = new TimelineMax();
         // create your tween of the timeline in a variable
         tl.to(el, {
-            x: "random(-25, 25, 5)",
-            y: "random(-25, 25, 5)",
-            ease: "elastic.out( 1, 0.3)",
+            x: "random(-25, 25)",
+            y: "random(-25, 25)",
+            ease: " none",
             duration: 3, 
             repeat: -1,
             repeatRefresh: true,
@@ -46,11 +46,26 @@ jQuery(document).ready(function() {
             this.animation.resume();
         });
 
-    });*/
+    });
 
     
 
     
+});
+
+jQuery(window).on('resize', function(){
+
+    var itemsToConnect = jQuery('.s3dm_link_list_item');
+    var windowWidth = jQuery(window).width();
+
+    connect_items(itemsToConnect);
+
+
+    if(windowWidth <= 768){
+        itemsToConnect.toggleClass('s3dm_link_list_mobile_list_view');
+    }
+
+
 });
 
 function updateConnection(itemIndex, item){

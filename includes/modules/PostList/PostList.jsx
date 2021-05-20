@@ -79,7 +79,9 @@ class S3DM_PostList extends Component {
             </div>
           );
         }else{
-          return;
+          return (
+            <div></div>
+          );
         }
         
       });
@@ -98,7 +100,9 @@ class S3DM_PostList extends Component {
             </div>
           );
         }else{
-          return;
+          return (
+            <div></div>
+          );
         }
         
       });
