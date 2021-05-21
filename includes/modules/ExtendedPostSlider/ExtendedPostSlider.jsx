@@ -83,6 +83,20 @@ class S3DM_ExtendedPostSlider extends Component {
 
   }
 
+  showCategories(categories){
+    
+    if(this.props.show_categories === 'on'){
+      return (
+        <div className="s3dm_extended_post_slider_categories uk-grid-small uk-margin-top uk-grid" dangerouslySetInnerHTML={{__html: categories}} />
+      );
+    }else{
+      return '';
+    }
+    
+
+
+  }
+
   mobileContent(title, excerpt, link, categories, date, color){
     
     return (
@@ -105,8 +119,8 @@ class S3DM_ExtendedPostSlider extends Component {
     
     
     return(
-      <div className="content uk-visible@s" style={{width: '100%'}}>
-        <div className="et_pb_row">
+      <div className="s3dm_extended_post_slider_content uk-visible@s" style={{width: '100%'}}>
+        <div className="et_pb_row" style={{padding: "14% 0"}}>
           {this.showDate(date)}
           {this.showCategories(categories)}
           {this.renderText(title, excerpt, color)}
@@ -136,12 +150,14 @@ class S3DM_ExtendedPostSlider extends Component {
       items = posts.map(({title, excerpt, link, categories, date, imageSrc, author}, index) => {
 
         return (
-          <SplideSlide key={index} className="s3dm_extended_post_slider_item" style={{backgroundImage: `url(${imageSrc})`}}>
-            {this.linkAll(link)}
-            <img className="uk-hidden@s" src={imageSrc} alt={title} />
-            {this.mobileContent(title, excerpt, link, categories, date, textColor)}
-            {this.desktopContent(title, excerpt, link, categories, date, textColor)}
-            <div className="uk-position-cover uk-visible@s s3dm_slider_dark_bg_overlay" />
+          <SplideSlide key={index} className="s3dm_extended_post_slider_item" >
+            <div className="uk-background-cover" style={{backgroundImage: `url(${imageSrc})`}}>
+              {this.linkAll(link)}
+              <img className="uk-hidden@s" src={imageSrc} alt={title} />
+              {this.mobileContent(title, excerpt, link, categories, date, textColor)}
+              {this.desktopContent(title, excerpt, link, categories, date, textColor)}
+              <div className="uk-position-cover uk-visible@s s3dm_slider_dark_bg_overlay" />
+            </div>
           </SplideSlide>
         );
       });

@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: S3 Divi Modules 1.1.7\n"
+"Project-Id-Version: S3 Divi Modules 1.1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-05-20 09:38:38+00:00\n"
+"POT-Creation-Date: 2021-05-21 09:49:36+00:00\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,6 +210,8 @@ msgstr ""
 
 #: includes/modules/EventList/EventList.php:31
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:42
+#: includes/modules/Initiativen/Initiativen.php:31
+#: includes/modules/Initiativen/Initiativen.php:64
 #: includes/modules/PostList/PostList.php:32
 #: includes/modules/PostTabSlider/PostTabSlider.php:31
 #: includes/modules/WorkGroups/WorkGroups.php:31
@@ -220,8 +222,10 @@ msgstr ""
 #: includes/modules/EventList/EventList.php:34
 #: includes/modules/EventList/EventList.php:44
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
+#: includes/modules/Initiativen/Initiativen.php:67
+#: includes/modules/Initiativen/Initiativen.php:80
 #: includes/modules/WorkGroups/WorkGroups.php:67
-#: includes/modules/WorkGroups/WorkGroups.php:82
+#: includes/modules/WorkGroups/WorkGroups.php:80
 msgid "Choose how much posts you would like to display per page."
 msgstr ""
 
@@ -282,6 +286,7 @@ msgid "Choose posts of which post type you would like to display."
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
+#: includes/modules/Initiativen/Initiativen.php:46
 #: includes/modules/PostList/PostList.php:57
 #: includes/modules/PostTabSlider/PostTabSlider.php:41
 #: includes/modules/WorkGroups/WorkGroups.php:46
@@ -289,6 +294,7 @@ msgid "Included Categories"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:55
+#: includes/modules/Initiativen/Initiativen.php:49
 #: includes/modules/PostList/PostList.php:60
 #: includes/modules/PostTabSlider/PostTabSlider.php:44
 #: includes/modules/WorkGroups/WorkGroups.php:49
@@ -296,6 +302,7 @@ msgid "All Categories"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
+#: includes/modules/Initiativen/Initiativen.php:50
 #: includes/modules/PostList/PostList.php:61
 #: includes/modules/PostTabSlider/PostTabSlider.php:45
 #: includes/modules/WorkGroups/WorkGroups.php:50
@@ -402,6 +409,39 @@ msgstr ""
 msgid "Show Image"
 msgstr ""
 
+#: includes/modules/Initiativen/Initiativen.php:25
+#: includes/modules/WorkGroups/WorkGroups.php:25
+msgid "Work Groups"
+msgstr ""
+
+#: includes/modules/Initiativen/Initiativen.php:34
+#: includes/modules/WorkGroups/WorkGroups.php:34
+msgid "Category"
+msgstr ""
+
+#: includes/modules/Initiativen/Initiativen.php:35
+#: includes/modules/WorkGroups/WorkGroups.php:35
+msgid "Single select"
+msgstr ""
+
+#: includes/modules/Initiativen/Initiativen.php:38
+#: includes/modules/WorkGroups/WorkGroups.php:38
+msgid ""
+"Choose which selection you would prefer (Category = current Category | "
+"Single select = Select one Workgrioup"
+msgstr ""
+
+#: includes/modules/Initiativen/Initiativen.php:53
+#: includes/modules/PostList/PostList.php:64
+#: includes/modules/PostTabSlider/PostTabSlider.php:48
+#: includes/modules/WorkGroups/WorkGroups.php:53
+msgid "Choose which categories you would like to include in the slider."
+msgstr ""
+
+#: includes/modules/Initiativen/Initiativen.php:77
+msgid "Initiative"
+msgstr ""
+
 #: includes/modules/LinkList/LinkList.php:24
 #: includes/modules/LinkListItem/LinkListItem.php:16
 msgid "Link List"
@@ -499,12 +539,6 @@ msgstr ""
 msgid "Choose how many posts you would like to display in the slider."
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:64
-#: includes/modules/PostTabSlider/PostTabSlider.php:48
-#: includes/modules/WorkGroups/WorkGroups.php:53
-msgid "Choose which categories you would like to include in the slider."
-msgstr ""
-
 #: includes/modules/PostList/PostList.php:78
 msgid "Default List"
 msgstr ""
@@ -597,24 +631,6 @@ msgstr ""
 
 #: includes/modules/PostTabSlider/PostTabSlider.php:126
 msgid "Select how you would like to display the featured image in slides"
-msgstr ""
-
-#: includes/modules/WorkGroups/WorkGroups.php:25
-msgid "Work Groups"
-msgstr ""
-
-#: includes/modules/WorkGroups/WorkGroups.php:34
-msgid "Category"
-msgstr ""
-
-#: includes/modules/WorkGroups/WorkGroups.php:35
-msgid "Single select"
-msgstr ""
-
-#: includes/modules/WorkGroups/WorkGroups.php:38
-msgid ""
-"Choose which selection you would prefer (Category = current Category | "
-"Single select = Select one Workgrioup"
 msgstr ""
 
 #: includes/modules/WorkGroups/WorkGroups.php:77

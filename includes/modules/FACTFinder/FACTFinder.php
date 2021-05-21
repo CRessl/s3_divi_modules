@@ -18,7 +18,7 @@ class S3DM_FACTFinder extends ET_Builder_Module_Type_PostBased {
         $this->settings_modal_toggles = array(
 			'general'  => array(
 				'toggles' => array(
-					'main_content' => __('Layout options', 's3dm-s3-divi-modules'),
+					'main_content' => __( 'Layout options', 's3dm-s3-divi-modules' ),
 				),
 			),
 		);
@@ -72,9 +72,7 @@ class S3DM_FACTFinder extends ET_Builder_Module_Type_PostBased {
     }
 
     public function render( $attrs, $content = null, $render_slug ) {
-
         
-              
         $output = $this->view->render('modules/factfinder/partials/factfinder_result_list', array(
                 'layout'        => $this->props['layout'],
                 'show_image'    => $this->props['show_image'],
@@ -82,10 +80,10 @@ class S3DM_FACTFinder extends ET_Builder_Module_Type_PostBased {
                 'columns'       => $this->props['columns']
         ));
 
-
         return $output;
 
-    }//end of render function
+    }
+    //end of render function
 
 }
 

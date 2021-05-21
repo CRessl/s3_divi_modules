@@ -17,6 +17,17 @@ jQuery(document).ready(function() {
 
     connect_items(itemsToConnect);
     
+    /* gsap.to(itemsToConnect, {
+        x: "random(-25, 25)",
+        y: "random(-25, 25)",
+        ease: " none",
+        duration: 3, 
+        repeat: -1,
+        repeatRefresh: true,
+    }); */
+
+
+    /*
     itemsToConnect.each(function(i, el){
         
         var $this = jQuery(this);
@@ -46,7 +57,7 @@ jQuery(document).ready(function() {
             this.animation.resume();
         });
 
-    });
+    });*/
 
     
 
@@ -58,13 +69,11 @@ jQuery(window).on('resize', function(){
     var itemsToConnect = jQuery('.s3dm_link_list_item');
     var windowWidth = jQuery(window).width();
 
-    connect_items(itemsToConnect);
-
+    //connect_items(itemsToConnect);
 
     if(windowWidth <= 768){
         itemsToConnect.toggleClass('s3dm_link_list_mobile_list_view');
     }
-
 
 });
 

@@ -135,7 +135,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 		}
 
 		if(!$button_text):
-			$button_text = 'Mehr...';
+			$button_text = 'Zum Event';
 		endif;
 
 		if(!$numberposts):
@@ -146,8 +146,6 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 			'start_date' => 'now',
 			'posts_per_page' => $numberposts,
 		);
-
-		
        
 		$data = tribe_get_events($args);
 			
@@ -164,6 +162,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 				'button_text' => $button_text,
 				'prefix' => $this->slug
 			));
+
 		}
 
 		$post_list .= '</div>';

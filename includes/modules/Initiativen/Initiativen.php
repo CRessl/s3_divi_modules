@@ -1,8 +1,8 @@
 <?php
 
-class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
+class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
-	public $slug       = 's3dm_work_groups';
+	public $slug       = 's3dm_initiativen';
 	public $vb_support = 'on';
 	private $view;
 	
@@ -22,13 +22,13 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function init() {
-		$this->name = esc_html__( 'Work Groups', 's3dm-s3-divi-modules' );
+		$this->name = esc_html__( 'Initiativen', 's3dm-s3-divi-modules' );
 	}
 
 	public function get_fields() {
 		return array(
             'query_type' => array(
-				'label'            => esc_html__( 'Query type', 'et_builder' ),
+				'label'            => esc_html__( 'Post Count', 'et_builder' ),
 				'type'             => 'select',
                 'options'          => array(
                     'category'     => esc_html__('Category', 'et_builder'),
@@ -37,9 +37,10 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgrioup', 'et_builder' ),
 				'default_on_front' => 'select',
-				'computed_affects' => array(
-					'__workgroupData',
+                'computed_affects' => array(
+					'__eventData',
 				),
+
 			),
             'include_categories' => array(
 				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
@@ -52,7 +53,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
 				'computed_affects' => array(
-					'__workgroupData',
+					'__initiativeData',
 				),
                 'show_if'           => array(
                     'query_type' => 'category',
@@ -65,74 +66,41 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
 				'computed_affects' => array(
-					'__workgroupData',
+					'__initiativeData',
 				),
                 'show_if'          => array(
                     'query_type'   => 'category'
 				),
 				'default_on_front'          => 3,
 			),
-            'workgroup' => array(
-				'label'            => esc_html__( 'Work group', 'et_builder' ),
+            'initiatives' => array(
+				'label'            => esc_html__( 'Initiative', 'et_builder' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
 				'computed_affects' => array(
-					'__workgroupData',
+					'__initiativeData',
 				),
 				'dynamic_content' => 'url',
                 'show_if'          => array(
                     'query_type'   => 'select'
                 ),
 			),
-            '__workgroupData'                 => array(
+            '__initiativeData'                 => array(
 				'type'                => 'computed',
-				'computed_callback'   => array( 'S3DM_WorkGroups', 'get_workgroups' ),
+				'computed_callback'   => array( 'S3DM_Initiatives', 'get_initiatives' ),
 				'computed_depends_on' => array(
-					'query_type',
 					'posts_number',
-					'include_categories',
-                    'workgroup'
+                    'query_type',
+                    'initiatives',
+                    'include_categories'
 				),
 			),
 		);
 	}
-    static function get_workgroups( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
-		$workgroupsData = [];
-
-
-		$query_args = array(
-			'numberposts'   => $args['posts_number'],
-			'category'      => $args['include_categories'],
-			'post_type'     => 'workgroup',
-			'post_status'   => 'publish'
-		);
-
-		$workgroups = get_posts($query_args);
-
-		if($args['query_type'] === 'category' && $args['include_categories'] === 'current'){
-			
-			$current_category = get_queried_object();
-            $catID = $category->term_id;
-			
-			$query_args = array(
-                'numberposts'   => $post_number,
-                'category'      => $catID,
-                'post_type'     => 'workgroup',
-                'post_status'   => 'publish'
-			);
-
-
-            $workgroups = get_posts($query_args);
-
-		}
-
+    static function get_initiatives( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 
 		
-
-
-		return $args;
-
 
     }
 
@@ -140,7 +108,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
         $query_type = $this->props['query_type'];
         $post_number = $this->props['posts_number'];
-        $workgroup = $this->props['workgroup'];
+        $initiatives = $this->props['initiatives'];
         $categories = $this->props['include_categories'];
 
         if($query_type === 'category' && $categories === 'current'){
@@ -156,18 +124,18 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 			);
 
 
-            $workgroups = get_posts($query_args);
+            $initiatives = get_posts($query_args);
 
             
-            $output = $this->view->render('modules/WorkGroups/multiple', array(
-                'workgroups' => $workgroups
+            $output = $this->view->render('modules/Initiatives/multiple', array(
+                'initiatives' => $initiatives
             ));
 
 
             if($post_number == '1'):
 
-                $output = $this->view->render('modules/WorkGroups/single', array(
-                    'workgroups' => $workgroups
+                $output = $this->view->render('modules/Initiatives/single', array(
+                    'initiatives' => $initiatives
                 ));
 
             endif;
@@ -177,14 +145,14 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
 		if($query_type === 'select'):
 
-			$canGetPostID = url_to_postid($workgroup);
+			$canGetPostID = url_to_postid($initiatives);
 
 			$output = "Couldn't fetch ID";
 
 			if($canGetPostID):
-				$workgroups = get_post($canGetPostID);
-				$output = $this->view->render('modules/WorkGroups/single', array(
-					'workgroups' => $workgroups
+				$initiatives = get_post($canGetPostID);
+				$output = $this->view->render('modules/Initiatives/single', array(
+					'initiatives' => $initiatives
 				));
 			endif;
 
@@ -194,8 +162,30 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 		
 	}
 
+	public function workgroups(){
+
+		$workgroups = [];
+
+		$args = array(
+			'post_type' 	=> 'workgroup',
+			'post_status'	=> 'publish',
+		);
+
+		$wg = get_posts($args);
+
+		foreach($wg as $g){
+
+			$workgroups[$g->ID] = $g->post_title;
+
+		}
+
+		return $workgroups;
+
+
+	}
+
 }
 
-new S3DM_WorkGroups;
+new S3DM_Initiatives;
 
 
