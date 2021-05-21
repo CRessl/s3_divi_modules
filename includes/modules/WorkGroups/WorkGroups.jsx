@@ -9,22 +9,39 @@ class S3DM_WorkGroups extends Component {
 
   static slug = 's3dm_work_groups';
 
-  renderSingleLayout(){
-
+  renderSingleLayout(data){
+    return(
+      <div className="s3dm_workgroups_item uk-grid-match" uk-grid="true">
+  
+              <div className="uk-width-expand uk-flex-middle uk-flex uk-padding-remove-top uk-padding-remove-bottom uk-padding">
+                  <div>
+                      <h2>{data.title}</h2>
+                      <p>{data.content}</p>
+                  </div>
+              </div>
+              <div className="s3dm_workgroups_slider_item_contact uk-width-auto section-workshopsMulti-bubble" style={{width: '350px', height: '350px'}}>
+                  <div>
+                      <h3>Kontakt</h3>
+                     
+                  </div>
+              </div>
+  
+        </div>
+      );
+  
   }
 
-  renderSliderLaoyut(){
-
-
+  renderSliderLaoyut(data){
+    
   }
 
   render() {
-    console.log('Arbeitskreis');
-    console.log(this.props);
+    
+    const data = this.props.__workgroupData;
 
     return (
-      <div style={{height: '100px'}}>
-        Some Content goes here
+      <div>
+        {this.renderSingle(data)}
       </div>
     );
   }

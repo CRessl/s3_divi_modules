@@ -98,8 +98,9 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 		);
 	}
     static function get_workgroups( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
+		
+		
 		$workgroupsData = [];
-
 
 		$query_args = array(
 			'numberposts'   => $args['posts_number'],
@@ -110,28 +111,71 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
 		$workgroups = get_posts($query_args);
 
-		if($args['query_type'] === 'category' && $args['include_categories'] === 'current'){
+		//if query type != single_select then check which type of category is included
+
+		if($args['query_type'] === 'category'):
+
+			//if category is current category then check the queried object and get posts then
+			if($args['include_categories'] === 'current'){
 			
-			$current_category = get_queried_object();
-            $catID = $category->term_id;
-			
-			$query_args = array(
-                'numberposts'   => $post_number,
-                'category'      => $catID,
-                'post_type'     => 'workgroup',
-                'post_status'   => 'publish'
-			);
+				$workgroups = 'No archive page found found';
+				$current_category = get_queried_object();
+
+				//if category object is found, then get all the posts from posts number
+				if($current_category):
+				
+					$catID = $current_category->term_id;
+					
+					$query_args = array(
+						'numberposts'   => $post_number,
+						'category'      => $catID,
+						'post_type'     => 'workgroup',
+						'post_status'   => 'publish'
+					);
+	
+					$workgroups = get_posts($query_args);
+				endif;
+	
+			}else{
+				
+				$query_args = array(
+					'numberposts'   => $post_number,
+					'category'      => $args['include_categories'],
+					'post_type'     => 'workgroup',
+					'post_status'   => 'publish'
+				);
+	
+				$workgroups = get_posts($query_args);
+	
+			}
+
+		endif;
 
 
-            $workgroups = get_posts($query_args);
+		if($args['query_type'] === 'select'):
 
-		}
+			$workgroupID = getIdFromDynamicLinkfield($args['workgroup']);
+			$workgroups = get_post($workgroupID);
+			$contact = get_field('ehi_workgroups_contact'. $workgroupID);
+			$manager = get_field('ehi_workgroups_manager'. $workgroupID);
+
+			$workgroupsData = [
+				'title' => esc_html($workgroups->post_title),
+				'content' => esc_html($workgroups->post_content),
+				'contact' => $contact,
+				'manager' => $manager
+			];
+
+
+
+		endif;
+		
 
 
 		
 
 
-		return $args;
+		return $workgroupsData;
 
 
     }
