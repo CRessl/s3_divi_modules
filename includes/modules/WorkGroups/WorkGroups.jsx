@@ -38,10 +38,17 @@ class S3DM_WorkGroups extends Component {
   render() {
     
     const data = this.props.__workgroupData;
+    let items;
+
+    if(data.length > 1){
+      items = this.renderSingleLayout(data);
+    }else{
+      items = this.renderSliderLayout(data);
+    }
 
     return (
       <div>
-        {this.renderSingle(data)}
+        {items}
       </div>
     );
   }

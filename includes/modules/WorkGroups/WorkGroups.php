@@ -44,10 +44,6 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
             'include_categories' => array(
 				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
 				'type'             => 'categories',
-				'meta_categories'  => array(
-					'all'     => esc_html__( 'All Categories', 's3dm-s3-divi-modules' ),
-					'current' => esc_html__( 'Current Category', 's3dm-s3-divi-modules' ),
-				),
 				'option_category'  => 'basic_option',
 				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
@@ -57,7 +53,6 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
                 'show_if'           => array(
                     'query_type' => 'category',
                 ),
-                'default' => 'current'
 			),
             'posts_number'  => array(
 				'label'            => esc_html__( 'Post Count', 'et_builder' ),
@@ -99,84 +94,145 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 	}
     static function get_workgroups( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 		
-		
+		$query_type = $args['query_type'];
+        $post_number = $args['posts_number'];
+        $workgroup = $args['workgroup'];
+        $categories = $args['include_categories'];
+
 		$workgroupsData = [];
 
-		$query_args = array(
-			'numberposts'   => $args['posts_number'],
-			'category'      => $args['include_categories'],
-			'post_type'     => 'workgroup',
-			'post_status'   => 'publish'
-		);
+		if($query_type === 'category'){
 
-		$workgroups = get_posts($query_args);
+            $query_args = array(
+                'numberposts'   => $post_number,
+                'category'      => $categories,
+                'post_type'     => 'workgroup',
+                'post_status'   => 'publish'
+			);
 
-		//if query type != single_select then check which type of category is included
+			$workgroups = get_posts($query_args);
 
-		if($args['query_type'] === 'category'):
+			foreach($workgroups as $workgroup){
 
-			//if category is current category then check the queried object and get posts then
-			if($args['include_categories'] === 'current'){
-			
-				$workgroups = 'No archive page found found';
-				$current_category = get_queried_object();
+				$workgroup_id = $workgroup->ID;
+				$leitende = get_field('ehi_workgroups_contact', $workgroup_id);
+				$vorsitzende = get_field('ehi_workgroups_manager', $workgroup_id);
 
-				//if category object is found, then get all the posts from posts number
-				if($current_category):
-				
-					$catID = $current_category->term_id;
-					
-					$query_args = array(
-						'numberposts'   => $post_number,
-						'category'      => $catID,
-						'post_type'     => 'workgroup',
-						'post_status'   => 'publish'
-					);
-	
-					$workgroups = get_posts($query_args);
-				endif;
-	
-			}else{
-				
-				$query_args = array(
-					'numberposts'   => $post_number,
-					'category'      => $args['include_categories'],
-					'post_type'     => 'workgroup',
-					'post_status'   => 'publish'
+				$leiterData = [];
+				$vorsitzData = [];
+
+				if($leitende){
+
+					foreach($leitende as $leiter){
+
+						$leiterID = $leiter->ID;
+
+						$leiterData[] = array(
+							'firstname' => get_field('ehi_team_vorname', $leiterID),
+							'lastname' 	=> get_field('ehi_team_nachname', $leiterID),
+							'phone' => get_field('ehi_team_telefon', $leiterID),
+							'email'	=> get_field('ehi_team_email', $leiterID)
+						);
+
+
+					}
+
+
+				}
+
+				if($vorsitzende){
+
+					foreach($vorsitzende as $vorsitz){
+
+						$vorsitzID = $vorsitz->ID;
+
+						$vorsitzData[] = array(
+							'firstname' => get_field('ehi_team_vorname', $vorsitzID),
+							'lastname' 	=> get_field('ehi_team_nachname', $vorsitzID),
+							'company' 	=> get_field('ehi_team_unternehmen', $vorsitzID)
+						);
+
+
+					}
+
+				}
+
+				$workgroupsData[] = array(
+					'title' => esc_html($workgroup->post_title),
+					'content' => esc_html($workgroup->post_content),
+					'leiter' => $leiterData,
+					'vorsitz' => $vorsitzData
 				);
-	
-				$workgroups = get_posts($query_args);
-	
+
+
+
+
+
 			}
 
-		endif;
 
-
-		if($args['query_type'] === 'select'):
+		}else{
 
 			$workgroupID = getIdFromDynamicLinkfield($args['workgroup']);
-			$workgroups = get_post($workgroupID);
-			$contact = get_field('ehi_workgroups_contact'. $workgroupID);
-			$manager = get_field('ehi_workgroups_manager'. $workgroupID);
+			$workgroup = get_post($workgroupID);
 
-			$workgroupsData = [
-				'title' => esc_html($workgroups->post_title),
-				'content' => esc_html($workgroups->post_content),
-				'contact' => $contact,
-				'manager' => $manager
-			];
+			$leitende = get_field('ehi_workgroups_contact', $workgroupID);
+			$vorsitzende = get_field('ehi_workgroups_manager', $workgroupID);
+
+			$leiterData = [];
+			$vorsitzData = [];
+
+			if($leitende){
+
+				foreach($leitende as $leiter){
+
+					$leiterID = $leiter->ID;
+
+					$leiterData[] = array(
+						'firstname' => get_field('ehi_team_vorname', $leiterID),
+						'lastname' 	=> get_field('ehi_team_nachname', $leiterID),
+						'phone' => get_field('ehi_team_telefon', $leiterID),
+						'email'	=> get_field('ehi_team_email', $leiterID)
+					);
 
 
-
-		endif;
-		
+				}
 
 
-		
+			}
+
+			if($vorsitzende){
+
+				foreach($vorsitzende as $vorsitz){
+
+					$vorsitzID = $vorsitz->ID;
+
+					$vorsitzData[] = array(
+						'firstname' => get_field('ehi_team_vorname', $vorsitzID),
+						'lastname' 	=> get_field('ehi_team_nachname', $vorsitzID),
+						'company' 	=> get_field('ehi_team_unternehmen', $vorsitzID)
+					);
+
+
+				}
+
+			}
+
+
+			$workgroupsData[] = array(
+				'title' => esc_html($workgroup->post_title),
+				'content' => esc_html($workgroup->post_content),
+				'leiter' => $leiterData,
+				'vorsitz' => $vorsitzData
+			);
+
+
+		}
+
 
 
 		return $workgroupsData;
-
+		
 
     }
 
@@ -187,21 +243,17 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
         $workgroup = $this->props['workgroup'];
         $categories = $this->props['include_categories'];
 
-        if($query_type === 'category' && $categories === 'current'){
-            
-            $current_category = get_queried_object();
-            $catID = $category->term_id;
+		if($query_type === 'category'){
 
             $query_args = array(
                 'numberposts'   => $post_number,
-                'category'      => $catID,
+                'category'      => $categories,
                 'post_type'     => 'workgroup',
                 'post_status'   => 'publish'
 			);
 
 
             $workgroups = get_posts($query_args);
-
             
             $output = $this->view->render('modules/WorkGroups/multiple', array(
                 'workgroups' => $workgroups
