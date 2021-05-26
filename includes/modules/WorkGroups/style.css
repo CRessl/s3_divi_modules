@@ -30,8 +30,9 @@
     margin-bottom: 15px;
 }
 
-.s3dm_workgroups_slider_item_contact > div{
+.s3dm_workgroups_slider_item_contact .contactContainer{
     width: 80%;
+    flex: inherit;
 }
 
 .s3dm_workgroups_slider_item_contact > div::before{

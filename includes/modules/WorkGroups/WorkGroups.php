@@ -128,12 +128,11 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 						$leiterID = $leiter->ID;
 
 						$leiterData[] = array(
-							'firstname' => get_field('ehi_team_vorname', $leiterID),
-							'lastname' 	=> get_field('ehi_team_nachname', $leiterID),
-							'phone' => get_field('ehi_team_telefon', $leiterID),
-							'email'	=> get_field('ehi_team_email', $leiterID)
-						);
-
+							'firstname' => trim(get_field('ehi_team_vorname', $leiterID)),
+							'lastname' 	=> trim(get_field('ehi_team_nachname', $leiterID)),
+							'phone' => trim(get_field('ehi_team_telefon', $leiterID)),
+							'email'	=> trim(get_field('ehi_team_email', $leiterID))
+						);	
 
 					}
 
@@ -145,17 +144,27 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 					foreach($vorsitzende as $vorsitz){
 
 						$vorsitzID = $vorsitz->ID;
+						
+						$company = trim(get_field('ehi_team_unternehmen', $vorsitzID));
+
+						if($company){
+							$companyValue = ' , '.$company;
+						}else{
+							$companyValue = '';
+						}
 
 						$vorsitzData[] = array(
-							'firstname' => get_field('ehi_team_vorname', $vorsitzID),
-							'lastname' 	=> get_field('ehi_team_nachname', $vorsitzID),
-							'company' 	=> get_field('ehi_team_unternehmen', $vorsitzID)
+							'firstname' => trim(get_field('ehi_team_vorname', $vorsitzID)),
+							'lastname' 	=> trim(get_field('ehi_team_nachname', $vorsitzID)),
+							'company' 	=> $companyValue
 						);
 
 
 					}
 
 				}
+
+
 
 				$workgroupsData[] = array(
 					'title' => esc_html($workgroup->post_title),
@@ -189,10 +198,10 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 					$leiterID = $leiter->ID;
 
 					$leiterData[] = array(
-						'firstname' => get_field('ehi_team_vorname', $leiterID),
-						'lastname' 	=> get_field('ehi_team_nachname', $leiterID),
-						'phone' => get_field('ehi_team_telefon', $leiterID),
-						'email'	=> get_field('ehi_team_email', $leiterID)
+						'firstname' => trim(get_field('ehi_team_vorname', $leiterID)),
+						'lastname' 	=> trim(get_field('ehi_team_nachname', $leiterID)),
+						'phone' => trim(get_field('ehi_team_telefon', $leiterID)),
+						'email'	=> trim(get_field('ehi_team_email', $leiterID))
 					);
 
 
@@ -207,10 +216,19 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
 					$vorsitzID = $vorsitz->ID;
 
+					$company = trim(get_field('ehi_team_unternehmen', $vorsitzID));
+
+					if($company){
+						$companyValue = ' , '.$company;
+					}else{
+						$companyValue = '';
+					}
+
+
 					$vorsitzData[] = array(
-						'firstname' => get_field('ehi_team_vorname', $vorsitzID),
-						'lastname' 	=> get_field('ehi_team_nachname', $vorsitzID),
-						'company' 	=> get_field('ehi_team_unternehmen', $vorsitzID)
+						'firstname' => trim(get_field('ehi_team_vorname', $vorsitzID)),
+						'lastname' 	=> trim(get_field('ehi_team_nachname', $vorsitzID)),
+						'company' 	=> $companyValue
 					);
 
 

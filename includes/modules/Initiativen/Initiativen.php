@@ -34,21 +34,16 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
                     'category'     => esc_html__('Category', 'et_builder'),
                     'select'       => esc_html__('Single select', 'et_builder'),   
 				),
+				'computed_affects' => array(
+					'__initiativeData',
+				),
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgrioup', 'et_builder' ),
 				'default_on_front' => 'select',
-                'computed_affects' => array(
-					'__eventData',
-				),
-
 			),
             'include_categories' => array(
 				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
 				'type'             => 'categories',
-				'meta_categories'  => array(
-					'all'     => esc_html__( 'All Categories', 's3dm-s3-divi-modules' ),
-					'current' => esc_html__( 'Current Category', 's3dm-s3-divi-modules' ),
-				),
 				'option_category'  => 'basic_option',
 				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
@@ -58,7 +53,6 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
                 'show_if'           => array(
                     'query_type' => 'category',
                 ),
-                'default' => 'current'
 			),
             'posts_number'  => array(
 				'label'            => esc_html__( 'Post Count', 'et_builder' ),
@@ -73,11 +67,26 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front'          => 3,
 			),
+			'columns'  => array(
+				'label'            => esc_html__( 'Spalten', 'et_builder' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'		   => array(
+					'2'			   => 'Zwei Spalten',
+					'3'			   => 'Drei Spalten',
+					'4'			   => 'Vier Spalten'
+				),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+                'show_if'          => array(
+                    'query_type'   => 'category'
+				),
+				'default_on_front'          => 3,
+			),
             'initiatives' => array(
 				'label'            => esc_html__( 'Initiative', 'et_builder' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+				'description'      => esc_html__( 'Wähle eine Initiative aus', 'et_builder' ),
 				'computed_affects' => array(
 					'__initiativeData',
 				),
@@ -91,8 +100,8 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				'computed_callback'   => array( 'S3DM_Initiatives', 'get_initiatives' ),
 				'computed_depends_on' => array(
 					'posts_number',
-                    'query_type',
                     'initiatives',
+					'query_type',
                     'include_categories'
 				),
 			),
@@ -101,7 +110,55 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
     static function get_initiatives( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 
 		
+		$query_type = $args['query_type'];
+			
+		$initiativesData = [];
 
+
+		if($query_type === 'select'){
+
+			$initiativesID = getIdFromDynamicLinkfield($args['initiatives']);
+			$initiatives = get_post($initiativesID);
+
+			$initiativesData = array(
+				'title' 	=> esc_html($initiatives->post_title),
+				'image' 	=> get_the_post_thumbnail_url($initiatives->ID, 'medium_large'),
+				'content' 	=> esc_html($initiatives->post_content)
+			);
+
+			
+
+
+		}else{
+
+			
+			$query_args = array(
+				'numberposts'   => $args['posts_number'],
+				'category'      => $args['include_categories'],
+				'post_type'		=> 'initiatives',
+				'post_status'   => 'publish'
+			);
+
+			$initiatives = get_posts($query_args);
+
+
+			foreach($initiatives as $initiative){
+
+				$initiativesData[] = array(
+					'title' => esc_html($initiative->post_title),
+					'image' => get_the_post_thumbnail_url($initiative->ID, 'medium_large')
+				);
+
+
+			}
+			
+			
+
+		}
+
+		
+		return $initiativesData;
+		
     }
 
 	public function render( $attrs, $content = null, $render_slug ) {		
@@ -110,31 +167,29 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
         $post_number = $this->props['posts_number'];
         $initiatives = $this->props['initiatives'];
         $categories = $this->props['include_categories'];
+		$columns = $this->props['columns'];
 
-        if($query_type === 'category' && $categories === 'current'){
-            
-            $current_category = get_queried_object();
-            $catID = $category->term_id;
+        if($query_type === 'category'){
 
-            $query_args = array(
+            $query_args = array( 
                 'numberposts'   => $post_number,
-                'category'      => $catID,
-                'post_type'     => 'workgroup',
+                'category'      => $categories,
+                'post_type'     => 'initiatives',
                 'post_status'   => 'publish'
 			);
 
 
             $initiatives = get_posts($query_args);
-
             
-            $output = $this->view->render('modules/Initiatives/multiple', array(
-                'initiatives' => $initiatives
+            $output = $this->view->render('modules/Initiativen/multiple', array(
+                'initiatives' => $initiatives,
+				'columns' => $columns
             ));
 
 
             if($post_number == '1'):
 
-                $output = $this->view->render('modules/Initiatives/single', array(
+                $output = $this->view->render('modules/Initiativen/single', array(
                     'initiatives' => $initiatives
                 ));
 
@@ -151,7 +206,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
 			if($canGetPostID):
 				$initiatives = get_post($canGetPostID);
-				$output = $this->view->render('modules/Initiatives/single', array(
+				$output = $this->view->render('modules/Initiativen/single', array(
 					'initiatives' => $initiatives
 				));
 			endif;
@@ -160,28 +215,6 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
 		return $output;
 		
-	}
-
-	public function workgroups(){
-
-		$workgroups = [];
-
-		$args = array(
-			'post_type' 	=> 'workgroup',
-			'post_status'	=> 'publish',
-		);
-
-		$wg = get_posts($args);
-
-		foreach($wg as $g){
-
-			$workgroups[$g->ID] = $g->post_title;
-
-		}
-
-		return $workgroups;
-
-
 	}
 
 }

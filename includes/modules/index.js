@@ -5,6 +5,7 @@ import S3DM_LinkList from './LinkList/LinkList';
 import S3DM_ContactPerson from './ContactPerson/ContactPerson';
 import S3DM_PostList from './PostList/PostList';
 import S3DM_WorkGroups from './WorkGroups/WorkGroups';
+import S3DM_Initiativen from './Initiativen/Initiativen';
 
 export default [
     S3DM_ExtendedPostSlider,
@@ -13,6 +14,7 @@ export default [
     S3DM_PostTabSlider,
     S3DM_ContactPerson,
     S3DM_PostList,
-    S3DM_WorkGroups
+    S3DM_WorkGroups,
+    S3DM_Initiativen
 ];
  

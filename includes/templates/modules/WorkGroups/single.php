@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="s3dm_workgroups_slider_item_contact uk-width-auto@m">
-                <div>
+                <div class="contactContainer">
                     <h3 class="uk-margin-small s3dm_workgroups_slider_item_contact_title">Kontakt</h3>
                     <p>
                     <?php if($leitende): ?>

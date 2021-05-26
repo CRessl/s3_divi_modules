@@ -1,0 +1,11 @@
+.s3dm_initiatives_container .s3dm_initiative_title {
+  padding-bottom: 0;
+}
+
+.s3dm_initiative_content {
+  background-color: #e6e6e6;
+}
+
+h4.s3dm_initiative_title {
+  font-size: 35px;
+}
