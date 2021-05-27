@@ -12,13 +12,13 @@
                         $workgroup_id = $group->ID; 
                         $leitende = get_field('ehi_workgroups_contact', $workgroup_id);
                         $vorsitzende = get_field('ehi_workgroups_manager', $workgroup_id);
-
+                        $content = apply_filters( 'the_content', get_the_content(null, true, $workgroup_id) );
                     ?>
                     
                     <div class="uk-width-expand@m uk-width-1-1 uk-flex-middle uk-flex uk-padding-remove-top uk-padding-remove-bottom uk-padding">
                         <div>
                             <h3 class="s3dm_workgroups_title"><?= $group->post_title; ?></h3>
-                            <?= $group->post_content ?>
+                            <?= $content ?>
                         </div>
                     </div>
                     <div class="s3dm_workgroups_slider_item_contact uk-width-auto@m">

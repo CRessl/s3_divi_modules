@@ -27,7 +27,7 @@ class S3DM_S3DiviModules extends DiviExtension {
 	 *
 	 * @var string
 	 */
-	public $version = '1.1.9';
+	public $version = '1.2';
 
 	/**
 	 * S3DM_S3DiviModules constructor.

@@ -1,0 +1,34 @@
+.s3dm_cluster_item {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #d3d3d3;
+  transition: background 0.3s ease-in-out;
+}
+
+.s3dm_cluster_item:hover {
+  background-color: #00b2b2 !important;
+  z-index: 99;
+  transition: background 0.3s ease-in-out;
+}
+
+.s3dm_cluster_item_image img {
+  max-width: 60%;
+  margin: -10px auto;
+}
+
+.s3dm_cluster_item_title {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-all;
+  width: 70%;
+  margin: 0 auto;
+}

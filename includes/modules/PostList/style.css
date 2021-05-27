@@ -1,7 +1,12 @@
-.s3dm_post_list_headline{
-    color: #00B2B2;
+.s3dm_post_list_headline {
+  color: #00b2b2;
 }
 
-.s3dm_post_list_grid img{
-    width: 100%;
+.s3dm_post_list_grid img {
+  width: 100%;
+}
+
+.s3dm_post_list_right_item {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efefef;
 }

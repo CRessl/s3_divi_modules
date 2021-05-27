@@ -17,11 +17,11 @@
 
 <?php else: ?>
     
-    <div class="uk-position-relative">
+    <div class="uk-position-relative uk-margin-bottom s3dm_post_list_right_item">
         
         <a href="<?= $this->e($link); ?>" class="uk-position-cover"></a>    
         <h4 class="s3dm_post_list_headline"><?= $this->e($title); ?></h4>
-        <div class="tags-container uk-margin-bottom">
+        <div class="tags-container">
         <?php foreach($tags as $tag): ?>
           <span class="tags"><?= $tag->name ?></span>
         <?php endforeach; ?>
