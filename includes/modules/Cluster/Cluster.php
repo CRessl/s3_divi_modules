@@ -46,11 +46,12 @@ class S3DM_Cluster extends ET_Builder_Module {
 
         $content = array(
             'content' 		=> $this->props['content'],
+			'min_height'	=>  $this->props['min_height'],
 			
         );
 
 		ET_Builder_Element::set_style( $render_slug, array(
-            'selector'    => '%%order_class%% .s3dm_cluster_container',
+            'selector'    => '%%order_class%%',
             'declaration' => sprintf(
                 'min-height: %1$s;',
                 esc_html( $this->props['min_height'] )

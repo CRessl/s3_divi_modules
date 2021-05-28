@@ -1,13 +1,19 @@
 .s3dm_cluster_item {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   display: flex;
+  /*margin-top: -65px;
+  margin-left: -65px;*/
   align-items: center;
   justify-content: center;
   position: absolute;
   border-radius: 50%;
   background-color: #d3d3d3;
   transition: background 0.3s ease-in-out;
+}
+.s3dm_cluster_item > div {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .s3dm_cluster_item:hover {
@@ -22,6 +28,11 @@
 }
 
 .s3dm_cluster_item_title {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.s3dm_cluster_item_title p {
   font-size: 14px;
   color: #fff;
   text-align: center;
@@ -29,6 +40,4 @@
   -ms-hyphens: auto;
   hyphens: auto;
   word-break: break-all;
-  width: 70%;
-  margin: 0 auto;
 }

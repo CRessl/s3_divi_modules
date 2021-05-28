@@ -36,26 +36,28 @@ function getConnectionListFromTermID($value){
 	$array =  explode(',', $value);
 	$classes = [];
 
+	$classNames = '';
 
-	if(is_array($array)){
+	if(!empty($array)):
+		if(is_array($array)){
+			
+			foreach($array as $term_id){
+
+				$term = get_term_by('id', $term_id, 'category');
+				if(is_object($term)):
+					$classes[] = $term->slug;
+				endif;
+
+			}
+
+			$classNames = implode(',', $classes);
+		}else{
+			
+			$term = get_term_by('id', $value, 'category');
+			$classNames = $term->slug;
 		
-		foreach($array as $term_id){
-
-			$term = get_term_by('id', $term_id, 'category');
-			$classes[] = $term->slug;
-
 		}
-
-		$classNames = implode(',', $classes);
-	}else{
-		
-		$term = get_term_by('id', $value, 'category');
-		$classNames = $term->slug;
-	
-	}
-
-
-
+	endif;
 	
 
 	return $classNames;

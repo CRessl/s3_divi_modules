@@ -116,7 +116,7 @@ class S3DM_ClusterItem extends ET_Builder_Module {
 
 
 		return $fields;
-	}
+	} 
 
 
 
@@ -126,7 +126,13 @@ class S3DM_ClusterItem extends ET_Builder_Module {
         $current_category           = $this->props['current_category'];
         $category_link              = get_category_link_by_slug($current_category);
         $icon                       = $this->props['icon'];
-        $connections                = getConnectionListFromTermID($this->props['connections']);
+		
+		if($this->props['connections']):
+        	$connections            = getConnectionListFromTermID($this->props['connections']);
+		else:
+			$connections 			= '';
+		endif;
+
         $alt                        = s3dm_get_image_alt_text_from_url($icon);
 		$title_text                 = s3dm_get_image_title_from_url($icon);
         $multi_view        	        = et_pb_multi_view_options( $this );
@@ -155,14 +161,20 @@ class S3DM_ClusterItem extends ET_Builder_Module {
             'image'             => $image,
         );
 
+		$min = 0.8;
+		$max = 1.3;
+		$step = 0.1;
+
+		$number = mt_rand(floor($min / $step), floor($max / $step)) * $step;
         
         //renders inline style as css
         ET_Builder_Element::set_style( $render_slug, array(
             'selector'    => '%%order_class%%',
             'declaration' => sprintf(
-                'top: %1$s; left: %2$s;',
+                'top: %1$s; left: %2$s; transform: scale(%3$s);',
                 esc_html( $this->props['position_top'] ),
-                esc_html( $this->props['position_left'] )
+                esc_html( $this->props['position_left'] ),
+				$number
             ),
         ) );
 

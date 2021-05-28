@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: S3 Divi Modules 1.1.9\n"
+"Project-Id-Version: S3 Divi Modules 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-05-27 08:28:10+00:00\n"
+"POT-Creation-Date: 2021-05-28 12:26:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,6 +166,75 @@ msgid ""
 "without using URL parameter."
 msgstr ""
 
+#: includes/modules/Cluster/Cluster.php:24
+#: includes/modules/ClusterItem/ClusterItem.php:24
+msgid "Cluster"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:31
+#: includes/modules/LinkListItem/LinkListItem.php:24
+msgid "Settings"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:32
+msgid "Connections"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:54
+#: includes/modules/LinkListItem/LinkListItem.php:47
+msgid "Item Title"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:64
+#: includes/modules/LinkListItem/LinkListItem.php:147
+msgid "Choose an Image"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:65
+#: includes/modules/LinkListItem/LinkListItem.php:148
+msgid "Set As Image"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:67
+#: includes/modules/LinkListItem/LinkListItem.php:153
+msgid ""
+"Upload your desired image, or type in the URL to the image you would like "
+"to display."
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:73
+#: includes/modules/LinkListItem/LinkListItem.php:159
+msgid "Position left"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:79
+#: includes/modules/LinkListItem/LinkListItem.php:164
+msgid "Position top"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:85
+msgid "Use Category Name as Title"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:96
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
+#: includes/modules/PostList/PostList.php:61
+#: includes/modules/PostTabSlider/PostTabSlider.php:45
+msgid "Current Category"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:100
+msgid "Choose which category is currently displayed. Pleas choose only one"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:105
+msgid "Connect to Categories"
+msgstr ""
+
+#: includes/modules/ClusterItem/ClusterItem.php:111
+msgid "Choose which to which category you would like to connect"
+msgstr ""
+
 #: includes/modules/ContactPerson/ContactPerson.php:16
 msgid "Contact Person / Author"
 msgstr ""
@@ -296,12 +365,6 @@ msgstr ""
 #: includes/modules/PostList/PostList.php:60
 #: includes/modules/PostTabSlider/PostTabSlider.php:44
 msgid "All Categories"
-msgstr ""
-
-#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
-#: includes/modules/PostList/PostList.php:61
-#: includes/modules/PostTabSlider/PostTabSlider.php:45
-msgid "Current Category"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:62
@@ -461,16 +524,8 @@ msgstr ""
 msgid "Choose how which layout should be displayed"
 msgstr ""
 
-#: includes/modules/LinkListItem/LinkListItem.php:24
-msgid "Settings"
-msgstr ""
-
 #: includes/modules/LinkListItem/LinkListItem.php:25
 msgid "Position"
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:47
-msgid "Item Title"
 msgstr ""
 
 #: includes/modules/LinkListItem/LinkListItem.php:53
@@ -508,28 +563,6 @@ msgstr ""
 #: includes/modules/LinkListItem/LinkListItem.php:140
 #: includes/modules/PostList/PostList.php:178
 msgid "This setting will turn on and off the date section."
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:147
-msgid "Choose an Image"
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:148
-msgid "Set As Image"
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:153
-msgid ""
-"Upload your desired image, or type in the URL to the image you would like "
-"to display."
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:159
-msgid "Position left"
-msgstr ""
-
-#: includes/modules/LinkListItem/LinkListItem.php:164
-msgid "Position top"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:16

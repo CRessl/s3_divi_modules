@@ -15,7 +15,7 @@ class S3DM_ClusterItem extends Component {
 
     additionalCss.push([{
         selector:    '%%order_class%%.s3dm_cluster_item',
-        declaration: `height: 150px; position: absolute !important; left: ${props.position_left}; top: ${props.position_top};`,
+        declaration: `height: 130px; position: absolute !important; left: ${props.position_left}; top: ${props.position_top};`,
     }]);
 
     return additionalCss;
