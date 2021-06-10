@@ -1,9 +1,9 @@
-<div class="s3dm_cluster_container">
+<div class="s3dm_cluster_container" style="min-height: <?= $this->e($min_height); ?>;">
 
     <?= $content ?>
 
 </div>
-<svg height="<?= $this->e($min_height); ?> " width="100%" id="paths">
+<svg height="<?= $this->e($min_height); ?>" width="100%" id="paths" style="position: absolute; z-index: -1; top:0;">
 
 </svg>
 
@@ -35,6 +35,14 @@ jQuery(document).ready(function() {
         //TweenMax.set(el, {borderRadius:0});
 
         var tl = new TimelineMax();
+        var scaletl = new TimelineMax({paused: true});
+
+        scaletl.to(el,{
+            scale: 1.5,
+            duration: 0.5,
+            ease: "back.out(2)",
+            zIndex: 99,
+        });
 
         // create your tween of the timeline in a variable
         tl.to(el, {
@@ -96,16 +104,19 @@ jQuery(document).ready(function() {
 
             }
         });
+        
 
         tl.play();
         // store the tween timeline in the javascript DOM node
         el.animation = tl;
-        
+
         //create the event handler
         jQuery(el).on("mouseenter",function(){
             this.animation.pause();
+            scaletl.play();
         }).on("mouseleave",function(){
-            this.animation.resume();
+            scaletl.reverse();
+            this.animation.resume(); 
         });
     
     });
@@ -153,8 +164,6 @@ function connect_items(items){
                 newLine.setAttribute('x2', x2);
                 newLine.setAttribute('y2', y2);
                 newLine.setAttribute('from_to', item.attributes.connect_to.nodeValue+','+connectionClass);
-                newLine.setAttribute('stroke', 'black');
-                newLine.setAttribute('stroke-width', '2');
 
                 jQuery("#paths").append(newLine);
 

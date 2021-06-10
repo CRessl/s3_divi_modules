@@ -6,7 +6,9 @@
         <h3><?= $this->e($title) ?></h3>
     </div>
     <div class="s3dm_tab_content_post_excerpt uk-margin-medium-bottom">
-        <?= $this->e($excerpt) ?>
+        <?php if($excerpt):?>
+            <?= $excerpt ?>
+        <?php endif; ?>
     </div>
 	<div class="s3dm_tab_content_post_link">
     <?= $link ?>

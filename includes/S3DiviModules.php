@@ -2,6 +2,7 @@
 
 class S3DM_S3DiviModules extends DiviExtension {
 
+	public $translationPath;
 	/**
 	 * The gettext domain for the extension's translations.
 	 *
@@ -36,8 +37,10 @@ class S3DM_S3DiviModules extends DiviExtension {
 	 * @param array  $args
 	 */
 	public function __construct( $name = 's3-divi-modules', $args = array() ) {
-		$this->plugin_dir     = plugin_dir_path( __FILE__ );
+		$this->plugin_dir     = plugin_dir_path(  __FILE__ );
 		$this->plugin_dir_url = plugin_dir_url( $this->plugin_dir );
+		$this->translationPath = plugin_dir_path( dirname(__FILE__) );
+		load_plugin_textdomain( $this->gettext_domain, false, basename( $this->translationPath ) . '/languages' );
 
 		parent::__construct( $name, $args );
 	}

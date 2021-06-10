@@ -28,14 +28,14 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 	public function get_fields() {
 		return array(
             'query_type' => array(
-				'label'            => esc_html__( 'Query type', 'et_builder' ),
+				'label'            => esc_html__( 'Query type', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
                 'options'          => array(
-                    'category'     => esc_html__('Category', 'et_builder'),
-                    'select'       => esc_html__('Single select', 'et_builder'),   
+                    'category'     => esc_html__('Category', 's3dm-s3-divi-modules'),
+                    'select'       => esc_html__('Single select', 's3dm-s3-divi-modules'),   
 				),
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgrioup', 'et_builder' ),
+				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgrioup', 's3dm-s3-divi-modules' ),
 				'default_on_front' => 'select',
 				'computed_affects' => array(
 					'__workgroupData',
@@ -55,10 +55,10 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
                 ),
 			),
             'posts_number'  => array(
-				'label'            => esc_html__( 'Post Count', 'et_builder' ),
+				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__workgroupData',
 				),
@@ -68,10 +68,10 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 				'default_on_front'          => 3,
 			),
             'workgroup' => array(
-				'label'            => esc_html__( 'Work group', 'et_builder' ),
+				'label'            => esc_html__( 'Work group', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__workgroupData',
 				),

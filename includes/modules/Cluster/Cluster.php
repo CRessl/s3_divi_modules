@@ -23,6 +23,14 @@ class S3DM_Cluster extends ET_Builder_Module {
 	public function init() {
 		$this->name = esc_html__( 'Cluster', 's3dm-s3-divi-modules' );
 		$this->child_slug = 's3dm_cluster_item';
+
+		$this->settings_modal_toggles = array(
+			'general'  => array(
+				'toggles' => array(
+					'main_content' => __('Settings', 's3dm-s3-divi-modules'),
+				),
+			),
+		);
 	}
 
 	public function __construct(){
@@ -37,11 +45,49 @@ class S3DM_Cluster extends ET_Builder_Module {
 	
 
 	public function get_fields() {
-		return array();
+		$fields = array(
+
+			'stroke_width' => array(
+				'label'            => __('Stroke Width', 's3dm-s3-divi-modules'),
+				'type'             => 'range',
+				'toggle_slug'      => 'main_content',
+                'default_unit'     => 'px',
+				'range_settings' => array(
+					'min'  => '1',
+					'max'  => '10',
+					'step' => '0.1',
+				),
+			),
+			'stroke_color' => array(
+				'label'            => __('Stroke Color', 's3dm-s3-divi-modules'),
+				'type'             => 'color-alpha',
+				'toggle_slug'      => 'main_content',
+                'default'          => et_builder_accent_color(),
+			),
+
+
+		);
+
+		return $fields;
 	}
 
 
 	public function render( $attrs, $content = null, $render_slug ) {
+
+		$stroke_width = $this->props['stroke_width'];
+		$stroke_color = $this->props['stroke_color'];
+
+		if(!$stroke_width){
+
+			$stroke_width = '1px';
+
+		}
+
+		if(!$stroke_color){
+
+			$stroke_color = '#000000';
+
+		}
 
 
         $content = array(
@@ -51,10 +97,19 @@ class S3DM_Cluster extends ET_Builder_Module {
         );
 
 		ET_Builder_Element::set_style( $render_slug, array(
-            'selector'    => '%%order_class%%',
+            'selector'    => '%%order_class%% s3dm_cluster_container',
             'declaration' => sprintf(
                 'min-height: %1$s;',
                 esc_html( $this->props['min_height'] )
+            ),
+        ) );
+
+		ET_Builder_Element::set_style( $render_slug, array(
+            'selector'    => '%%order_class%% #paths line',
+            'declaration' => sprintf(
+                'stroke-width: %1$s; stroke: %2$s;',
+                esc_html( $stroke_width ),
+				esc_html( $stroke_color ),
             ),
         ) );
 

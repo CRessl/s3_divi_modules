@@ -1,8 +1,8 @@
 <?php
 
-class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
+class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 
-	public $slug       = 's3dm_initiativen';
+	public $slug       = 's3dm_products';
 	public $vb_support = 'on';
 	private $view;
 	
@@ -22,7 +22,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function init() {
-		$this->name = esc_html__( 'Initiatives', 's3dm-s3-divi-modules' );
+		$this->name = esc_html__( 'Products', 's3dm-s3-divi-modules' );
 	}
 
 	public function get_fields() {
@@ -35,10 +35,10 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
                     'select'       => esc_html__('Single select', 's3dm-s3-divi-modules'),   
 				),
 				'computed_affects' => array(
-					'__initiativeData',
+					'__productsData',
 				),
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgrioup', 'et_builder' ),
+				'description'      => esc_html__( 'Choose which selection you would prefer (Category = current Category | Single select = Select one Workgroup', 's3dm-s3-divi-modules' ),
 				'default_on_front' => 'select',
 			),
             'include_categories' => array(
@@ -48,7 +48,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
 				'computed_affects' => array(
-					'__initiativeData',
+					'__productsData',
 				),
                 'show_if'           => array(
                     'query_type' => 'category',
@@ -60,7 +60,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
-					'__initiativeData',
+					'__productsData',
 				),
                 'show_if'          => array(
                     'query_type'   => 'category'
@@ -68,7 +68,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				'default_on_front'          => 3,
 			),
 			'columns'  => array(
-				'label'            => esc_html__( 'Columns', 's3dm-s3-divi-modules' ),
+				'label'            => esc_html__( 'Spalten', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
 				'option_category'  => 'configuration',
 				'options'		   => array(
@@ -82,22 +82,28 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front'          => 3,
 			),
-            'initiatives' => array(
-				'label'            => esc_html__( 'Initiative', 's3dm-s3-divi-modules' ),
+            'linktext'  => array(
+				'label'            => esc_html__( 'Linktext', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose a initiative', 's3dm-s3-divi-modules' ),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
+			),
+            'product' => array(
+				'label'            => esc_html__( 'Product', 's3dm-s3-divi-modules' ),
+				'type'             => 'text',
+				'option_category'  => 'configuration',
+				'description'      => esc_html__( 'Wähle eine Initiative aus', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
-					'__initiativeData',
+					'__productsData',
 				),
 				'dynamic_content' => 'url',
                 'show_if'          => array(
                     'query_type'   => 'select'
                 ),
 			),
-            '__initiativeData'                 => array(
+            '__productsData'                 => array(
 				'type'                => 'computed',
-				'computed_callback'   => array( 'S3DM_Initiatives', 'get_initiatives' ),
+				'computed_callback'   => array( 'S3DM_Products', '__get_products' ),
 				'computed_depends_on' => array(
 					'posts_number',
                     'initiatives',
@@ -107,7 +113,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 			),
 		);
 	}
-    static function get_initiatives( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
+    static function __get_products( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 
 		
 		$query_type = $args['query_type'];
@@ -165,32 +171,35 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
         $query_type = $this->props['query_type'];
         $post_number = $this->props['posts_number'];
-        $initiatives = $this->props['initiatives'];
+        $product = $this->props['product'];
         $categories = $this->props['include_categories'];
 		$columns = $this->props['columns'];
+        $linktext = $this->props['linktext'];
 
         if($query_type === 'category'){
 
             $query_args = array( 
                 'numberposts'   => $post_number,
                 'category'      => $categories,
-                'post_type'     => 'initiatives',
+                'post_type'     => 'ehi_product',
                 'post_status'   => 'publish'
 			);
 
 
-            $initiatives = get_posts($query_args);
+            $products = get_posts($query_args);
             
-            $output = $this->view->render('modules/Initiativen/multiple', array(
-                'initiatives' => $initiatives,
-				'columns' => $columns
+            $output = $this->view->render('modules/Products/multiple', array(
+                'products' => $products,
+				'columns' => $columns,
+                'linktext' => $linktext,
             ));
 
 
             if($post_number == '1'):
 
-                $output = $this->view->render('modules/Initiativen/single', array(
-                    'initiatives' => $initiatives
+                $output = $this->view->render('modules/Products/single', array(
+                    'products' => $products,
+                    'linktext' => $linktext,
                 ));
 
             endif;
@@ -205,9 +214,10 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 			$output = "Couldn't fetch ID";
 
 			if($canGetPostID):
-				$initiatives = get_post($canGetPostID);
-				$output = $this->view->render('modules/Initiativen/single', array(
-					'initiatives' => $initiatives
+				$product = get_post($canGetPostID);
+				$output = $this->view->render('modules/Products/single', array(
+					'product' => $product,
+                    'linktext' => $linktext,
 				));
 			endif;
 
@@ -219,6 +229,6 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
 }
 
-new S3DM_Initiatives;
+new S3DM_Products;
 
 

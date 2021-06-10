@@ -2,12 +2,17 @@
 
 $initiativeID = $initiatives->ID;
 $thumbURL = get_the_post_thumbnail_url($initiativeID, 'medium_large');
-
+$link = get_field('ehi_initiative_link', $initiativeID);
 
 ?>
 
 
 <div class="s3dm_initiative uk-grid-match uk-child-width-1-2@m uk-child-width-1-1 uk-grid-collapse" uk-grid>
+        <?php if($link):?>
+
+            <a href="<?= $link; ?>" class="uk-cover" target="_blank"></a>
+
+        <?php endif;?>
         <div class="s3dm_initiative_content_container uk-flex-first@m" >
             <div class="s3dm_initiative_content uk-padding">
                 <h3 class="s3dm_initiative_content_title">

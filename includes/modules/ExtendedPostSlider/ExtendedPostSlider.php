@@ -253,6 +253,10 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
 
     }
 
+	protected function _render_module_wrapper( $output = '', $render_slug = '' ) {
+		return $output;
+	} 
+
 	public function render( $attrs, $content = null, $render_slug ) {
 
        

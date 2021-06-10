@@ -28,42 +28,42 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 	public function get_fields() {
 		return array(
             'posts_number'            => array(
-				'label'            => esc_html__( 'Post Count', 'et_builder' ),
+				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how many posts you would like to display in the slider.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose how many posts you would like to display in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
 				'computed_affects' => array(
 					'__posts',
 				),
 			),
             'include_categories'      => array(
-				'label'            => esc_html__( 'Included Categories', 'et_builder' ),
+				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
 				'type'             => 'categories',
 				'meta_categories'  => array(
-					'all'     => esc_html__( 'All Categories', 'et_builder' ),
-					'current' => esc_html__( 'Current Category', 'et_builder' ),
+					'all'     => esc_html__( 'All Categories', 's3dm-s3-divi-modules' ),
+					'current' => esc_html__( 'Current Category', 's3dm-s3-divi-modules' ),
 				),
 				'option_category'  => 'basic_option',
-				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
 				'toggle_slug'      => 'main_content',
 				'computed_affects' => array(
 					'__posts',
 				),
 			),
             'orderby'                 => array(
-				'label'            => esc_html__( 'Order By', 'et_builder' ),
+				'label'            => esc_html__( 'Order By', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
 				'option_category'  => 'configuration',
 				'options'          => array(
-					'date_desc'  => esc_html__( 'Date: new to old', 'et_builder' ),
-					'date_asc'   => esc_html__( 'Date: old to new', 'et_builder' ),
-					'title_asc'  => esc_html__( 'Title: a-z', 'et_builder' ),
-					'title_desc' => esc_html__( 'Title: z-a', 'et_builder' ),
-					'rand'       => esc_html__( 'Random', 'et_builder' ),
+					'date_desc'  => esc_html__( 'Date: new to old', 's3dm-s3-divi-modules' ),
+					'date_asc'   => esc_html__( 'Date: old to new', 's3dm-s3-divi-modules' ),
+					'title_asc'  => esc_html__( 'Title: a-z', 's3dm-s3-divi-modules' ),
+					'title_desc' => esc_html__( 'Title: z-a', 's3dm-s3-divi-modules' ),
+					'rand'       => esc_html__( 'Random', 's3dm-s3-divi-modules' ),
 				),
 				'toggle_slug'      => 'main_content',
-				'description'      => esc_html__( 'Here you can adjust the order in which posts are displayed.', 'et_builder' ),
+				'description'      => esc_html__( 'Here you can adjust the order in which posts are displayed.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__posts',
 				),
@@ -73,7 +73,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				'default_on_front' => 'date_desc',
 			),
             'show_image'              => array(
-				'label'            => esc_html__( 'Show Featured Image', 'et_builder' ),
+				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
 				'options'          => array(
@@ -82,11 +82,11 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'featured_image',
-				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 'et_builder' ),
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
 			),
             'show_excerpt'         => array(
-				'label'            => esc_html__( 'Show Excerpt', 'et_builder' ),
+				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
 				'options'          => array(
@@ -95,11 +95,11 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
-				'description'      => esc_html__( 'This setting will display the excerpt of the post', 'et_builder' ),
+				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
 			),
             'show_meta'               => array(
-				'label'            => esc_html__( 'Show Post Meta', 'et_builder' ),
+				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
 				'options'          => array(
@@ -108,11 +108,11 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
-				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 'et_builder' ),
+				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
 			),
             'image_placement'         => array(
-				'label'            => esc_html__( 'Featured Image Placement', 'et_builder' ),
+				'label'            => esc_html__( 'Featured Image Placement', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
 				'option_category'  => 'configuration',
 				'options'          => array(
@@ -123,7 +123,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				'default_on_front' => 'right',
 				'depends_show_if'  => 'on',
 				'toggle_slug'      => 'featured_image',
-				'description'      => esc_html__( 'Select how you would like to display the featured image in slides', 'et_builder' ),
+				'description'      => esc_html__( 'Select how you would like to display the featured image in slides', 's3dm-s3-divi-modules' ),
 			),
             '__posts'                 => array(
 				'type'                => 'computed',
@@ -245,7 +245,17 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 
             $title = get_the_title($sliderContentTab->ID);
             $categories = wp_get_post_categories($sliderContentTab->ID);
-            $excerpt = get_the_excerpt($sliderContentTab->ID);
+ 
+			if ( has_excerpt($sliderContentTab->ID) ) {
+
+				$trim_text = get_the_excerpt($sliderContentTab->ID);
+				$truncate = wordwrap($trim_text, 270, "\0");
+				$excerpt = '<p>'.preg_replace('/^(.*?)\0(.*)$/is', '$1', $truncate).' ...</p>';
+
+			} else {
+				$excerpt = wpautop( et_delete_post_first_video( strip_shortcodes( truncate_post( 270, false, $sliderContentTab, true ) ) ) );
+			}
+
             $link = '<a href="'.get_the_permalink($sliderContentTab->ID).'">Zum Artikel</a>';
 			//Title, Category and Exerpt
 			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');

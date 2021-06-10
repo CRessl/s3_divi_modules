@@ -59,8 +59,10 @@ function s3dm_load_assets(){
 	wp_enqueue_script( 'modules', plugins_url('/assets/js/modules.js', __FILE__), array('jquery'), false, false );
 	
 	// for ze cool animations
-	wp_enqueue_script('gsap', plugins_url('/assets/js/gsap.min.js', __FILE__), array(), true,  false);
-
+	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js', array(), false,  false);
+	wp_enqueue_script('gsap-cssrule', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js', array(), false,  false);
+	wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js', array(), false,  false);
+	wp_enqueue_script('gsap-easepack', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/EasePack.min.js', array(), false,  false);
 }
 
 endif;

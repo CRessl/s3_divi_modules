@@ -28,20 +28,20 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 	public function get_fields() {
 		return array(
             'posts_number'  => array(
-				'label'            => esc_html__( 'Post Count', 'et_builder' ),
+				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__eventData',
 				),
 				'default'          => 3,
 			),
 			'columns' => array(
-				'label'            => esc_html__( 'Columns', 'et_builder' ),
+				'label'            => esc_html__( 'Columns', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'default'          => 3,
 			),
             'show_more'                     => array(
@@ -55,7 +55,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 				'affects'	=> array(
 					'button_text',
 				),
-				'description'      => esc_html__( 'Here you can define whether to show "read more" link after the excerpts or not.', 'et_builder' ),
+				'description'      => esc_html__( 'Here you can define whether to show "read more" link after the excerpts or not.', 's3dm-s3-divi-modules' ),
 				'default_on_front' => 'off',
 			),
 			'button_text'                     => array(

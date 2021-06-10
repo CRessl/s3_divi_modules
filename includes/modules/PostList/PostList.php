@@ -39,11 +39,11 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				),
 			),
             'post_type'  => array(
-				'label'            => esc_html__( 'Post Type', 'et_builder' ),
+				'label'            => esc_html__( 'Post Type', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
 				'option_category'  => 'configuration',
 				'options'          => et_get_registered_post_type_options( false, false ),
-				'description'      => esc_html__( 'Choose posts of which post type you would like to display.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose posts of which post type you would like to display.', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__postData',
 				),
@@ -184,10 +184,10 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 )
 			),
             'date_format' => array(
-				'label'            => esc_html__( 'Date Format', 'et_builder' ),
+				'label'            => esc_html__( 'Date Format', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'If you would like to adjust the date format, input the appropriate PHP date format here.', 'et_builder' ),
+				'description'      => esc_html__( 'If you would like to adjust the date format, input the appropriate PHP date format here.', 's3dm-s3-divi-modules' ),
 				'default'          => 'M j, Y',
                 'show_if'          => array(
                     'show_date' => 'on',

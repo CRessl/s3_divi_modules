@@ -1,0 +1,22 @@
+.s3dm_teamlist_item_content_wrapper p, .s3dm_teamlist_item_content_wrapper a, .s3dm_teamlist_item_content_wrapper h4{
+    color: #fff;
+}
+
+.s3dm_teamlist_item_content_wrapper h4{
+    font-size: 18px;
+    padding-bottom: 0!important;
+}
+
+.s3dm_teamlist_item_content_wrapper a{
+    display: inline-block;
+    padding-top: 7px;
+    font-family: "SignikaNegative-SemiBold", sans-serif;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+.s3dm_teamlist_item_content_wrapper .uk-overlay-primary{
+    background: linear-gradient( to top, hsla(0, 0%, 0%, 0.95) 0%, hsla(0, 0%, 0%, 0.814) 9.8%, hsla(0, 0%, 0%, 0.69) 17.1%, hsla(0, 0%, 0%, 0.578) 22.3%, hsla(0, 0%, 0%, 0.477) 26%, hsla(0, 0%, 0%, 0.387) 28.6%, hsla(0, 0%, 0%, 0.308) 30.6%, hsla(0, 0%, 0%, 0.239) 32.5%, hsla(0, 0%, 0%, 0.179) 34.7%, hsla(0, 0%, 0%, 0.129) 37.7%, hsla(0, 0%, 0%, 0.088) 42.1%, hsla(0, 0%, 0%, 0.055) 48.2%, hsla(0, 0%, 0%, 0.03) 56.6%, hsla(0, 0%, 0%, 0.013) 67.7%, hsla(0, 0%, 0%, 0.003) 82%, hsla(0, 0%, 0%, 0) 100% );
+}
