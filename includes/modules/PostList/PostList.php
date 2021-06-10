@@ -67,8 +67,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 					'__postData',
 				),
                 'show_if'           => array(
-                    'post_type' => 'post',
-                    'post_type' => 'ehi_products'
+                    'post_type' => array('post', 'ehi_product')
                 )
 			),
             'post_list_layout' => array(
@@ -100,6 +99,22 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 'toggle_slug' => 'main_content',
                 'default_on_front' => '3',
             ),
+            'is_product_list' => array(
+				'label'            => esc_html__( 'Is more products list?', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+                'show_if_not'      => array(
+                    'post_list_layout' => 'first_post_left',
+                )
+			),
             'show_image' => array(
 				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -236,6 +251,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             'include_categories'    => '',
             'date_format'             => 'd.m.Y'
         );
+        
 
         //merges args from computed field with defaults
         $args = wp_parse_args( $args, $defaults );
@@ -249,11 +265,24 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             'post_status'   => 'publish',
         );
 
+        if(!$args['include_categories']){
+            unset($queryArgs['category']);
+        }
+
+        if($is_product_list == 'on' && get_post_type() == 'ehi_product'){
+
+            $currentPageID = get_the_ID();
+
+            $productCategories = implode( ',', wp_get_post_categories($currentPageID, array('fields' => 'ids')) );
+
+            $queryArgs['category'] = $productCategories;
+            $queryArgs['post__not_in'] = array($currentPageID);
+
+        }
+
         $posts = get_posts($queryArgs);
+        
         $fsBuilder = [];
-
-       
-
 
         foreach($posts as $data){
 
@@ -276,14 +305,20 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 'title' => get_the_title($postID),
                 'image' => get_the_post_thumbnail($postID, 'full'),
                 'tags'  => $tagRender,
+                'packshot' => wp_get_attachment_image_src(get_field('ehi_product_image', $postID), 'full', false),
                 'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
-                'date' => get_the_date($args['date_format'], $postID),
-                'link' => get_the_permalink($postID)
+                'link' => get_the_permalink($postID),
+                'date' => get_the_date($dateFormat, $postID),
+                'price' => get_field('ehi_product_price', $postID),
+                'memberprice' => get_field('ehi_product_member_price', $postID),
+                'format' => get_field('ehi_product_format', $postID),
+                'subtitle' => get_field('ehi_product_subtitle', $postID),
+                'page' => get_field('ehi_product_max_pages', $postID),
             );
 
         }
     
-        return $fsBuilder;
+        return $queryArgs;
 
     }
 
@@ -303,18 +338,31 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 
         );
         
-        
+        $is_product_list = $this->props['is_product_list'];
         $posts_per_page = $this->props['posts_number'];
         $categories = $this->props['include_categories'];
         $dateFormat = $this->props['date_format'];
         
         $queryArgs = array(
-            'numberposts' => $posts_per_page,
-            'category'  => $categories
+            'numberposts'   => $posts_per_page,
+            'category'      => $categories,
+            'post_type'     => $this->props['post_type'],
+            'post_status'   => 'publish',
         );
 
         if(!$categories){
             unset($queryArgs['category']);
+        }
+
+        if($is_product_list == 'on' && get_post_type() == 'ehi_product'){
+
+            $currentPageID = get_the_ID();
+
+            $productCategories = implode( ',', wp_get_post_categories($currentPageID, array('fields' => 'ids')) );
+
+            $queryArgs['category'] = $productCategories;
+            $queryArgs['post__not_in'] = array($currentPageID);
+
         }
 
         $postData = get_posts($queryArgs);
@@ -350,16 +398,27 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             echo '<div class="s3dm_post_list_grid uk-grid uk-grid-match uk-child-width-1-1 uk-child-width-1-'.$this->props['columns'].'@m" uk-grid>';
             foreach($postData as $data){
                 $postID = $data->ID;
-              
-                echo $this->view->render('modules/PostList/partials/'.$layout, array(
+
+                $templateData = array(
                     'title' => get_the_title($postID),
                     'image' => get_the_post_thumbnail($postID, 'full'),
                     'tags'  => get_the_tags($postID),
+                    'packshot' => get_field('ehi_product_image', $postID),
                     'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
-                    'date' => get_the_date($dateFormat, $postID),
                     'link' => get_the_permalink($postID),
-                    'settings' => $settings
-                ));
+                    'date' => get_the_date($dateFormat, $postID),
+                    'settings' => $settings,
+                    'price' => get_field('ehi_product_price', $postID),
+                    'memberprice' => get_field('ehi_product_member_price', $postID),
+                    'format' => get_field('ehi_product_format', $postID),
+                    'subtitle' => get_field('ehi_product_subtitle', $postID),
+                    'page' => get_field('ehi_product_max_pages', $postID),
+                    'is_product_list' => $is_product_list
+                );
+                
+
+
+                echo $this->view->render('modules/PostList/partials/'.$layout, $templateData);
             }
             echo '</div>';
 
