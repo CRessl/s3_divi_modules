@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: S3 Divi Modules 1.2.1\n"
+"Project-Id-Version: S3 Divi Modules 1.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-06-09 09:09:35+00:00\n"
+"POT-Creation-Date: 2021-06-11 10:18:17+00:00\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,19 +243,19 @@ msgid "Contact Person / Author"
 msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:32
-#: includes/modules/PostList/PostList.php:104
+#: includes/modules/PostList/PostList.php:118
 #: includes/modules/PostTabSlider/PostTabSlider.php:76
 msgid "Show Featured Image"
 msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:41
-#: includes/modules/PostList/PostList.php:113
+#: includes/modules/PostList/PostList.php:127
 #: includes/modules/PostTabSlider/PostTabSlider.php:85
 msgid "This setting will turn on and off the featured image in the slider."
 msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:50
-#: includes/modules/PostList/PostList.php:153
+#: includes/modules/PostList/PostList.php:167
 #: includes/modules/PostTabSlider/PostTabSlider.php:102
 msgid "Show Post Meta"
 msgstr ""
@@ -263,7 +263,7 @@ msgstr ""
 #: includes/modules/ContactPerson/ContactPerson.php:63
 #: includes/modules/ContactPerson/ContactPerson.php:78
 #: includes/modules/ContactPerson/ContactPerson.php:93
-#: includes/modules/PostList/PostList.php:166
+#: includes/modules/PostList/PostList.php:180
 #: includes/modules/PostTabSlider/PostTabSlider.php:111
 msgid "This setting will turn on and off the meta section."
 msgstr ""
@@ -335,14 +335,14 @@ msgstr ""
 
 #: includes/modules/EventList/EventList.php:69
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:135
-#: includes/modules/PostList/PostList.php:187
+#: includes/modules/PostList/PostList.php:201
 msgid "Date Format"
 msgstr ""
 
 #: includes/modules/EventList/EventList.php:72
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:150
-#: includes/modules/PostList/PostList.php:190
+#: includes/modules/PostList/PostList.php:204
 msgid ""
 "If you would like to adjust the date format, input the appropriate PHP date "
 "format here."
@@ -390,7 +390,7 @@ msgid "Turn on or off the author link."
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:100
-#: includes/modules/PostList/PostList.php:169
+#: includes/modules/PostList/PostList.php:183
 msgid "Show Date"
 msgstr ""
 
@@ -455,8 +455,8 @@ msgid "Layout options"
 msgstr ""
 
 #: includes/modules/FACTFinder/FACTFinder.php:40
-#: includes/modules/PostList/PostList.php:75
-#: includes/modules/PostList/PostList.php:90
+#: includes/modules/PostList/PostList.php:74
+#: includes/modules/PostList/PostList.php:89
 msgid "Layout"
 msgstr ""
 
@@ -465,7 +465,7 @@ msgid "List"
 msgstr ""
 
 #: includes/modules/FACTFinder/FACTFinder.php:44
-#: includes/modules/PostList/PostList.php:80
+#: includes/modules/PostList/PostList.php:79
 msgid "Grid"
 msgstr ""
 
@@ -506,12 +506,10 @@ msgid "Choose which categories you would like to include in the slider."
 msgstr ""
 
 #: includes/modules/Initiativen/Initiativen.php:86
-#: includes/modules/TeamListItem/TeamListItem.php:51
 msgid "Initiative"
 msgstr ""
 
 #: includes/modules/Initiativen/Initiativen.php:89
-#: includes/modules/TeamListItem/TeamListItem.php:54
 msgid "Choose a initiative"
 msgstr ""
 
@@ -524,61 +522,66 @@ msgstr ""
 msgid "Choose how many posts you would like to display in the slider."
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:78
+#: includes/modules/PostList/PostList.php:77
 msgid "Default List"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:79
+#: includes/modules/PostList/PostList.php:78
 msgid "First post left"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:93
+#: includes/modules/PostList/PostList.php:92
 msgid "Two Columns"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:94
+#: includes/modules/PostList/PostList.php:93
 msgid "Three Columns"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:95
+#: includes/modules/PostList/PostList.php:94
 msgid "Four Columns"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:122
-msgid "Image position"
+#: includes/modules/PostList/PostList.php:103
+msgid "Is more products list?"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:126
-msgid "Before Title and Meta"
-msgstr ""
-
-#: includes/modules/PostList/PostList.php:127
-msgid "After Title and Meta"
-msgstr ""
-
-#: includes/modules/PostList/PostList.php:128
-msgid "Between Meta and Excerpt"
-msgstr ""
-
-#: includes/modules/PostList/PostList.php:137
-#: includes/modules/PostTabSlider/PostTabSlider.php:89
-msgid "Show Excerpt"
-msgstr ""
-
-#: includes/modules/PostList/PostList.php:146
+#: includes/modules/PostList/PostList.php:112
+#: includes/modules/PostList/PostList.php:160
 #: includes/modules/PostTabSlider/PostTabSlider.php:98
 msgid "This setting will display the excerpt of the post"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:178
+#: includes/modules/PostList/PostList.php:136
+msgid "Image position"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:140
+msgid "Before Title and Meta"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:141
+msgid "After Title and Meta"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:142
+msgid "Between Meta and Excerpt"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:151
+#: includes/modules/PostTabSlider/PostTabSlider.php:89
+msgid "Show Excerpt"
+msgstr ""
+
+#: includes/modules/PostList/PostList.php:192
 msgid "This setting will turn on and off the date section."
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:201
+#: includes/modules/PostList/PostList.php:215
 msgid "Show Tags"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:210
+#: includes/modules/PostList/PostList.php:224
 msgid "This setting will turn on and off the tag section."
 msgstr ""
 
@@ -662,6 +665,14 @@ msgstr ""
 
 #: includes/modules/TeamListItem/TeamListItem.php:48
 msgid "Title of the Element"
+msgstr ""
+
+#: includes/modules/TeamListItem/TeamListItem.php:51
+msgid "Teammember"
+msgstr ""
+
+#: includes/modules/TeamListItem/TeamListItem.php:54
+msgid "Choose a teammember"
 msgstr ""
 
 #: includes/modules/WorkGroups/WorkGroups.php:25

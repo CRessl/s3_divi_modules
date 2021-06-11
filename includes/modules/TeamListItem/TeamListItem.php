@@ -48,10 +48,10 @@ class S3DM_TeamListItem extends ET_Builder_Module {
 				'description'      => esc_html__( 'Title of the Element', 's3dm-s3-divi-modules' ),
             ),
             'teammember' => array(
-                'label'            => esc_html__( 'Initiative', 's3dm-s3-divi-modules' ),
+                'label'            => esc_html__( 'Teammember', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
-				'description'      => esc_html__( 'Choose a initiative', 's3dm-s3-divi-modules' ),
+				'description'      => esc_html__( 'Choose a teammember', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__teamMemberData',
 				),

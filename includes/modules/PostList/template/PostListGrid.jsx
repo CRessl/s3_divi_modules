@@ -7,7 +7,7 @@ class PostListGrid extends Component {
   renderImageTop(image){
     if(this.props.settings.show_image === 'on' && this.props.settings.is_product_list === 'off'){
       return (
-        <div className="s3dm_post_list_grid_image" dangerouslySetInnerHTML={{__html: image}}></div>
+        <div className="s3dm_post_list_grid_image uk-position-relative" dangerouslySetInnerHTML={{__html: image}}></div>
       )
     }
 
@@ -17,7 +17,7 @@ class PostListGrid extends Component {
     
     if(this.props.settings.show_image === 'on' && this.props.settings.is_product_list === 'on'){
       return (
-        <div className="s3dm_post_list_grid_product_image">
+        <div className="s3dm_post_list_grid_product_image uk-position-relative">
           
           {this.renderBubble(memberprice)}
           <img src={packshot} alt="dummy_text" />
@@ -29,7 +29,7 @@ class PostListGrid extends Component {
 
   renderBubble(memberprice){
 
-    if(memberprice === 0){
+    if(memberprice === 0 || memberprice === '0'){
 
       return (
 
@@ -82,26 +82,33 @@ class PostListGrid extends Component {
   }
 
   renderTitle(title, subtitle){
-
-    let titleMarkup = ''
-    let subtitleMarkup = '';
-
-    if(title){
-      titleMarkup = "<h3>"+title+"</h3>";
-    }
-
-    if(subtitle){
-      subtitleMarkup = "<h4>"+subtitle+"</h4>";
-    }
     
+    if(title && !subtitle){
+      return (
+        <div className="s3dm_post_list_title">
+          <h3>{title}</h3>
+        </div> 
+      );
+    }
 
 
-    return (
-      <div className="s3dm_post_list_title">
-       {titleMarkup}
-       {subtitleMarkup}
-      </div>  
-    );
+    if(!title && subtitle){
+      return (
+        <div className="s3dm_post_list_title">
+          <h4>{subtitle}</h4>
+        </div> 
+      );
+    }
+
+    if(title && subtitle){
+      return (
+        <div className="s3dm_post_list_title">
+          <h3>{title}</h3>
+          <h4>{subtitle}</h4>
+        </div> 
+      );
+    }
+
 
   }
 
@@ -129,16 +136,86 @@ class PostListGrid extends Component {
     
   }
 
-  renderExcerpt(excerpt){
+  renderExcerpt(excerpt, link){
     if(this.props.settings.show_excerpt === 'on'){
       return(
-        <div className="s3dm_post_list_excerpt">
+        <div className="s3dm_post_list_excerpt uk-margin-medium-bottom">
               <p>
                   {excerpt}
               </p>
+              <p className="uk-margin-remove"><a className="uk-text-uppercase" href={link}>Mehr...</a></p>
         </div>
       )
     }
+  }
+  
+  renderPrice(price){
+
+    if(this.props.settings.is_product_list === 'on' && price){
+      return (
+
+      <div className="s3dm_post_list_product_price_container">
+          <p><span className="price">{price} €</span> zzgl. MwSt. </p>
+      </div>
+
+      );
+    }
+
+
+  }
+
+  renderMemberPrice(memberprice){
+
+    if(this.props.settings.is_product_list === 'on' && memberprice){
+      return (
+
+      <div className="s3dm_post_list_product_memberprice_container">
+          <p>Preis für Mitglieder: {memberprice} € zzgl. MwSt.</p>
+      </div>
+
+      );
+    }
+
+
+  }
+
+  renderPageFormat(format, page){
+
+    if(this.props.settings.is_product_list === 'on'){
+
+      if(format && !page){
+        
+        return(
+          <div className="s3dm_post_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{page} Seiten</b></p>
+          </div>
+        )
+
+      }
+
+      if(!format && page){
+        return(
+          <div className="s3dm_post_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{page} Seiten</b></p>
+          </div>
+        )
+        
+
+      }
+
+      if(format && page){
+
+        return(
+          <div className="s3dm_post_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{format}, {page} Seiten</b></p>
+          </div>
+        )
+
+      }
+
+    }
+
+
   }
 
   render() {
@@ -146,7 +223,7 @@ class PostListGrid extends Component {
 
     let postListItems;
     let containerClass = "s3dm_post_list_grid_container";
-
+   
     if(this.props.settings.is_product_list === 'on'){
       containerClass = "s3dm_post_list_grid_container s3dm_post_list_product_container";
     }
@@ -165,7 +242,10 @@ class PostListGrid extends Component {
               {this.renderDate(date)}
               {this.renderTitle(title, subtitle)}
               {this.renderTags(tags)}
-              {this.renderExcerpt(excerpt)}
+              {this.renderPageFormat(format, page)}
+              {this.renderExcerpt(excerpt, link)}
+              {this.renderPrice(price)}
+              {this.renderMemberPrice(memberprice)}              
 
             </div>
           </div>

@@ -9,6 +9,7 @@ import S3DM_Cluster from './Cluster/Cluster';
 import S3DM_ClusterItem from './ClusterItem/ClusterItem';
 import S3DM_TeamList from './TeamList/TeamList';
 import S3DM_TeamListItem from './TeamListItem/TeamListItem';
+import S3DM_Products from './Products/Products';
 
 export default [
     S3DM_ExtendedPostSlider,
@@ -21,6 +22,7 @@ export default [
     S3DM_Cluster,
     S3DM_ClusterItem,
     S3DM_TeamList,
-    S3DM_TeamListItem
+    S3DM_TeamListItem,
+    S3DM_Products
 ];
  

@@ -30,6 +30,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
             'query_type' => array(
 				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
+				'toggle_slug'      => 'main_content',
                 'options'          => array(
                     'category'     => esc_html__('Category', 's3dm-s3-divi-modules'),
                     'select'       => esc_html__('Single select', 's3dm-s3-divi-modules'),   
@@ -65,7 +66,8 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
                 'show_if'          => array(
                     'query_type'   => 'category'
 				),
-				'default_on_front'          => 3,
+				'default_on_front' => 3,
+				'toggle_slug'      => 'main_content',
 			),
 			'columns'  => array(
 				'label'            => esc_html__( 'Spalten', 's3dm-s3-divi-modules' ),
@@ -80,13 +82,15 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
                 'show_if'          => array(
                     'query_type'   => 'category'
 				),
-				'default_on_front'          => 3,
+				'default_on_front' => 3,
+				'toggle_slug'      => 'main_content',
 			),
             'linktext'  => array(
 				'label'            => esc_html__( 'Linktext', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
+				'toggle_slug'      => 'main_content',
 			),
             'product' => array(
 				'label'            => esc_html__( 'Product', 's3dm-s3-divi-modules' ),
@@ -100,128 +104,250 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
                 'show_if'          => array(
                     'query_type'   => 'select'
                 ),
+				'toggle_slug'      => 'main_content',
+			),
+			'show_image' => array(
+				'label'            => esc_html__( 'Show Product Image', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'affects' => array(
+					'show_bubble'
+				),
+                'toggle_slug'      => 'elements',
+				'default_on_front' => 'off',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+			),
+			'show_bubble' => array(
+				'label'            => esc_html__( 'Show price bubble', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'show_if' => array(
+					'show_image'	=> 'on',
+				),
+                'toggle_slug'      => 'elements',
+				'default_on_front' => 'off',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+			),
+            'show_excerpt' => array(
+				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
+			),
+			'show_price' => array(
+				'label'            => esc_html__( 'Show price', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the price of the post', 's3dm-s3-divi-modules' ),
+			),
+            'show_meta' => array(
+				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+                'affects'          => array(
+                    'show_date',
+                    'show_tags',
+                ),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 's3dm-s3-divi-modules' ),
+			),
+            'show_date' => array(
+				'label'            => esc_html__( 'Show Date', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the date section.', 's3dm-s3-divi-modules' ),
+                'show_if'          => array(
+                    'show_meta' => 'on'
+                ),
+                'affects'          => array(
+                    'date_format'
+                )
+			),
+            'date_format' => array(
+				'label'            => esc_html__( 'Date Format', 's3dm-s3-divi-modules' ),
+				'type'             => 'text',
+				'option_category'  => 'configuration',
+				'description'      => esc_html__( 'If you would like to adjust the date format, input the appropriate PHP date format here.', 's3dm-s3-divi-modules' ),
+				'default'          => 'M j, Y',
+                'show_if'          => array(
+                    'show_date' => 'on',
+                ),
+                'computed_affects' => array(
+                    '__productsData'
+                ),
+                'toggle_slug'      => 'elements',
+			),
+            'show_tags' => array(
+				'label'            => esc_html__( 'Show Tags', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the tag section.', 's3dm-s3-divi-modules' ),
+                'show_if'          => array(
+                    'show_meta' => 'on'
+                ),
 			),
             '__productsData'                 => array(
 				'type'                => 'computed',
 				'computed_callback'   => array( 'S3DM_Products', '__get_products' ),
 				'computed_depends_on' => array(
 					'posts_number',
-                    'initiatives',
+                    'product',
 					'query_type',
-                    'include_categories'
+                    'include_categories',
+					'date_format'
 				),
 			),
 		);
 	}
     static function __get_products( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 
-		
-		$query_type = $args['query_type'];
-			
-		$initiativesData = [];
+		$defaults = array(
+
+		);
 
 
-		if($query_type === 'select'){
-
-			$initiativesID = getIdFromDynamicLinkfield($args['initiatives']);
-			$initiatives = get_post($initiativesID);
-
-			$initiativesData = array(
-				'title' 	=> esc_html($initiatives->post_title),
-				'image' 	=> get_the_post_thumbnail_url($initiatives->ID, 'medium_large'),
-				'content' 	=> esc_html($initiatives->post_content)
-			);
-
-			
-
-
-		}else{
-
-			
-			$query_args = array(
-				'numberposts'   => $args['posts_number'],
-				'category'      => $args['include_categories'],
-				'post_type'		=> 'initiatives',
-				'post_status'   => 'publish'
-			);
-
-			$initiatives = get_posts($query_args);
-
-
-			foreach($initiatives as $initiative){
-
-				$initiativesData[] = array(
-					'title' => esc_html($initiative->post_title),
-					'image' => get_the_post_thumbnail_url($initiative->ID, 'medium_large')
-				);
-
-
-			}
-			
-			
-
-		}
 
 		
-		return $initiativesData;
+		
+		return $productData;
 		
     }
 
 	public function render( $attrs, $content = null, $render_slug ) {		
 
-        $query_type = $this->props['query_type'];
-        $post_number = $this->props['posts_number'];
-        $product = $this->props['product'];
-        $categories = $this->props['include_categories'];
-		$columns = $this->props['columns'];
-        $linktext = $this->props['linktext'];
+		$query_type					= $this->props['query_type'];
+		$include_categories 		= $this->props['include_categories'];
+		$posts_number 				= $this->props['posts_number'];
+		$columns					= $this->props['columns'];
+		$date_format				= $this->props['date_format'];
 
-        if($query_type === 'category'){
+		//settings for all elements
+		$linktext 					= $this->props['linktext'];
+		$show_meta 					= $this->props['show_meta'];
+		$show_image 				= $this->props['show_image'];
+		$show_date 					= $this->props['show_date'];
+		$show_tags 					= $this->props['show_tags'];
+		$show_excerpt				= $this->props['show_excerpt'];
+		$show_price					= $this->props['show_price'];
+		$show_bubble				= $this->props['show_bubble'];
 
-            $query_args = array( 
-                'numberposts'   => $post_number,
-                'category'      => $categories,
-                'post_type'     => 'ehi_product',
-                'post_status'   => 'publish'
+
+		$settings = array(
+
+			'linktext' 		=> $linktext,
+			'show_meta' 	=> $show_meta,
+			'show_date' 	=> $show_date,
+			'show_image' 	=> $show_image,
+			'show_tags' 	=> $show_tags,
+			'show_excerpt' 	=> $show_excerpt,
+			'show_price'	=> $show_price,
+			'show_bubble'	=> $show_bubble,
+
+
+		);
+
+
+		if($query_type === 'category'){
+
+			$output = '<div class="uk-child-width-1-1 uk-child-width-1-'.$columns.'" uk-grid>';
+
+
+			$queryArgs = array(
+				'post_type' 	=> 'ehi_product',
+				'numberposts' 	=> $posts_number,
+				'post_status' 	=> 'publish',
+				'category' 		=> $include_categories
 			);
 
+			$products = get_posts($queryArgs);
 
-            $products = get_posts($query_args);
-            
-            $output = $this->view->render('modules/Products/multiple', array(
-                'products' => $products,
-				'columns' => $columns,
-                'linktext' => $linktext,
-            ));
+			foreach($products as $product){
+
+				$productData = array();
+				$productID = $product->ID;
+
+				$title = get_the_title($productID);
+				$subtitle = get_field('ehi_product_subtitle', $productID);
+				$permalink = get_the_permalink($productID);
+				$tags = get_the_tags($productID);
+				$date = get_the_date($date_format, $productID);
+				
+				//gets image html from image field
+				$packshot = wp_get_attachment_image(get_field('ehi_product_image', $productID), 'full', false, array('class' => 's3dm_post_list_product_image'));
+				$price = get_field('ehi_product_price', $productID);
+				$member_price = get_field('ehi_product_member_price', $productID);
+				$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+				$max_pages = get_field('ehi_product_max_pages', $productID);
+				$format = get_field('ehi_product_format', $productID);
+
+				$templateData = array(
+					
+					'packshot' 		=> $packshot,
+					'date'			=> $date,
+					'title' 		=> $title,
+					'subtitle' 		=> $subtitle,
+					'tags' 			=> $tags,
+					'format'		=> $format,
+					'max_pages'		=> $max_pages,
+					'excerpt'		=> $excerpt,
+					'price'			=> $price,
+					'member_price'	=> $member_price,
+					'permalink' 	=> $permalink,
+					'settings'		=> $settings,
+
+				);
+
+				$output .= $this->view->render('modules/Products/multiple', $templateData); 
 
 
-            if($post_number == '1'):
+			}
 
-                $output = $this->view->render('modules/Products/single', array(
-                    'products' => $products,
-                    'linktext' => $linktext,
-                ));
+			$output .= '</div>';
 
-            endif;
-		
+		}
 
-        }
+		if($query_type === 'select'){
 
-		if($query_type === 'select'):
+			$product = get_post(url_to_post_id($this->props['product']));
 
-			$canGetPostID = url_to_postid($initiatives);
-
-			$output = "Couldn't fetch ID";
-
-			if($canGetPostID):
-				$product = get_post($canGetPostID);
-				$output = $this->view->render('modules/Products/single', array(
-					'product' => $product,
-                    'linktext' => $linktext,
-				));
-			endif;
-
-		endif;
+		}
 
 		return $output;
 		

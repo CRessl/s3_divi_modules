@@ -85,7 +85,8 @@ endif;
         <?php endif; ?>
 
         <div class="uk-card-body uk-position-relative">  
-            <a href="<?= $link; ?>" class="uk-position-cover"></a>
+            <a href="<?= $permalink; ?>" class="uk-position-cover"></a>
+            
             <?php if($settings['show_date'] == 'on' && $is_product_list == 'off'):?>
                 <div class="s3dm_post_list_date">
                     <span>
@@ -109,7 +110,7 @@ endif;
             </div>
             
            
-            <?php if($settings['show_tags'] == 'on' && $tags): ?>
+            <?php if($settings['show_tags'] == 'on' && $tags && $is_product_list == 'off'): ?>
                 <?php foreach($tags as $tag): ?>
                     <span class="tags"><?= $tag->name ?></span>
                 <?php endforeach; ?>

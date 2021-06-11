@@ -110,7 +110,6 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
-				'mobile_options'   => true,
                 'show_if_not'      => array(
                     'post_list_layout' => 'first_post_left',
                 )
@@ -246,7 +245,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
     static function get_post_data( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
     
         $defaults = array(
-            'post_type'             => 'post',
+            'post_type'             => '',
             'posts_number'          => '',
             'include_categories'    => '',
             'date_format'             => 'd.m.Y'
@@ -265,20 +264,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             'post_status'   => 'publish',
         );
 
-        if(!$args['include_categories']){
-            unset($queryArgs['category']);
-        }
-
-        if($is_product_list == 'on' && get_post_type() == 'ehi_product'){
-
-            $currentPageID = get_the_ID();
-
-            $productCategories = implode( ',', wp_get_post_categories($currentPageID, array('fields' => 'ids')) );
-
-            $queryArgs['category'] = $productCategories;
-            $queryArgs['post__not_in'] = array($currentPageID);
-
-        }
+        $dateFormat = $args['date_format'];
 
         $posts = get_posts($queryArgs);
         
@@ -289,14 +275,17 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             $postID = $data->ID;
 
             $tags = get_the_tags($postID);
-
+            
             $tagData = [];
+            
+            if($tags){
+                foreach($tags as $tag){
     
-            foreach($tags as $tag){
-    
-                $tagData[] = '<span className="tags">'.$tag->name.'</span>';
-    
+                    $tagData[] = '<span className="tags">'.$tag->name.'</span>';
+        
+                }
             }
+           
     
             $tagRender = implode(' ', $tagData);
 
@@ -305,7 +294,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 'title' => get_the_title($postID),
                 'image' => get_the_post_thumbnail($postID, 'full'),
                 'tags'  => $tagRender,
-                'packshot' => wp_get_attachment_image_src(get_field('ehi_product_image', $postID), 'full', false),
+                'packshot' => wp_get_attachment_image_url(get_field('ehi_product_image', $postID), 'full', false),
                 'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
                 'link' => get_the_permalink($postID),
                 'date' => get_the_date($dateFormat, $postID),
@@ -318,7 +307,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 
         }
     
-        return $queryArgs;
+        return $fsBuilder;
 
     }
 

@@ -127,10 +127,7 @@ class S3DM_PostList extends Component {
 
   render() {
     const posts = this.props.__postData;
-    const layout = this.props.post_list_layout
-    
-    console.log('Post List Data:');
-    console.log(this.props.post_type);
+    const layout = this.props.post_list_layout;
 
     return (
       <div>
