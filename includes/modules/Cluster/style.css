@@ -1,0 +1,41 @@
+.bubble-vision.active svg .bubble-circle{
+
+    fill: rgba(0, 178, 178, 1);
+    stroke:rgba(0,0,0,0);
+    transition: all 0.3 ease-in-out;
+
+}
+
+.bubble-vision line, .bubble-vision .bubble-circle{
+    fill:rgba(0,0,0,0);
+    stroke:#707070;
+    stroke-miterlimit:10;
+    transition: all 0.3 ease-in-out;
+}
+
+.bubble-vision:hover .bubble-circle{
+    fill: rgba(0, 178, 178, 1);
+    stroke:rgba(0,0,0,0);
+    transition: all 0.3 ease-in-out;
+}
+
+.grid-vision.active svg .kachel{
+
+    fill: rgba(0, 178, 178, 1);
+    stroke:rgba(0,0,0,0);
+    transition: all 0.3 ease-in-out;
+
+}
+
+.grid-vision .kachel{
+    fill:rgba(0,0,0,0);
+    stroke:#707070;
+    stroke-miterlimit:10;
+    transition: all 0.3 ease-in-out;
+}
+
+.grid-vision:hover .kachel{
+    fill: rgba(0, 178, 178, 1);
+    stroke:rgba(0,0,0,0);
+    transition: all 0.3 ease-in-out;
+}

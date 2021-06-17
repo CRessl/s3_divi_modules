@@ -1,4 +1,4 @@
-<div class="s3dm_bubble_switcher uk-position-top-right uk-margin-medium uk-grid-small uk-width-small uk-child-width-1-2 uk-visible@m" style="z-index:100;" uk-grid>
+<div class="s3dm_bubble_switcher uk-visible@m uk-position-top-right uk-margin-medium uk-grid-small uk-width-small uk-child-width-1-2 uk-visible@m" style="z-index:100;" uk-grid>
     <div class="bubble-vision active">
         <svg data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
             <line class="connection-line" x1="26.54" y1="15.32" x2="23.6" y2="17"/>
@@ -18,14 +18,20 @@
         </svg>
     </div>
 </div>
-<div class="s3dm_cluster_container content-wrapper uk-margin-remove-top" style="min-height: <?= $this->e($min_height); ?>;">
+<div class="s3dm_cluster_container uk-visible@m content-wrapper uk-margin-remove-top" style="min-height: <?= $this->e($min_height); ?>;">
     
     <?= $content ?>
 
 </div>
-<svg class="s3dm_cluster_lines_hide_mobile" height="<?= $this->e($min_height); ?>" width="100%" id="paths" style="position: absolute; z-index: -1; top:0;">
+<svg class="s3dm_cluster_lines uk-visible@m" height="<?= $this->e($min_height); ?>" width="100%" id="paths" style="position: absolute; z-index: -1; top:0;">
 
 </svg>
+
+<div class="s3dm_cluster_container_grid uk-child-width-1-4 content-wrapper uk-margin-remove-top uk-padding-large uk-padding-remove-horizontal uk-hidden" uk-grid>
+    
+    <?= $content ?>
+
+</div>
 
 
 
@@ -92,7 +98,7 @@ jQuery(document).ready(function() {
                 var fromElement = jQuery(el);
 
                 //item to connect to
-                var toElement = jQuery('[connect_to="'+item+'"]').parents('.s3dm_cluster_item');
+                var toElement = jQuery('.s3dm_cluster_container [connect_to="'+item+'"]').parents('.s3dm_cluster_item');
 
 
                 var currentItemWidth = fromElement.get(0).getBoundingClientRect().width;
@@ -146,12 +152,11 @@ jQuery(document).ready(function() {
         //What this does: Returns the function as soon as current Selection is already active
         jQuery(this).toggleClass('active');
         jQuery('.grid-vision').toggleClass('active');
-        jQuery('.s3dm_cluster_lines_hide_mobile').toggleClass('uk-hidden');
-
+        jQuery('.s3dm_cluster_lines').toggleClass('uk-hidden');
+        jQuery('.s3dm_cluster_container_grid').toggleClass('uk-hidden');
+        jQuery('.s3dm_cluster_container').toggleClass('uk-hidden');
         animationTimeline.resume();
-        linkListContainer.removeClass('s3dm_cluster_container_grid uk-grid uk-grid-match uk-child-width-1-4 uk-padding-large uk-padding-remove-horizontal').addClass('s3dm_cluster_container'); 
-        linkListContainer.removeAttr('uk-grid');
-        linkListContainer.removeAttr('uk-height-match');
+        
 
     });
 
@@ -165,12 +170,12 @@ jQuery(document).ready(function() {
 
         jQuery(this).toggleClass('active');
         jQuery('.bubble-vision').toggleClass('active');
+        jQuery('.s3dm_cluster_lines').toggleClass('uk-hidden');
+        jQuery('.s3dm_cluster_container').toggleClass('uk-hidden');
+        jQuery('.s3dm_cluster_container_grid').toggleClass('uk-hidden');
 
         animationTimeline.pause();
-        linkListContainer.addClass('s3dm_cluster_container_grid uk-grid-match uk-child-width-1-4 uk-padding-large uk-padding-remove-horizontal').removeClass('s3dm_cluster_container');
-        linkListContainer.attr('uk-grid', true);
-        linkListContainer.attr('uk-height-match', 'target: .s3dm_cluster_item_content')
-
+        
         
         
         jQuery('.s3dm_cluster_lines_hide_mobile').toggleClass('uk-hidden');
@@ -178,7 +183,7 @@ jQuery(document).ready(function() {
     });
 
     if(windowWidth < 980){
-        linkListContainer.addClass('s3dm_cluster_container_grid uk-child-width-1-4 uk-padding-large uk-padding-remove-horizontal').removeClass('s3dm_cluster_container'); 
+        
     }else{
         animationTimeline.play();
     }
@@ -195,20 +200,30 @@ jQuery(window).resize(function(){
 
     var windowWidth = jQuery(window).width();
     var linkListContainer = jQuery('.content-wrapper');
-    
-    /*if(windowWidth > 980){
-    
-        linkListContainer.removeClass('s3dm_cluster_container_grid uk-grid uk-child-width-1-4 uk-padding-large uk-padding-remove-horizontal').addClass('s3dm_cluster_container');
-        if(animationTimeline.paused()){
+    var switcherGrid = jQuery('.grid-vision');
+    var switcherBubble = jQuery('.bubble-vision');
+
+
+    //start and stop animation based on screen width
+    if(windowWidth > 980){
+        
+        if(animationTimeline.paused() && switcherBubble.hasClass('active')){
             animationTimeline.restart(0);
         }
-       
-
+        
     }else{
-    
-        linkListContainer.addClass('s3dm_cluster_container_grid uk-grid uk-child-width-1-4 uk-padding-large uk-padding-remove-horizontal').removeClass('s3dm_cluster_container');
+
+        jQuery('.s3dm_cluster_container_grid').removeClass('uk-hidden');
         animationTimeline.pause();
-    }*/
+        
+        jQuery('.grid-vision').addClass('active');
+        jQuery('.bubble-vision').removeClass('active');
+
+        jQuery('.s3dm_cluster_container').addClass('uk-hidden');
+        jQuery('.s3dm_cluster_lines').addClass('uk-hidden');
+        jQuery('s3dm_cluster_container_grid').removeClass('uk-hidden');
+
+    }
 
 });
 
@@ -227,7 +242,7 @@ function connect_items(items){
 
         connections.forEach(function(connectionClass,index){
 
-            var connectionElement = jQuery('[connect_to="'+connectionClass+'"]').parents('.s3dm_cluster_item');
+            var connectionElement = jQuery('.s3dm_cluster_container [connect_to="'+connectionClass+'"]').parents('.s3dm_cluster_item');
 
             if(connectionElement.length > 0){
 

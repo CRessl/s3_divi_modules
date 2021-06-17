@@ -169,7 +169,7 @@ class S3DM_ClusterItem extends ET_Builder_Module {
         
         //renders inline style as css
         ET_Builder_Element::set_style( $render_slug, array(
-            'selector'    => '%%order_class%%',
+            'selector'    => '.s3dm_cluster_container %%order_class%%',
             'declaration' => sprintf(
                 'top: %1$s; left: %2$s; transform: scale(%3$s);',
                 esc_html( $this->props['position_top'] ),
