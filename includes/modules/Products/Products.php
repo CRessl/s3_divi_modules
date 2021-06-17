@@ -148,6 +148,18 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
 			),
+			'show_link' => array(
+				'label'            => esc_html__( 'Show Link', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'on',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the link of the post', 's3dm-s3-divi-modules' ),
+			),
 			'show_price' => array(
 				'label'            => esc_html__( 'Show price', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -160,7 +172,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will display the price of the post', 's3dm-s3-divi-modules' ),
 			),
-            'show_meta' => array(
+			'show_meta' => array(
 				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
@@ -171,10 +183,26 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
                 'affects'          => array(
                     'show_date',
                     'show_tags',
+					'show_page_format',
                 ),
 				'default_on_front' => 'on',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 's3dm-s3-divi-modules' ),
+			),
+			'show_page_format' => array(
+				'label'            => esc_html__( 'Show max pages and format', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'show_if'	=> array(
+					'show_meta' => 'on'
+				),
+				'default_on_front' => 'off',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the max pages and format of the post', 's3dm-s3-divi-modules' ),
 			),
             'show_date' => array(
 				'label'            => esc_html__( 'Show Date', 's3dm-s3-divi-modules' ),
@@ -184,7 +212,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 					'on'  => et_builder_i18n( 'Yes' ),
 					'off' => et_builder_i18n( 'No' ),
 				),
-				'default_on_front' => 'on',
+				'default_on_front' => 'off',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the date section.', 's3dm-s3-divi-modules' ),
                 'show_if'          => array(
@@ -216,14 +244,14 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 					'on'  => et_builder_i18n( 'Yes' ),
 					'off' => et_builder_i18n( 'No' ),
 				),
-				'default_on_front' => 'on',
+				'default_on_front' => 'off',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the tag section.', 's3dm-s3-divi-modules' ),
                 'show_if'          => array(
                     'show_meta' => 'on'
                 ),
 			),
-            '__productsData'                 => array(
+            '__productsData' => array(
 				'type'                => 'computed',
 				'computed_callback'   => array( 'S3DM_Products', '__get_products' ),
 				'computed_depends_on' => array(
@@ -239,9 +267,109 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
     static function __get_products( $args = array(), $conditional_tags = array(), $current_page = array(), $is_ajax_request = true ) {
 
 		$defaults = array(
+			'posts_number' 			=> '',
+			'product'				=> '',
+			'query_type' 			=> '',
+			'include_categories'    => '',
+			'date_format' 			=> '',
+		);
+
+		$args = wp_parse_args( $args, $defaults);
+
+		$date_format = $args['date_format'];
+
+		$queryArgs = array(
+
+			'category' 	=> $args['include_categories'],
+			'post_type'		=> 'ehi_product',
+			'numberposts'	=> $args['posts_number'],
+			'post_status'	=> 'publish'
 
 		);
 
+		if(!$args['include_categories']){
+			unset($queryArgs['category']);
+		}
+
+		if($args['query_type'] === 'category'){
+
+			$products = get_posts($queryArgs);
+
+			foreach($products as $product){
+
+				$productID = $product->ID;
+
+				$title = get_the_title($productID);
+				$subtitle = get_field('ehi_product_subtitle', $productID);
+				$permalink = get_the_permalink($productID);
+				$tags = get_the_tags($productID);
+				$date = get_the_date($date_format, $productID);
+
+				$packshot = wp_get_attachment_image_url(get_field('ehi_product_image', $productID), 'full', false);
+				$price = get_field('ehi_product_price', $productID);
+				$member_price = get_field('ehi_product_member_price', $productID);
+				$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+				$max_pages = get_field('ehi_product_max_pages', $productID);
+				$format = get_field('ehi_product_format', $productID);
+
+
+				$productData[] = array(
+					
+					'packshot' 		=> $packshot,
+					'date'			=> $date,
+					'title' 		=> $title,
+					'subtitle' 		=> $subtitle,
+					'tags' 			=> $tags,
+					'format'		=> $format,
+					'max_pages'		=> $max_pages,
+					'excerpt'		=> $excerpt,
+					'price'			=> $price,
+					'member_price'	=> $member_price,
+					'permalink' 	=> $permalink,
+
+				);
+
+			}
+
+		}
+
+		if($args['query_type'] === 'select'){
+
+			$productID = getIdFromDynamicLinkfield($args['product']);
+			$product = get_post($productID);
+
+			$title = get_the_title($productID);
+			$subtitle = get_field('ehi_product_subtitle', $productID);
+			$permalink = get_the_permalink($productID);
+			$tags = get_the_tags($productID);
+			$date = get_the_date($date_format, $productID);
+
+			$packshot = wp_get_attachment_image_url(get_field('ehi_product_image', $productID), 'full', false);
+			$price = get_field('ehi_product_price', $productID);
+			$member_price = get_field('ehi_product_member_price', $productID);
+			$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+			$max_pages = get_field('ehi_product_max_pages', $productID);
+			$format = get_field('ehi_product_format', $productID);
+
+			$productData[0] = array(
+					
+				'packshot' 		=> $packshot,
+				'date'			=> $date,
+				'title' 		=> $title,
+				'subtitle' 		=> $subtitle,
+				'tags' 			=> $tags,
+				'format'		=> $format,
+				'max_pages'		=> $max_pages,
+				'excerpt'		=> $excerpt,
+				'price'			=> $price,
+				'member_price'	=> $member_price,
+				'permalink' 	=> $permalink,
+
+			); 
+
+
+
+		}
 
 
 		
@@ -266,19 +394,22 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 		$show_tags 					= $this->props['show_tags'];
 		$show_excerpt				= $this->props['show_excerpt'];
 		$show_price					= $this->props['show_price'];
-		$show_bubble				= $this->props['show_bubble'];
+		$show_link					= $this->props['show_link'];
+		$show_page_format			= $this->props['show_page_format'];
 
 
 		$settings = array(
 
-			'linktext' 		=> $linktext,
-			'show_meta' 	=> $show_meta,
-			'show_date' 	=> $show_date,
-			'show_image' 	=> $show_image,
-			'show_tags' 	=> $show_tags,
-			'show_excerpt' 	=> $show_excerpt,
-			'show_price'	=> $show_price,
-			'show_bubble'	=> $show_bubble,
+			'linktext' 			=> $linktext,
+			'show_meta' 		=> $show_meta,
+			'show_date' 		=> $show_date,
+			'show_image' 		=> $show_image,
+			'show_tags' 		=> $show_tags,
+			'show_excerpt' 		=> $show_excerpt,
+			'show_price'		=> $show_price,
+			'show_bubble'		=> $show_bubble,
+			'show_link'			=> $show_link,
+			'show_page_format'	=> $show_page_format,
 
 
 		);
