@@ -3,7 +3,7 @@
 Plugin Name: S3 Divi Modules
 Plugin URI:  
 Description: Some Custom Modules based on uikit
-Version:     1.2.3
+Version:     1.2.4
 Author:      S3 Advertising
 Author URI:  https://s3-advertising.com
 License:     GPL2

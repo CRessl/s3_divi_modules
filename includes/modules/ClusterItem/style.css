@@ -53,3 +53,7 @@
 .s3dm_cluster_container_grid .s3dm_cluster_item_content{
   padding: 30px;
 }
+
+.s3dm_cluster_container_grid .s3dm_cluster_item{
+  transform: scale(1) !important;
+}

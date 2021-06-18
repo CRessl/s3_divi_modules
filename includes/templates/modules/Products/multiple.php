@@ -86,21 +86,23 @@
                     </h4>
                 <?php endif;?>
             </div>
+            
+            <?php if($settings['show_page_format'] === 'on'): ?>
+                <div class="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
+                    <?php if($format && $max_pages): ?>
+                        <p><b><?= $this->e($format); ?>, <?= $this->e($max_pages); ?> Seiten</b></p>
+                    <?php endif; ?>
 
-            <div class="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
-                <?php if($format && $max_pages): ?>
-                    <p><b><?= $this->e($format); ?>, <?= $this->e($max_pages); ?> Seiten</b></p>
-                <?php endif; ?>
+                    <?php if($format && !$max_pages): ?>
+                        <p><b><?= $this->e($format); ?></b></p>
+                    <?php endif; ?>
 
-                <?php if($format && !$max_pages): ?>
-                    <p><b><?= $this->e($format); ?></b></p>
-                <?php endif; ?>
-
-                <?php if(!$format && $max_pages): ?>
-                    <p><b><?= $this->e($max_pages); ?> Seiten</b></p>
-                <?php endif; ?>
-            </div>
-
+                    <?php if(!$format && $max_pages): ?>
+                        <p><b><?= $this->e($max_pages); ?> Seiten</b></p>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+            
             <?php if($settings['show_excerpt'] == 'on'): ?>
                 <div class="s3dm_product_list_excerpt uk-margin-medium-bottom">
                     <p class="uk-padding-remove"><?= $excerpt; ?></p>

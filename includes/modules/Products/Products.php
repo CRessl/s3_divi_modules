@@ -348,6 +348,12 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 			$price = get_field('ehi_product_price', $productID);
 			$member_price = get_field('ehi_product_member_price', $productID);
 			$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+
+			if(!$excerpt){
+				$truncate = truncate_post( 270, false, $product, true );
+				$excerpt = $truncate;
+			}
+
 			$max_pages = get_field('ehi_product_max_pages', $productID);
 			$format = get_field('ehi_product_format', $productID);
 
@@ -390,6 +396,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 		$linktext 					= $this->props['linktext'];
 		$show_meta 					= $this->props['show_meta'];
 		$show_image 				= $this->props['show_image'];
+		$show_bubble				= $this->props['show_bubble'];
 		$show_date 					= $this->props['show_date'];
 		$show_tags 					= $this->props['show_tags'];
 		$show_excerpt				= $this->props['show_excerpt'];
@@ -445,6 +452,14 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 				$price = get_field('ehi_product_price', $productID);
 				$member_price = get_field('ehi_product_member_price', $productID);
 				$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+
+				if(!$excerpt){
+					$truncate = truncate_post( 270, false, $product, true );
+					$excerpt = $truncate;
+				}
+
+
+
 				$max_pages = get_field('ehi_product_max_pages', $productID);
 				$format = get_field('ehi_product_format', $productID);
 
