@@ -21,7 +21,7 @@
     <?php endif;?>
   
 
-    <div class="s3dm_post_list_title">
+    <div class="s3dm_post_list_title <?= $this->e($title_size); ?>">
         <h3>
             <?= $this->e($title); ?>
         </h3>

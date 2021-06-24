@@ -1,17 +1,18 @@
 .s3dm_teamlist_item_content_wrapper p, .s3dm_teamlist_item_content_wrapper a, .s3dm_teamlist_item_content_wrapper h4{
-    color: #fff;
+    color: #fff !important;
 }
 
-.s3dm_teamlist_item_content_wrapper h4{
-    font-size: 18px;
+.s3dm_teamlist_item_content_wrapper .s3dm_teamlist_name{
     padding-bottom: 0!important;
+    color: #fff !important;
+    font-family: 'Questa Sans W05 Regular', serif;
 }
 
 .s3dm_teamlist_item_content_wrapper a{
     display: inline-block;
     padding-top: 7px;
     font-family: "SignikaNegative-SemiBold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 120%;
     letter-spacing: 0.25px;
     text-transform: uppercase;

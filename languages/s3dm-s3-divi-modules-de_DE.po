@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: S3 Divi Modules 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-06-17 14:33:46+00:00\n"
+"POT-Creation-Date: 2021-06-23 12:22:24+00:00\n"
 "PO-Revision-Date: 2021-06-07 14:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,543 +22,799 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#~ msgid "Default"
-#~ msgstr "Standard"
-
-#~ msgid "FACT-Finder"
-#~ msgstr "FACT-Finder"
-
-#~ msgid "Activate FACT-Finder"
-#~ msgstr "FACT-Finder aktivieren"
-
-#~ msgid "If deactivated the settings in the FACT-Finder Tab are ignored"
-#~ msgstr ""
-#~ "Wenn deaktiviert, werden die Einstellungen im FACT-Finder Tab ignoriert"
-
-#~ msgid "FACT-Finder Search result Page"
-#~ msgstr "FACT-Finder Suchergebnisseite"
-
-#~ msgid "Set the default search result page"
-#~ msgstr "Wähle die Suchergebnisseite"
-
-#~ msgid "FACT-Finder URL"
-#~ msgstr "FACT-Finder URL"
-
-#~ msgid "Set the FACT-Finder URL for the communication markup"
-#~ msgstr ""
-#~ "Füge die FACT-Finder Adresse ein. Andernfalls wird die Kommunikation mit "
-#~ "dem FACT-Finder Dienst nicht funktioneren"
-
-#~ msgid "FACT-Finder Version"
-#~ msgstr "FACT-Finder Version"
-
-#~ msgid "Set the FACT-Finder Version for the communication markup"
-#~ msgstr "Wähle die FACT-Finder Version"
-
-#~ msgid "FACT-Finder API Version"
-#~ msgstr "FACT-Finder API Version"
-
-#~ msgid ""
-#~ "Set the FACT-Finder API Version for the communication markup. Only "
-#~ "necessary if you are using FactFinder NG"
-#~ msgstr ""
-#~ "Wähle die FACT-Finder API Version. Dies ist lediglich notwendig sofern du "
-#~ "FACT-Finder NG nutzt"
-
-#~ msgid "FACT-Finder Channel"
-#~ msgstr "FACT-Finder Channel"
-
-#~ msgid "Set the FACT-Finder Channel for the communication markup"
-#~ msgstr "FÜge den korrekten FACT-Finder Channel ein"
-
-#~ msgid "Use URL Parameter"
-#~ msgstr "Aktiviere URL Parameter"
-
-#~ msgid ""
-#~ "If set to false, FACT-Finder parameters are not pushed to the URL unless "
-#~ "explicitly whitelisted. Note that this attribute has no effect when only-"
-#~ "search-params is set."
-#~ msgstr ""
-#~ "Wenn es auf false gesetzt ist, werden FACT-Finder-Parameter nicht in die "
-#~ "URL eingefügt, es sei denn, sie sind explizit in der Whitelist "
-#~ "aufgeführt. Beachten Sie, dass dieses Attribut keine Wirkung hat, wenn "
-#~ "only-search-params eingestellt ist."
-
-#~ msgid "Use \"only-search-params\""
-#~ msgstr "Nutze \"only-search-params\""
-
-#~ msgid ""
-#~ "If set, only current search related parameters are pushed to the URL, i."
-#~ "e. query, filter, sort, page and productsPerPage. This can be used in "
-#~ "conjunction with parameter-whitelist. Note that setting this attribute "
-#~ "overrides the behavior of use-url-parameters."
-#~ msgstr ""
-#~ "Sobald aktiviert werden nur Such-Relevante parameter in die URL "
-#~ "übertragen. Zum Beispiel das Suchwort, die Filter, die Sortierung, die "
-#~ "Seite und die Anzahl pro Seite. Dies kann zusammen mit der Parameter "
-#~ "Vertrauensliste genutzt werden. Bitte beachte dass diese Einstellung die "
-#~ "Einstellungen der \"use-url-parameters\" überschreibt."
-
-#~ msgid "Use parameter whitelist"
-#~ msgstr "Nutze parameter Whitelist"
-
-#~ msgid ""
-#~ "If deactivated, the value of the FACT-Finder Parameter Whitelist are "
-#~ "ignored in the FACT-Finder Communication Service"
-#~ msgstr ""
-#~ "Wenn deaktiviert, werden die Werte der FACT-Finder Parameter Whitelist "
-#~ "ignoriert im FACT-Finder Kommunikationsdienst"
-
-#~ msgid "FACT-Finder Parameter Whitelist"
-#~ msgstr ""
-#~ "Wenn deaktiviert, werden die Werte der FACT-Finder Parameter Whitelist "
-#~ "ignoriert im FACT-Finder Kommunikationsdienst"
-
-#~ msgid ""
-#~ "Comma separated values; if set, only specified parameters are pushed to "
-#~ "the URL. E.g. parameter-whitelist=\"query,page\"."
-#~ msgstr ""
-#~ "Kommagetrennte Werte; wenn gesetzt, werden nur die angegebenen Parameter "
-#~ "an die URL übergeben. Z. B. parameter-whitelist=„query,page“."
-
-#~ msgid "Use ASN (After Serach Navigation)"
-#~ msgstr "Nutze ASN (Filter)"
-
-#~ msgid ""
-#~ "Determines if the the ASN is returned. Can be set to \"false\" to "
-#~ "increase performance, if the ASN is not required."
-#~ msgstr ""
-#~ "Legt fest, ob die ASN zurückgegeben wird. Kann auf \"false\" gesetzt "
-#~ "werden, um die Leistung zu erhöhen, wenn die Filter nicht benötigt werden."
-
-#~ msgid "Disable Cache"
-#~ msgstr "Cache deaktivieren"
-
-#~ msgid ""
-#~ "Controls the usage of search result caches. true = cache is ignored, "
-#~ "false cache is used."
-#~ msgstr "True = Cache wird ignoriert. False = Cache wird genutzt."
-
-#~ msgid "Use ASO(Automated Search Optimization)"
-#~ msgstr "Nutze ASO (Automatisierte Suchoptimierung)"
-
-#~ msgid ""
-#~ "Allows activating/deactivating of automated search optimization. true = "
-#~ "the search result is automatically optimized. false = the search result "
-#~ "is not optimized."
-#~ msgstr ""
-#~ "true = Das Suchergebnis wird automatisch optimiert. false = Das "
-#~ "Suchergebnis wird nicht optimiert."
-
-#~ msgid "Use browser history"
-#~ msgstr "Nutze Browser-Verlauf"
-
-#~ msgid ""
-#~ "If set to true, the search history is pushed to the browser history, even "
-#~ "without using URL parameter."
-#~ msgstr ""
-#~ "Sofern true wird die Such-Historie in den Browserverlauf übertragen. Dies "
-#~ "funktioniert auch ohne die Suchparameter."
-
-#~ msgid "Cluster"
-#~ msgstr "Cluster"
-
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
-
-#~ msgid "Stroke Width"
-#~ msgstr "Strichstärke"
-
-#~ msgid "Stroke Color"
-#~ msgstr "Strichfarbe"
-
-#~ msgid "Connections"
-#~ msgstr "Verbindungen"
-
-#~ msgid "Item Title"
-#~ msgstr "Element Titel"
-
-#~ msgid "Choose an Image"
-#~ msgstr "Wähle ein Bild"
-
-#~ msgid "Set As Image"
-#~ msgstr "Als Bild einstellen"
-
-#~ msgid ""
-#~ "Upload your desired image, or type in the URL to the image you would like "
-#~ "to display."
-#~ msgstr ""
-#~ "Lade das gewünschte Bild hoch oder gib die Bildadresse ein für das Bild "
-#~ "welches genutzt werden soll."
-
-#~ msgid "Position left"
-#~ msgstr "Links"
-
-#~ msgid "Position top"
-#~ msgstr "Oben"
-
-#~ msgid "Use Category Name as Title"
-#~ msgstr "Nutze Kategorienamen als Titel"
-
-#~ msgid "Current Category"
-#~ msgstr "Aktuelle Kategorie"
-
-#~ msgid "Choose which category is currently displayed. Pleas choose only one"
-#~ msgstr ""
-#~ "Wählen Sie, welche Kategorie aktuell angezeigt wird. Bitte wählen Sie nur "
-#~ "eine aus"
-
-#~ msgid "Connect to Categories"
-#~ msgstr "Verbinde zu folgender Kategorie"
-
-#~ msgid "Choose which to which category you would like to connect"
-#~ msgstr ""
-#~ "Wähle die gewünschten Kategorien aus die in der Abfrage berücksichtigt "
-#~ "werden sollen"
-
-#~ msgid "Contact Person / Author"
-#~ msgstr "Ansprechpartner / Autor"
-
-#~ msgid "Show Featured Image"
-#~ msgstr "Zeige Beitragsbild"
-
-#~ msgid "This setting will turn on and off the featured image in the slider."
-#~ msgstr ""
-#~ "Diese Einstellung aktiviert oder deaktiviert das Beitragsbild innerhalb "
-#~ "des Sliders."
-
-#~ msgid "Show Post Meta"
-#~ msgstr "Zeige Beitrags-Meta-Informationen"
-
-#~ msgid "This setting will turn on and off the meta section."
-#~ msgstr ""
-#~ "Diese Einstellung aktiviert oder deaktiviert die Meta-Informationen."
-
-#~ msgid "Show E-Mail"
-#~ msgstr "Zeige E-Mail"
-
-#~ msgid "Show phone number"
-#~ msgstr "Zeige Telefonnummer"
-
-#~ msgid "Event List"
-#~ msgstr "Event Liste"
-
-#~ msgid "Post Count"
-#~ msgstr "Beitragsanzahl"
-
-#~ msgid "Choose how much posts you would like to display per page."
-#~ msgstr "Wähle wie viele Beiträge du pro Seite anzeigen möchtest."
-
-#~ msgid "Columns"
-#~ msgstr "Spalten"
-
-#~ msgid "Show Read More Button"
-#~ msgstr "Zeige weiterlesen-Button"
-
-#~ msgid ""
-#~ "Here you can define whether to show \"read more\" link after the excerpts "
-#~ "or not."
-#~ msgstr "Hiermit de- oder aktivierst du den weiterlesen-Button."
-
-#~ msgid "Read More Button Text"
-#~ msgstr "Weiterlesen Text"
-
-#~ msgid "Here you can define which text the button should have"
-#~ msgstr ""
-#~ "Hier kannst du definieren welcher Text innerhalb des Buttons stehen soll"
-
-#~ msgid "Date Format"
-#~ msgstr "Datumsformat"
-
-#~ msgid ""
-#~ "If you would like to adjust the date format, input the appropriate PHP "
-#~ "date format here."
-#~ msgstr ""
-#~ "Wenn du die Datumsanzeige ändern möchtest, gib hier bitte die gewünschte "
-#~ "PHP Datum-Formatierung ein."
-
-#~ msgid "Extended Post Slider"
-#~ msgstr "Erweiterter Beitragsslider"
-
-#~ msgid "Post Type"
-#~ msgstr "Beitragstyp"
-
-#~ msgid "Choose posts of which post type you would like to display."
-#~ msgstr "Wähle den Beitragstypen aus der angezeigt werden soll."
-
-#~ msgid "Included Categories"
-#~ msgstr "Kategorien"
-
-#~ msgid "All Categories"
-#~ msgstr "Alle Kategorien"
-
-#~ msgid "Choose which categories you would like to include in the feed."
-#~ msgstr ""
-#~ "Wähle die gewünschten Kategorien aus die in der Abfrage berücksichtigt "
-#~ "werden sollen."
-
-#~ msgid "Show Author"
-#~ msgstr "Zeige Autor"
-
-#~ msgid "Turn on or off the author link."
-#~ msgstr "De- oder Aktiviere die Autoranzeige."
-
-#~ msgid "Show Date"
-#~ msgstr "Zeige Datum"
-
-#~ msgid "Turn the date on or off."
-#~ msgstr "De- oder Aktiviere die Datumsanzeige."
-
-#~ msgid "Show Categories"
-#~ msgstr "Zeige Kategorien"
-
-#~ msgid "Turn the category links on or off."
-#~ msgstr "Aktiviere oder deaktivier die Kategorieanzeige."
-
-#~ msgid "Show navigation arrows"
-#~ msgstr "Zeige Navigations-Pfeile"
-
-#~ msgid "Show or hide navigation arrows."
-#~ msgstr "Aktiviert oder deaktiviert die Navigationspfeile."
-
-#~ msgid "Slider animation"
-#~ msgstr "Slider Animation"
-
-#~ msgid "Slide"
-#~ msgstr "Slide"
-
-#~ msgid "Fade"
-#~ msgstr "Verblassen"
-
-#~ msgid "Loop"
-#~ msgstr "Schleife"
-
-#~ msgid "Activate autoplay"
-#~ msgstr "Autoplay aktivieren"
-
-#~ msgid "Activate autoplay."
-#~ msgstr "Autoplay aktivieren"
-
-#~ msgid "Slider interval"
-#~ msgstr "Animationsintervall"
-
-#~ msgid "Slider interval in seconds"
-#~ msgstr "Animationsintervall in Sekunden"
-
-#~ msgid "FACT Finder result list"
-#~ msgstr "FACT-Finder Ergebnisliste"
-
-#~ msgid "Layout options"
-#~ msgstr "Darstellungsoptionen"
-
-#~ msgid "Layout"
-#~ msgstr "Darstellung"
-
-#~ msgid "List"
-#~ msgstr "Liste"
-
-#~ msgid "Grid"
-#~ msgstr "Gitter"
-
-#~ msgid "Show Image"
-#~ msgstr "Zeige Bild"
-
+#: includes/config/settings.php:60
+msgid "Default"
+msgstr "Standard"
+
+#: includes/config/settings.php:66
+msgid "FACT-Finder"
+msgstr "FACT-Finder"
+
+#: includes/config/settings.php:76
+msgid "Activate FACT-Finder"
+msgstr "FACT-Finder aktivieren"
+
+#: includes/config/settings.php:81
+msgid "If deactivated the settings in the FACT-Finder Tab are ignored"
+msgstr ""
+"Wenn deaktiviert, werden die Einstellungen im FACT-Finder Tab ignoriert"
+
+#: includes/config/settings.php:85
+msgid "FACT-Finder Search result Page"
+msgstr "FACT-Finder Suchergebnisseite"
+
+#: includes/config/settings.php:90
+msgid "Set the default search result page"
+msgstr "Wähle die Suchergebnisseite"
+
+#: includes/config/settings.php:106
+msgid "FACT-Finder URL"
+msgstr "FACT-Finder URL"
+
+#: includes/config/settings.php:111
+msgid "Set the FACT-Finder URL for the communication markup"
+msgstr ""
+"Füge die FACT-Finder Adresse ein. Andernfalls wird die Kommunikation mit dem "
+"FACT-Finder Dienst nicht funktioneren"
+
+#: includes/config/settings.php:117
+msgid "FACT-Finder Version"
+msgstr "FACT-Finder Version"
+
+#: includes/config/settings.php:128
+msgid "Set the FACT-Finder Version for the communication markup"
+msgstr "Wähle die FACT-Finder Version"
+
+#: includes/config/settings.php:132
+msgid "FACT-Finder API Version"
+msgstr "FACT-Finder API Version"
+
+#: includes/config/settings.php:142
+msgid ""
+"Set the FACT-Finder API Version for the communication markup. Only necessary "
+"if you are using FactFinder NG"
+msgstr ""
+"Wähle die FACT-Finder API Version. Dies ist lediglich notwendig sofern du "
+"FACT-Finder NG nutzt"
+
+#: includes/config/settings.php:146
+msgid "FACT-Finder Channel"
+msgstr "FACT-Finder Channel"
+
+#: includes/config/settings.php:151
+msgid "Set the FACT-Finder Channel for the communication markup"
+msgstr "FÜge den korrekten FACT-Finder Channel ein"
+
+#: includes/config/settings.php:155
+msgid "Use URL Parameter"
+msgstr "Aktiviere URL Parameter"
+
+#: includes/config/settings.php:160
+msgid ""
+"If set to false, FACT-Finder parameters are not pushed to the URL unless "
+"explicitly whitelisted. Note that this attribute has no effect when only-"
+"search-params is set."
+msgstr ""
+"Wenn es auf false gesetzt ist, werden FACT-Finder-Parameter nicht in die URL "
+"eingefügt, es sei denn, sie sind explizit in der Whitelist aufgeführt. "
+"Beachten Sie, dass dieses Attribut keine Wirkung hat, wenn only-search-"
+"params eingestellt ist."
+
+#: includes/config/settings.php:164
+msgid "Use \"only-search-params\""
+msgstr "Nutze \"only-search-params\""
+
+#: includes/config/settings.php:169
+msgid ""
+"If set, only current search related parameters are pushed to the URL, i.e. "
+"query, filter, sort, page and productsPerPage. This can be used in "
+"conjunction with parameter-whitelist. Note that setting this attribute "
+"overrides the behavior of use-url-parameters."
+msgstr ""
+"Sobald aktiviert werden nur Such-Relevante parameter in die URL übertragen. "
+"Zum Beispiel das Suchwort, die Filter, die Sortierung, die Seite und die "
+"Anzahl pro Seite. Dies kann zusammen mit der Parameter Vertrauensliste "
+"genutzt werden. Bitte beachte dass diese Einstellung die Einstellungen der "
+"\"use-url-parameters\" überschreibt."
+
+#: includes/config/settings.php:173
+msgid "Use parameter whitelist"
+msgstr "Nutze parameter Whitelist"
+
+#: includes/config/settings.php:178
+msgid ""
+"If deactivated, the value of the FACT-Finder Parameter Whitelist are ignored "
+"in the FACT-Finder Communication Service"
+msgstr ""
+"Wenn deaktiviert, werden die Werte der FACT-Finder Parameter Whitelist "
+"ignoriert im FACT-Finder Kommunikationsdienst"
+
+#: includes/config/settings.php:182
+msgid "FACT-Finder Parameter Whitelist"
+msgstr ""
+"Wenn deaktiviert, werden die Werte der FACT-Finder Parameter Whitelist "
+"ignoriert im FACT-Finder Kommunikationsdienst"
+
+#: includes/config/settings.php:187
+msgid ""
+"Comma separated values; if set, only specified parameters are pushed to the "
+"URL. E.g. parameter-whitelist=\"query,page\"."
+msgstr ""
+"Kommagetrennte Werte; wenn gesetzt, werden nur die angegebenen Parameter an "
+"die URL übergeben. Z. B. parameter-whitelist=„query,page“."
+
+#: includes/config/settings.php:191
+msgid "Use ASN (After Serach Navigation)"
+msgstr "Nutze ASN (Filter)"
+
+#: includes/config/settings.php:196
+msgid ""
+"Determines if the the ASN is returned. Can be set to \"false\" to increase "
+"performance, if the ASN is not required."
+msgstr ""
+"Legt fest, ob die ASN zurückgegeben wird. Kann auf \"false\" gesetzt werden, "
+"um die Leistung zu erhöhen, wenn die Filter nicht benötigt werden."
+
+#: includes/config/settings.php:200
+msgid "Disable Cache"
+msgstr "Cache deaktivieren"
+
+#: includes/config/settings.php:205
+msgid ""
+"Controls the usage of search result caches. true = cache is ignored, false "
+"cache is used."
+msgstr "True = Cache wird ignoriert. False = Cache wird genutzt."
+
+#: includes/config/settings.php:209
+msgid "Use ASO(Automated Search Optimization)"
+msgstr "Nutze ASO (Automatisierte Suchoptimierung)"
+
+#: includes/config/settings.php:214
+msgid ""
+"Allows activating/deactivating of automated search optimization. true = the "
+"search result is automatically optimized. false = the search result is not "
+"optimized."
+msgstr ""
+"true = Das Suchergebnis wird automatisch optimiert. false = Das Suchergebnis "
+"wird nicht optimiert."
+
+#: includes/config/settings.php:218
+msgid "Use browser history"
+msgstr "Nutze Browser-Verlauf"
+
+#: includes/config/settings.php:223
+msgid ""
+"If set to true, the search history is pushed to the browser history, even "
+"without using URL parameter."
+msgstr ""
+"Sofern true wird die Such-Historie in den Browserverlauf übertragen. Dies "
+"funktioniert auch ohne die Suchparameter."
+
+#: includes/modules/Cluster/Cluster.php:24
+#: includes/modules/ClusterItem/ClusterItem.php:24
+msgid "Cluster"
+msgstr "Cluster"
+
+#: includes/modules/Cluster/Cluster.php:30
+#: includes/modules/ClusterItem/ClusterItem.php:31
+#: includes/modules/TeamList/TeamList.php:30
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/modules/Cluster/Cluster.php:51
+msgid "Stroke Width"
+msgstr "Strichstärke"
+
+#: includes/modules/Cluster/Cluster.php:62
+msgid "Stroke Color"
+msgstr "Strichfarbe"
+
+#: includes/modules/ClusterItem/ClusterItem.php:32
+msgid "Connections"
+msgstr "Verbindungen"
+
+#: includes/modules/ClusterItem/ClusterItem.php:54
+msgid "Item Title"
+msgstr "Element Titel"
+
+#: includes/modules/ClusterItem/ClusterItem.php:64
+msgid "Choose an Image"
+msgstr "Wähle ein Bild"
+
+#: includes/modules/ClusterItem/ClusterItem.php:65
+msgid "Set As Image"
+msgstr "Als Bild einstellen"
+
+#: includes/modules/ClusterItem/ClusterItem.php:67
+msgid ""
+"Upload your desired image, or type in the URL to the image you would like to "
+"display."
+msgstr ""
+"Lade das gewünschte Bild hoch oder gib die Bildadresse ein für das Bild "
+"welches genutzt werden soll."
+
+#: includes/modules/ClusterItem/ClusterItem.php:73
+msgid "Position left"
+msgstr "Links"
+
+#: includes/modules/ClusterItem/ClusterItem.php:79
+msgid "Position top"
+msgstr "Oben"
+
+#: includes/modules/ClusterItem/ClusterItem.php:85
+msgid "Use Category Name as Title"
+msgstr "Nutze Kategorienamen als Titel"
+
+#: includes/modules/ClusterItem/ClusterItem.php:96
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
+#: includes/modules/PostList/PostList.php:61
+#: includes/modules/PostTabSlider/PostTabSlider.php:45
+#: includes/modules/Products/Products.php:48
+msgid "Current Category"
+msgstr "Aktuelle Kategorie"
+
+#: includes/modules/ClusterItem/ClusterItem.php:100
+msgid "Choose which category is currently displayed. Pleas choose only one"
+msgstr ""
+"Wählen Sie, welche Kategorie aktuell angezeigt wird. Bitte wählen Sie nur "
+"eine aus"
+
+#: includes/modules/ClusterItem/ClusterItem.php:105
+msgid "Connect to Categories"
+msgstr "Verbinde zu folgender Kategorie"
+
+#: includes/modules/ClusterItem/ClusterItem.php:111
+msgid "Choose which to which category you would like to connect"
+msgstr ""
+"Wähle die gewünschten Kategorien aus die in der Abfrage berücksichtigt "
+"werden sollen"
+
+#: includes/modules/ContactPerson/ContactPerson.php:16
+msgid "Contact Person / Author"
+msgstr "Ansprechpartner / Autor"
+
+#: includes/modules/ContactPerson/ContactPerson.php:32
+#: includes/modules/PostList/PostList.php:103
+#: includes/modules/PostTabSlider/PostTabSlider.php:76
+msgid "Show Featured Image"
+msgstr "Zeige Beitragsbild"
+
+#: includes/modules/ContactPerson/ContactPerson.php:41
+#: includes/modules/PostList/PostList.php:112
+#: includes/modules/PostTabSlider/PostTabSlider.php:85
+#: includes/modules/Products/Products.php:125
+#: includes/modules/Products/Products.php:140
+msgid "This setting will turn on and off the featured image in the slider."
+msgstr ""
+"Diese Einstellung aktiviert oder deaktiviert das Beitragsbild innerhalb des "
+"Sliders."
+
+#: includes/modules/ContactPerson/ContactPerson.php:50
+#: includes/modules/PostList/PostList.php:152
+#: includes/modules/PostTabSlider/PostTabSlider.php:102
+#: includes/modules/Products/Products.php:191
+msgid "Show Post Meta"
+msgstr "Zeige Beitrags-Meta-Informationen"
+
+#: includes/modules/ContactPerson/ContactPerson.php:63
+#: includes/modules/ContactPerson/ContactPerson.php:78
+#: includes/modules/ContactPerson/ContactPerson.php:93
+#: includes/modules/PostList/PostList.php:165
+#: includes/modules/PostTabSlider/PostTabSlider.php:111
+#: includes/modules/Products/Products.php:205
+msgid "This setting will turn on and off the meta section."
+msgstr "Diese Einstellung aktiviert oder deaktiviert die Meta-Informationen."
+
+#: includes/modules/ContactPerson/ContactPerson.php:66
+msgid "Show E-Mail"
+msgstr "Zeige E-Mail"
+
+#: includes/modules/ContactPerson/ContactPerson.php:81
+msgid "Show phone number"
+msgstr "Zeige Telefonnummer"
+
+#: includes/modules/EventList/EventList.php:25
+msgid "Event List"
+msgstr "Event Liste"
+
+#: includes/modules/EventList/EventList.php:31
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:42
+#: includes/modules/Initiativen/Initiativen.php:31
+#: includes/modules/Initiativen/Initiativen.php:58
+#: includes/modules/PostList/PostList.php:32
+#: includes/modules/PostTabSlider/PostTabSlider.php:31
+#: includes/modules/Products/Products.php:31
+#: includes/modules/Products/Products.php:62
+#: includes/modules/WorkGroups/WorkGroups.php:58
+msgid "Post Count"
+msgstr "Beitragsanzahl"
+
+#: includes/modules/EventList/EventList.php:34
+#: includes/modules/EventList/EventList.php:44
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
+#: includes/modules/Initiativen/Initiativen.php:61
+#: includes/modules/Initiativen/Initiativen.php:79
+#: includes/modules/Products/Products.php:65
+#: includes/modules/Products/Products.php:84
+#: includes/modules/Products/Products.php:95
+#: includes/modules/WorkGroups/WorkGroups.php:61
+#: includes/modules/WorkGroups/WorkGroups.php:74
+msgid "Choose how much posts you would like to display per page."
+msgstr "Wähle wie viele Beiträge du pro Seite anzeigen möchtest."
+
+#: includes/modules/EventList/EventList.php:41
+#: includes/modules/FACTFinder/FACTFinder.php:62
+#: includes/modules/Initiativen/Initiativen.php:71
+msgid "Columns"
+msgstr "Spalten"
+
+#: includes/modules/EventList/EventList.php:48
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:68
+msgid "Show Read More Button"
+msgstr "Zeige weiterlesen-Button"
+
+#: includes/modules/EventList/EventList.php:58
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:78
+msgid ""
+"Here you can define whether to show \"read more\" link after the excerpts or "
+"not."
+msgstr "Hiermit de- oder aktivierst du den weiterlesen-Button."
+
+#: includes/modules/EventList/EventList.php:62
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:82
+msgid "Read More Button Text"
+msgstr "Weiterlesen Text"
+
+#: includes/modules/EventList/EventList.php:66
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:86
+msgid "Here you can define which text the button should have"
+msgstr ""
+"Hier kannst du definieren welcher Text innerhalb des Buttons stehen soll"
+
+#: includes/modules/EventList/EventList.php:69
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:135
+#: includes/modules/PostList/PostList.php:186
+#: includes/modules/Products/Products.php:241
+msgid "Date Format"
+msgstr "Datumsformat"
+
+#: includes/modules/EventList/EventList.php:72
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:150
+#: includes/modules/PostList/PostList.php:189
+#: includes/modules/Products/Products.php:244
+msgid ""
+"If you would like to adjust the date format, input the appropriate PHP date "
+"format here."
+msgstr ""
+"Wenn du die Datumsanzeige ändern möchtest, gib hier bitte die gewünschte PHP "
+"Datum-Formatierung ein."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:25
+msgid "Extended Post Slider"
+msgstr "Erweiterter Beitragsslider"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:31
+#: includes/modules/PostList/PostList.php:42
+msgid "Post Type"
+msgstr "Beitragstyp"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:35
+#: includes/modules/PostList/PostList.php:46
+msgid "Choose posts of which post type you would like to display."
+msgstr "Wähle den Beitragstypen aus der angezeigt werden soll."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
+#: includes/modules/Initiativen/Initiativen.php:45
+#: includes/modules/PostList/PostList.php:57
+#: includes/modules/PostTabSlider/PostTabSlider.php:41
+#: includes/modules/Products/Products.php:46
+#: includes/modules/WorkGroups/WorkGroups.php:45
+msgid "Included Categories"
+msgstr "Kategorien"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:55
+#: includes/modules/PostList/PostList.php:60
+#: includes/modules/PostTabSlider/PostTabSlider.php:44
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:62
+msgid "Choose which categories you would like to include in the feed."
+msgstr ""
+"Wähle die gewünschten Kategorien aus die in der Abfrage berücksichtigt "
+"werden sollen."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:89
+msgid "Show Author"
+msgstr "Zeige Autor"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:96
+msgid "Turn on or off the author link."
+msgstr "De- oder Aktiviere die Autoranzeige."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:100
+#: includes/modules/PostList/PostList.php:168
+#: includes/modules/Products/Products.php:223
+msgid "Show Date"
+msgstr "Zeige Datum"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:107
+msgid "Turn the date on or off."
+msgstr "De- oder Aktiviere die Datumsanzeige."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:113
+msgid "Show Categories"
+msgstr "Zeige Kategorien"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:120
+msgid "Turn the category links on or off."
+msgstr "Aktiviere oder deaktivier die Kategorieanzeige."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:124
+msgid "Show navigation arrows"
+msgstr "Zeige Navigations-Pfeile"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:131
+msgid "Show or hide navigation arrows."
+msgstr "Aktiviert oder deaktiviert die Navigationspfeile."
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:142
+msgid "Slider animation"
+msgstr "Slider Animation"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:146
+msgid "Slide"
+msgstr "Slide"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:147
+msgid "Fade"
+msgstr "Verblassen"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:148
+msgid "Loop"
+msgstr "Schleife"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:154
+msgid "Activate autoplay"
+msgstr "Autoplay aktivieren"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:161
+msgid "Activate autoplay."
+msgstr "Autoplay aktivieren"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:165
+msgid "Slider interval"
+msgstr "Animationsintervall"
+
+#: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:168
+msgid "Slider interval in seconds"
+msgstr "Animationsintervall in Sekunden"
+
+#: includes/modules/FACTFinder/FACTFinder.php:16
+msgid "FACT Finder result list"
+msgstr "FACT-Finder Ergebnisliste"
+
+#: includes/modules/FACTFinder/FACTFinder.php:21
+msgid "Layout options"
+msgstr "Darstellungsoptionen"
+
+#: includes/modules/FACTFinder/FACTFinder.php:40
+#: includes/modules/PostList/PostList.php:74
+#: includes/modules/PostList/PostList.php:89
+msgid "Layout"
+msgstr "Darstellung"
+
+#: includes/modules/FACTFinder/FACTFinder.php:43
+msgid "List"
+msgstr "Liste"
+
+#: includes/modules/FACTFinder/FACTFinder.php:44
+#: includes/modules/PostList/PostList.php:79
+msgid "Grid"
+msgstr "Gitter"
+
+#: includes/modules/FACTFinder/FACTFinder.php:50
+#: includes/modules/FACTFinder/FACTFinder.php:56
+msgid "Show Image"
+msgstr "Zeige Bild"
+
+#: includes/modules/Initiativen/Initiativen.php:25
 #, fuzzy
-#~ msgid "Initiatives"
-#~ msgstr "Initiative"
+msgid "Initiatives"
+msgstr "Initiative"
 
-#~ msgid "Category"
-#~ msgstr "Kategorie"
+#: includes/modules/Initiativen/Initiativen.php:34
+#: includes/modules/Products/Products.php:35
+#: includes/modules/WorkGroups/WorkGroups.php:34
+msgid "Category"
+msgstr "Kategorie"
 
-#~ msgid "Single select"
-#~ msgstr "Einzelauswahl"
+#: includes/modules/Initiativen/Initiativen.php:35
+#: includes/modules/Products/Products.php:36
+#: includes/modules/WorkGroups/WorkGroups.php:35
+msgid "Single select"
+msgstr "Einzelauswahl"
 
-#~ msgid ""
-#~ "Choose which selection you would prefer (Category = current Category | "
-#~ "Single select = Select one Workgrioup"
-#~ msgstr ""
-#~ "Wähle zwischen „Aktuelle Kategorie“ oder „Einzelauswahl“ für den "
-#~ "Arbeitskreis"
+#: includes/modules/Initiativen/Initiativen.php:41
+#: includes/modules/WorkGroups/WorkGroups.php:38
+msgid ""
+"Choose which selection you would prefer (Category = current Category | "
+"Single select = Select one Workgrioup"
+msgstr ""
+"Wähle zwischen „Aktuelle Kategorie“ oder „Einzelauswahl“ für den Arbeitskreis"
 
-#~ msgid "Choose which categories you would like to include in the slider."
-#~ msgstr ""
-#~ "Wähle die Kategorien welche du für den Slider berücksichtigen möchtest."
+#: includes/modules/Initiativen/Initiativen.php:48
+#: includes/modules/PostList/PostList.php:64
+#: includes/modules/PostTabSlider/PostTabSlider.php:48
+#: includes/modules/Products/Products.php:52
+#: includes/modules/WorkGroups/WorkGroups.php:48
+msgid "Choose which categories you would like to include in the slider."
+msgstr ""
+"Wähle die Kategorien welche du für den Slider berücksichtigen möchtest."
 
-#~ msgid "Initiative"
-#~ msgstr "Initiative"
+#: includes/modules/Initiativen/Initiativen.php:86
+msgid "Initiative"
+msgstr "Initiative"
 
+#: includes/modules/Initiativen/Initiativen.php:89
 #, fuzzy
-#~ msgid "Choose a initiative"
-#~ msgstr "Wähle ein Bild"
+msgid "Choose a initiative"
+msgstr "Wähle ein Bild"
 
-#~ msgid "Post List"
-#~ msgstr "Beitragsliste"
+#: includes/modules/PostList/PostList.php:16
+msgid "Post List"
+msgstr "Beitragsliste"
 
-#~ msgid "Choose how many posts you would like to display in the slider."
-#~ msgstr "Wähle wie viele Beiträge du im Slider sehen möchtest."
+#: includes/modules/PostList/PostList.php:35
+#: includes/modules/PostTabSlider/PostTabSlider.php:34
+msgid "Choose how many posts you would like to display in the slider."
+msgstr "Wähle wie viele Beiträge du im Slider sehen möchtest."
 
-#~ msgid "Default List"
-#~ msgstr "Standard Liste"
+#: includes/modules/PostList/PostList.php:77
+msgid "Default List"
+msgstr "Standard Liste"
 
-#~ msgid "First post left"
-#~ msgstr "Erster Beitrag links"
+#: includes/modules/PostList/PostList.php:78
+msgid "First post left"
+msgstr "Erster Beitrag links"
 
-#~ msgid "Two Columns"
-#~ msgstr "Zwei Spalten"
+#: includes/modules/PostList/PostList.php:92
+msgid "Two Columns"
+msgstr "Zwei Spalten"
 
-#~ msgid "Three Columns"
-#~ msgstr "Drei Spalten"
+#: includes/modules/PostList/PostList.php:93
+msgid "Three Columns"
+msgstr "Drei Spalten"
 
-#~ msgid "Four Columns"
-#~ msgstr "Vier Spalten"
+#: includes/modules/PostList/PostList.php:94
+msgid "Four Columns"
+msgstr "Vier Spalten"
 
-#~ msgid "This setting will display the excerpt of the post"
-#~ msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
+#: includes/modules/PostList/PostList.php:121
+msgid "Image position"
+msgstr "Bild platzierung"
 
-#~ msgid "Image position"
-#~ msgstr "Bild platzierung"
+#: includes/modules/PostList/PostList.php:125
+msgid "Before Title and Meta"
+msgstr "Über dem Titel und Meta Informationen"
 
-#~ msgid "Before Title and Meta"
-#~ msgstr "Über dem Titel und Meta Informationen"
+#: includes/modules/PostList/PostList.php:126
+msgid "After Title and Meta"
+msgstr "Nach dem Titel und Meta Informationen"
 
-#~ msgid "After Title and Meta"
-#~ msgstr "Nach dem Titel und Meta Informationen"
+#: includes/modules/PostList/PostList.php:127
+msgid "Between Meta and Excerpt"
+msgstr "Zwischen Titel und Meta Informationen"
 
-#~ msgid "Between Meta and Excerpt"
-#~ msgstr "Zwischen Titel und Meta Informationen"
+#: includes/modules/PostList/PostList.php:136
+#: includes/modules/PostTabSlider/PostTabSlider.php:89
+#: includes/modules/Products/Products.php:155
+msgid "Show Excerpt"
+msgstr "Zeige Auszug"
 
-#~ msgid "Show Excerpt"
-#~ msgstr "Zeige Auszug"
+#: includes/modules/PostList/PostList.php:145
+#: includes/modules/PostTabSlider/PostTabSlider.php:98
+#: includes/modules/Products/Products.php:164
+msgid "This setting will display the excerpt of the post"
+msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
-#~ msgid "This setting will turn on and off the date section."
-#~ msgstr "Diese Einstellung aktiviert oder deaktiviert die Datumszeile."
+#: includes/modules/PostList/PostList.php:177
+#: includes/modules/Products/Products.php:232
+msgid "This setting will turn on and off the date section."
+msgstr "Diese Einstellung aktiviert oder deaktiviert die Datumszeile."
 
-#~ msgid "Show Tags"
-#~ msgstr "Zeige Tags"
+#: includes/modules/PostList/PostList.php:200
+#: includes/modules/Products/Products.php:255
+msgid "Show Tags"
+msgstr "Zeige Tags"
 
-#~ msgid "This setting will turn on and off the tag section."
-#~ msgstr "Diese Einstellung aktiviert oder deaktiviert die Tags."
+#: includes/modules/PostList/PostList.php:209
+#: includes/modules/Products/Products.php:264
+msgid "This setting will turn on and off the tag section."
+msgstr "Diese Einstellung aktiviert oder deaktiviert die Tags."
 
-#~ msgid "Post Tab Slider"
-#~ msgstr "Beitrags-Tab Slider"
+#: includes/modules/PostTabSlider/PostTabSlider.php:16
+msgid "Post Tab Slider"
+msgstr "Beitrags-Tab Slider"
 
-#~ msgid "Order By"
-#~ msgstr "Sortieren nach"
+#: includes/modules/PostTabSlider/PostTabSlider.php:55
+msgid "Order By"
+msgstr "Sortieren nach"
 
-#~ msgid "Date: new to old"
-#~ msgstr "Datum: Neuester zuerst"
+#: includes/modules/PostTabSlider/PostTabSlider.php:59
+msgid "Date: new to old"
+msgstr "Datum: Neuester zuerst"
 
-#~ msgid "Date: old to new"
-#~ msgstr "Datum: Ältester zuerst"
+#: includes/modules/PostTabSlider/PostTabSlider.php:60
+msgid "Date: old to new"
+msgstr "Datum: Ältester zuerst"
 
-#~ msgid "Title: a-z"
-#~ msgstr "Titel: a-z"
+#: includes/modules/PostTabSlider/PostTabSlider.php:61
+msgid "Title: a-z"
+msgstr "Titel: a-z"
 
-#~ msgid "Title: z-a"
-#~ msgstr "Titel: z-a"
+#: includes/modules/PostTabSlider/PostTabSlider.php:62
+msgid "Title: z-a"
+msgstr "Titel: z-a"
 
-#~ msgid "Random"
-#~ msgstr "Zufällig"
+#: includes/modules/PostTabSlider/PostTabSlider.php:63
+msgid "Random"
+msgstr "Zufällig"
 
-#~ msgid "Here you can adjust the order in which posts are displayed."
-#~ msgstr ""
-#~ "Hier kannst du die Reihenfolge anpassen in welcher die Beiträge angezeigt "
-#~ "werden."
+#: includes/modules/PostTabSlider/PostTabSlider.php:66
+msgid "Here you can adjust the order in which posts are displayed."
+msgstr ""
+"Hier kannst du die Reihenfolge anpassen in welcher die Beiträge angezeigt "
+"werden."
 
-#~ msgid "Featured Image Placement"
-#~ msgstr "Beitragsbild Positionierung"
+#: includes/modules/PostTabSlider/PostTabSlider.php:115
+msgid "Featured Image Placement"
+msgstr "Beitragsbild Positionierung"
 
-#~ msgid "Select how you would like to display the featured image in slides"
-#~ msgstr ""
-#~ "Wähle wie du das Beitragsbild innerhalb der Elemente darstellen möchtest"
+#: includes/modules/PostTabSlider/PostTabSlider.php:126
+msgid "Select how you would like to display the featured image in slides"
+msgstr ""
+"Wähle wie du das Beitragsbild innerhalb der Elemente darstellen möchtest"
 
-#~ msgid "Products"
-#~ msgstr "Produkte"
+#: includes/modules/Products/Products.php:25
+msgid "Products"
+msgstr "Produkte"
 
+#: includes/modules/Products/Products.php:42
 #, fuzzy
-#~ msgid ""
-#~ "Choose which selection you would prefer (Category = current Category | "
-#~ "Single select = Select one Workgroup"
-#~ msgstr ""
-#~ "Wähle zwischen „Aktuelle Kategorie“ oder „Einzelauswahl“ für den "
-#~ "Arbeitskreis"
+msgid ""
+"Choose which selection you would prefer (Category = current Category | "
+"Single select = Select one Workgroup"
+msgstr ""
+"Wähle zwischen „Aktuelle Kategorie“ oder „Einzelauswahl“ für den Arbeitskreis"
 
-#~ msgid "Spalten"
-#~ msgstr "Spalten"
+#: includes/modules/Products/Products.php:76
+msgid "Spalten"
+msgstr "Spalten"
 
-#~ msgid "Linktext"
-#~ msgstr "Linktext"
+#: includes/modules/Products/Products.php:92
+msgid "Linktext"
+msgstr "Linktext"
 
-#~ msgid "Product"
-#~ msgstr "Produkt"
+#: includes/modules/Products/Products.php:99
+msgid "Product"
+msgstr "Produkt"
 
-#~ msgid "Wähle eine Initiative aus"
-#~ msgstr "Wähle eine Initiative aus"
+#: includes/modules/Products/Products.php:102
+msgid "Wähle eine Initiative aus"
+msgstr "Wähle eine Initiative aus"
 
+#: includes/modules/Products/Products.php:113
 #, fuzzy
-#~ msgid "Show Product Image"
-#~ msgstr "Zeige Bild"
+msgid "Show Product Image"
+msgstr "Zeige Bild"
 
+#: includes/modules/Products/Products.php:128
 #, fuzzy
-#~ msgid "Show price bubble"
-#~ msgstr "Zeige Telefonnummer"
+msgid "Show price bubble"
+msgstr "Zeige Telefonnummer"
 
+#: includes/modules/Products/Products.php:143
 #, fuzzy
-#~ msgid "Show Link"
-#~ msgstr "Zeige E-Mail"
+msgid "Show Subtitle"
+msgstr "Zeige Datum"
 
+#: includes/modules/Products/Products.php:152
 #, fuzzy
-#~ msgid "This setting will display the link of the post"
-#~ msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
+msgid "This setting will display the subtitle of the post"
+msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
+#: includes/modules/Products/Products.php:167
 #, fuzzy
-#~ msgid "Show price"
-#~ msgstr "Zeige Kategorien"
+msgid "Show Link"
+msgstr "Zeige E-Mail"
 
+#: includes/modules/Products/Products.php:176
 #, fuzzy
-#~ msgid "This setting will display the price of the post"
-#~ msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
+msgid "This setting will display the link of the post"
+msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
+#: includes/modules/Products/Products.php:179
 #, fuzzy
-#~ msgid "This setting will display the max pages and format of the post"
-#~ msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
+msgid "Show price"
+msgstr "Zeige Kategorien"
 
+#: includes/modules/Products/Products.php:188
 #, fuzzy
-#~ msgid "Team List"
-#~ msgstr "Standard Liste"
+msgid "This setting will display the price of the post"
+msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
+#: includes/modules/Products/Products.php:208
+msgid "Show max pages and format"
+msgstr ""
+
+#: includes/modules/Products/Products.php:220
 #, fuzzy
-#~ msgid "Title"
-#~ msgstr "Element Titel"
+msgid "This setting will display the max pages and format of the post"
+msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
+#: includes/modules/TeamList/TeamList.php:24
 #, fuzzy
-#~ msgid "Choose a teammember"
-#~ msgstr "Wähle ein Bild"
+msgid "Team List"
+msgstr "Standard Liste"
 
-#~ msgid "Work Groups"
-#~ msgstr "Arbeitskreise"
+#: includes/modules/TeamListItem/TeamListItem.php:24
+#, fuzzy
+msgid "Team List Item"
+msgstr "Standard Liste"
 
-#~ msgid "Query type"
-#~ msgstr "Abfragetyp"
+#: includes/modules/TeamListItem/TeamListItem.php:45
+#, fuzzy
+msgid "Title"
+msgstr "Element Titel"
 
-#~ msgid "Work group"
-#~ msgstr "Arbeitskreis"
+#: includes/modules/TeamListItem/TeamListItem.php:48
+msgid "Title of the Element"
+msgstr ""
 
-#~ msgid "S3 Divi Modules"
-#~ msgstr "S3 Divi Modules"
+#: includes/modules/TeamListItem/TeamListItem.php:51
+#, fuzzy
+msgid "Teammember"
+msgstr "Wähle ein Bild"
 
-#~ msgid "Some Custom Modules based on uikit"
-#~ msgstr "Einige benutzerdefinierte Module basierend auf uikit"
+#: includes/modules/TeamListItem/TeamListItem.php:54
+#, fuzzy
+msgid "Choose a teammember"
+msgstr "Wähle ein Bild"
 
-#~ msgid "S3 Advertising"
-#~ msgstr "S3 Advertising"
+#: includes/modules/WorkGroups/WorkGroups.php:25
+msgid "Work Groups"
+msgstr "Arbeitskreise"
 
-#~ msgid "https://s3-advertising.com"
-#~ msgstr "https://s3-advertising.com"
+#: includes/modules/WorkGroups/WorkGroups.php:31
+msgid "Query type"
+msgstr "Abfragetyp"
 
-#~ msgctxt "s3dm settings"
-#~ msgid "S3 Module Settings"
-#~ msgstr "S3-Modul-Einstellungen"
+#: includes/modules/WorkGroups/WorkGroups.php:71
+msgid "Work group"
+msgstr "Arbeitskreis"
+
+#. Plugin Name of the plugin/theme
+msgid "S3 Divi Modules"
+msgstr "S3 Divi Modules"
+
+#. Description of the plugin/theme
+msgid "Some Custom Modules based on uikit"
+msgstr "Einige benutzerdefinierte Module basierend auf uikit"
+
+#. Author of the plugin/theme
+msgid "S3 Advertising"
+msgstr "S3 Advertising"
+
+#. Author URI of the plugin/theme
+msgid "https://s3-advertising.com"
+msgstr "https://s3-advertising.com"
+
+#: includes/config/settings.php:10
+msgctxt "s3dm settings"
+msgid "S3 Module Settings"
+msgstr "S3-Modul-Einstellungen"
 
 #~ msgid "Initiativen"
 #~ msgstr "Initiativen"

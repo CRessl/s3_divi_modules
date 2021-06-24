@@ -14,7 +14,7 @@ $link = get_field('ehi_initiative_link', $initiativeID);
 
         <?php endif;?>
         <div class="s3dm_initiative_content_container uk-flex-first@m" >
-            <div class="s3dm_initiative_content uk-padding">
+            <div class="s3dm_initiative_content uk-padding <?= $this->e($title_size) ?>">
                 <h3 class="s3dm_initiative_content_title">
                     <?= $this->e($initiatives->post_title); ?>
                 </h3>

@@ -1,5 +1,9 @@
-.s3dm_event_list_title h4{
+.s3dm_event_list .uk-slider-items li:first-child::before{
 
-    font-size: 20px !important;
+    display: none;
 
+}
+
+.s3dm_event_list_date h2{
+    font-family: "Questa Sans W05 Regular", sans-serif !important;
 }

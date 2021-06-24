@@ -9,7 +9,7 @@
         <?php endif;?>
 
         
-        <div class="s3dm_contact_person_content">
+        <div class="s3dm_contact_person_content <?= $this->e($title_size); ?>">
             <?php if($name):?>
                 <h3 class="s3dm_contact_person_name"><?= $this->e($name); ?></h3>
             <?php endif;?>

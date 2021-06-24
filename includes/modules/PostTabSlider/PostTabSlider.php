@@ -72,6 +72,21 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front' => 'date_desc',
 			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
             'show_image'              => array(
 				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -211,6 +226,8 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 			'orderby'           => $this->props['orderby'],
         );
 
+		$title_size = $this->props['title_size'];
+
         $slider_posts = get_posts($args);
 
         $nav = '<div class="s3dm_switcher s3dm_tab_navigation uk-grid uk-child-width-1-'.$this->props['posts_number'].'" uk-switcher="connect:.s3dm_tab_contents; animation: uk-animation-fade">';
@@ -279,6 +296,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				'imageHTML' => $wpImageHTML,
 				'excerpt' => $excerpt,
 				'link' => $link,
+				'title_size' => $title_size
 		 	));
 			 
             $content .= '</div>';
@@ -294,7 +312,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 
         $output = sprintf(
 			'<div id="%4$s">
-				<div class="s3dm-tab-slider-content-container uk-margin-large-bottom">
+				<div class="s3dm-tab-slider-content-container uk-margin-medium-bottom">
 					%1$s
 				</div>
 				<div class="s3dm-tab-slider-tab-nav-container">                

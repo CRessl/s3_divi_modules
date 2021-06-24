@@ -2,7 +2,7 @@
     <div class="s3dm_tab_content_post_categories uk-grid-small" uk-grid>
         <?= $categories ?>
     </div>
-    <div class="s3dm_tab_content_post_title">
+    <div class="s3dm_tab_content_post_title <?= $this->e($title_size); ?>">
         <h3><?= $this->e($title) ?></h3>
     </div>
     <div class="s3dm_tab_content_post_excerpt uk-margin-medium-bottom">

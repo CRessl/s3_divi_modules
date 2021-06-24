@@ -71,7 +71,7 @@ class S3DM_PostList extends Component {
             <div className="uk-position-relative" key={index}>
           
                 <a href={link} className="uk-position-cover"><span className="uk-hidden">{title}</span></a>    
-                <h4 className="s3dm_post_list_headline">{title}</h4>
+                <h2 className="s3dm_post_list_headline">{title}</h2>
                 <div className="tags-container uk-margin-bottom" dangerouslySetInnerHTML={{__html: tags}}>
                 </div>
                 <div dangerouslySetInnerHTML={{__html:image}}></div>
@@ -93,7 +93,7 @@ class S3DM_PostList extends Component {
             <div className="uk-position-relative" key={index}>
           
                 <a href={link} className="uk-position-cover"><span className="uk-hidden">{title}</span></a>    
-                <h4 className="s3dm_post_list_headline">{title}</h4>
+                <h2 className="s3dm_post_list_headline">{title}</h2>
                 <div className="tags-container uk-margin-bottom" dangerouslySetInnerHTML={{__html: tags}}>
                 </div>
   

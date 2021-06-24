@@ -27,7 +27,7 @@
 
 </svg>
 
-<div class="s3dm_cluster_container_grid uk-child-width-1-4 content-wrapper uk-margin-remove-top uk-padding-large uk-padding-remove-horizontal uk-hidden" uk-grid>
+<div class="s3dm_cluster_container_grid uk-child-width-1-2 uk-child-width-1-4@s content-wrapper uk-margin-remove-top uk-padding-large uk-padding-remove-horizontal uk-hidden" uk-grid>
     
     <?= $content ?>
 

@@ -25,8 +25,8 @@ class S3DM_Products extends Component {
                       <ellipse cx="11.184" cy="11.02" rx="11.184" ry="11.02" stroke="none"/>
                       <ellipse cx="11.184" cy="11.02" rx="10.534" ry="10.37" fill="none"/>
                       </g>
-                      <path id="Pfad_11" data-name="Pfad 11" d="M968.663,2283.768a7.779,7.779,0,0,1,5.186-1.225c3.041.365,4.331,1.817,5.966,2.025s7.33.285,8.092.342,2.695.836,3.162,2.224a9.417,9.417,0,0,1,.51,2.323l-10.288-.5" transform="translate(-960.207 -2258.885)" fill="none" stroke="#000" stroke-linecap="round" strokeWidth="1.3"/>
-                      <path id="Pfad_12" data-name="Pfad 12" d="M968.273,2293.888a11.944,11.944,0,0,1,3.027-1.3c.82-.03,9.96,2.9,11.229,3.072a6.758,6.758,0,0,0,2.924,0,7.361,7.361,0,0,0,3.239-1.032c1.345-.668,14.161-9.088,14.161-9.088a4.886,4.886,0,0,0-2.1-1.279c-1.365-.427-1.481-.466-2.515,0s-6.424,3-6.424,3" transform="translate(-960.232 -2258.815)" fill="none" stroke="#000" stroke-linecap="round" strokeWidth="1.3"/>
+                      <path id="Pfad_11" data-name="Pfad 11" d="M968.663,2283.768a7.779,7.779,0,0,1,5.186-1.225c3.041.365,4.331,1.817,5.966,2.025s7.33.285,8.092.342,2.695.836,3.162,2.224a9.417,9.417,0,0,1,.51,2.323l-10.288-.5" transform="translate(-960.207 -2258.885)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="1.3"/>
+                      <path id="Pfad_12" data-name="Pfad 12" d="M968.273,2293.888a11.944,11.944,0,0,1,3.027-1.3c.82-.03,9.96,2.9,11.229,3.072a6.758,6.758,0,0,0,2.924,0,7.361,7.361,0,0,0,3.239-1.032c1.345-.668,14.161-9.088,14.161-9.088a4.886,4.886,0,0,0-2.1-1.279c-1.365-.427-1.481-.466-2.515,0s-6.424,3-6.424,3" transform="translate(-960.232 -2258.815)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="1.3"/>
                       <g id="Pfad_13" data-name="Pfad 13" transform="matrix(0.999, 0.035, -0.035, 0.999, 0.55, 21.753)" fill="none">
                       <path d="M1.073,0,7.463,0A1.056,1.056,0,0,1,8.528,1.049L8.521,14.693a1.059,1.059,0,0,1-1.066,1.05l-6.391,0A1.056,1.056,0,0,1,0,14.7L.007,1.053A1.059,1.059,0,0,1,1.073,0Z" stroke="none"/>
                       <path d="M 7.22767448425293 1.300122261047363 L 1.306925773620605 1.303142547607422 L 1.300134658813477 14.44662189483643 L 7.220883369445801 14.44360160827637 L 7.22767448425293 1.300122261047363 M 7.463817596435547 1.9073486328125e-06 C 8.051810264587402 1.9073486328125e-06 8.528104782104492 0.469538688659668 8.527804374694824 1.04902172088623 L 8.520754814147949 14.69338226318359 C 8.520454406738281 15.27303218841553 8.043344497680664 15.74318218231201 7.455114364624023 15.74348163604736 L 1.064554691314697 15.74674224853516 C 1.064374923706055 15.74674224853516 1.064170837402344 15.74674224853516 1.063991069793701 15.74674224853516 C 0.4759988784790039 15.74674224853516 -0.0002956390380859375 15.27720546722412 4.76837158203125e-06 14.69772243499756 L 0.007054328918457031 1.053361892700195 C 0.007354736328125 0.4737024307250977 0.4844646453857422 0.003552436828613281 1.072694778442383 0.003262519836425781 L 7.463254451751709 1.9073486328125e-06 C 7.463434219360352 1.9073486328125e-06 7.463638305664062 1.9073486328125e-06 7.463817596435547 1.9073486328125e-06 Z" stroke="none" fill="#000"/>
@@ -85,9 +85,9 @@ class S3DM_Products extends Component {
 
       return (
         <div className="s3dm_product_list_title">
-          <h3>
+          <h2>
             {title}
-          </h3>
+          </h2>
         </div>
       );
 
@@ -98,24 +98,36 @@ class S3DM_Products extends Component {
 
       return (
         <div className="s3dm_product_list_title">
-          <h4>
+          <h3>
             {subtitle}
-          </h4>
+          </h3>
         </div>
       );
       
     }
 
-    if(title && subtitle){
+    if(title && subtitle && this.props.show_subtitle === 'on'){
 
       return (
         <div className="s3dm_product_list_title">
-          <h3>
+          <h2>
             {title}
-          </h3>
-          <h4>
+          </h2>
+          <h3>
             {subtitle}
-          </h4>
+          </h3>
+        </div>
+      );
+      
+    }
+
+    if(title && subtitle && this.props.show_subtitle === 'off'){
+
+      return (
+        <div className="s3dm_product_list_title">
+          <h2>
+            {title}
+          </h2>
         </div>
       );
       
@@ -196,37 +208,40 @@ class S3DM_Products extends Component {
   }
   renderFormatAndMaxpages(format, max_pages){
 
-    if(format && max_pages){
+    if(this.props.show_page_format === 'on'){
 
-      return(
-        <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
-          <p><b>{format}, {max_pages} Seiten</b></p>
-        </div>
-      );
+      if(format && max_pages){
+
+        return(
+          <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{format}, {max_pages} Seiten</b></p>
+          </div>
+        );
+  
+      }
+  
+      if(!format && max_pages){
+  
+        return(
+          <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{max_pages} Seiten</b></p>
+          </div>
+        );
+  
+      }
+  
+      if(format && !max_pages){
+  
+        return(
+          <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
+            <p><b>{format}</b></p>
+          </div>
+        );
+  
+      }
+
 
     }
-
-    if(!format && max_pages){
-
-      return(
-        <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
-          <p><b>{max_pages} Seiten</b></p>
-        </div>
-      );
-
-    }
-
-    if(format && !max_pages){
-
-      return(
-        <div className="s3dm_product_list_product_format_page_container uk-margin-small-bottom">
-          <p><b>{format}</b></p>
-        </div>
-      );
-
-    }
-
-
 
   }
 
@@ -341,7 +356,7 @@ class S3DM_Products extends Component {
 
 
     return (
-      <div className={"uk-child-width-1-1 uk-child-width-1-"+this.props.columns+"@m"} uk-grid="true">
+      <div className={"uk-child-width-1-1 uk-child-width-1-"+this.props.columns+"@m"} uk-height-match="target: .s3dm_products_grid_item .uk-card-body" uk-grid="true">
         {products}
       </div>
     );

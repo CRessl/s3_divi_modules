@@ -99,21 +99,6 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                 'toggle_slug' => 'main_content',
                 'default_on_front' => '3',
             ),
-            'is_product_list' => array(
-				'label'            => esc_html__( 'Is more products list?', 's3dm-s3-divi-modules' ),
-				'type'             => 'yes_no_button',
-				'option_category'  => 'configuration',
-				'options'          => array(
-					'on'  => et_builder_i18n( 'Yes' ),
-					'off' => et_builder_i18n( 'No' ),
-				),
-				'default_on_front' => 'on',
-				'toggle_slug'      => 'elements',
-				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
-                'show_if_not'      => array(
-                    'post_list_layout' => 'first_post_left',
-                )
-			),
             'show_image' => array(
 				'label'            => esc_html__( 'Show Featured Image', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -147,6 +132,21 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                     'post_list_layout' => 'default'
                 )
             ),
+            'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
             'show_excerpt' => array(
 				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -324,6 +324,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             'show_excerpt' => $this->props['show_excerpt'],
             'image_position' => $this->props['image_position'],
             'show_tags' => $this->props['show_tags'],
+            'title_size' => $this->props['title_size']
 
         );
         
@@ -402,7 +403,6 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                     'format' => get_field('ehi_product_format', $postID),
                     'subtitle' => get_field('ehi_product_subtitle', $postID),
                     'page' => get_field('ehi_product_max_pages', $postID),
-                    'is_product_list' => $is_product_list
                 );
                 
 

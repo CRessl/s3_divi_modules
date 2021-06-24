@@ -16,8 +16,8 @@
             <div class="s3dm_initiative_image uk-cover-container uk-background-cover" style="background-image:url(<?= $thumbURL; ?>)">
                 <img src="<?= $thumbURL; ?>" class="uk-invisible">
             </div>
-            <div class="s3dm_initiative_content uk-padding uk-text-center" >
-                <h4 class="s3dm_initiative_title"><?= esc_html($initiative->post_title); ?></h4>
+            <div class="s3dm_initiative_content uk-padding uk-text-center <?= $this->e($title_size) ?>" >
+                <h3 class="s3dm_initiative_title"><?= esc_html($initiative->post_title); ?></h3>
             </div>
 
         </div>

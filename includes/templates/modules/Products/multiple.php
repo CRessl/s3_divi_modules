@@ -52,7 +52,7 @@
         <?php endif; ?>
         
         <div class="uk-card-body uk-position-relative">  
-            <a href="<?= $link; ?>" class="uk-position-cover"></a>
+            <a href="<?= $permalink; ?>" class="uk-position-cover"></a>
             <?php if($settings['show_meta'] == 'on'): ?>
 
                 <?php if($settings['show_date'] == 'on'):?>
@@ -76,14 +76,14 @@
             
             <div class="s3dm_product_list_title">
                 <?php if($title): ?>
-                    <h3>
+                    <h3 class="<?= $this->e($title_size); ?>">
                         <?= $this->e($title) ;?>
                     </h3>
                 <?php endif;?>
-                <?php if($subtitle): ?>
-                    <h4>
+                <?php if($subtitle && $settings['show_subtitle']): ?>
+                    <h3 class="<?= $this->e($subtitle_size); ?>">
                         <?= $this->e($subtitle) ;?>
-                    </h4>
+                    </h3>
                 <?php endif;?>
             </div>
             
@@ -107,7 +107,7 @@
                 <div class="s3dm_product_list_excerpt uk-margin-medium-bottom">
                     <p class="uk-padding-remove"><?= $excerpt; ?></p>
                     <p class="uk-margin-remove">
-                        <a class="uk-text-uppercase" href="<?= $this->e($link); ?>">
+                        <a href="<?= $this->e($permalink); ?>">
                             <?= $this->e($settings['linktext']); ?>
                         </a>
                     </p> 

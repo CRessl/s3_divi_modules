@@ -44,6 +44,9 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 			),
             'include_categories' => array(
 				'label'            => esc_html__( 'Included Categories', 's3dm-s3-divi-modules' ),
+				'meta_categories'  => array(
+					'current' => esc_html__( 'Current Category', 'et_builder' ),
+				),
 				'type'             => 'categories',
 				'option_category'  => 'basic_option',
 				'description'      => esc_html__( 'Choose which categories you would like to include in the slider.', 's3dm-s3-divi-modules' ),
@@ -135,6 +138,48 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
                 'toggle_slug'      => 'elements',
 				'default_on_front' => 'off',
 				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+			),
+			'show_subtitle' => array(
+				'label'            => esc_html__( 'Show Subtitle', 's3dm-s3-divi-modules' ),
+				'type'             => 'yes_no_button',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'on'  => et_builder_i18n( 'Yes' ),
+					'off' => et_builder_i18n( 'No' ),
+				),
+				'default_on_front' => 'off',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will display the subtitle of the post', 's3dm-s3-divi-modules' ),
+			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
+			'subtitle_size'              => array(
+				'label'            => esc_html__( 'Subtitle size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h3',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
 			),
             'show_excerpt' => array(
 				'label'            => esc_html__( 'Show Excerpt', 's3dm-s3-divi-modules' ),
@@ -291,9 +336,21 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 			unset($queryArgs['category']);
 		}
 
+		//in visual builder it is not always possible to get the current category. especially if current builder is theme builder
+		if($args['include_categories'] === 'current'){
+			unset($queryArgs['category']);
+		}
+
 		if($args['query_type'] === 'category'){
 
 			$products = get_posts($queryArgs);
+
+			if(!$products){
+
+				unset($queryArgs['category']);
+				$products = get_posts($queryArgs);
+
+			}
 
 			foreach($products as $product){
 
@@ -309,6 +366,12 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 				$price = get_field('ehi_product_price', $productID);
 				$member_price = get_field('ehi_product_member_price', $productID);
 				$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+
+				if(!$excerpt){
+					$truncate = truncate_post( 270, false, $product, true );
+					$excerpt = $truncate;
+				}
+
 				$max_pages = get_field('ehi_product_max_pages', $productID);
 				$format = get_field('ehi_product_format', $productID);
 
@@ -403,7 +466,9 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 		$show_price					= $this->props['show_price'];
 		$show_link					= $this->props['show_link'];
 		$show_page_format			= $this->props['show_page_format'];
-
+		$show_subtitle				= $this->props['show_subtitle'];
+		$title_size 				= $this->props['title_size'];
+		$subtitle_size				= $this->props['subtitle_size'];
 
 		$settings = array(
 
@@ -417,6 +482,9 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 			'show_bubble'		=> $show_bubble,
 			'show_link'			=> $show_link,
 			'show_page_format'	=> $show_page_format,
+			'show_subtitle'		=> $show_subtitle,
+			'title_size'		=> $title_size,
+			'subtitle_size'		=> $subtitle_size
 
 
 		);
@@ -424,8 +492,21 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 
 		if($query_type === 'category'){
 
-			$output = '<div class="uk-child-width-1-1 uk-child-width-1-'.$columns.'" uk-grid>';
+			$output = '<div class="uk-child-width-1-1 uk-child-width-1-'.$columns.'" uk-height-match="target: .s3dm_products_grid_item .uk-card-body" uk-grid>';
 
+			if($include_categories === 'current' && get_post_type() != 'ehi_product'){
+
+				$category = get_queried_object();
+				$include_categories = $category->term_id;
+
+			}
+
+			if($include_categories === 'current' && get_post_type() == 'ehi_product'){
+
+				$category = wp_get_post_categories( get_the_ID(), array( 'fields' => 'ids' ) );
+				$include_categories = implode(',', $category);
+
+			}
 
 			$queryArgs = array(
 				'post_type' 	=> 'ehi_product',
@@ -434,7 +515,27 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 				'category' 		=> $include_categories
 			);
 
+			if(get_post_type() == 'ehi_product'){
+				$queryArgs['post__not_in'] = array(get_the_ID());
+			}
+
+			if(!$include_categories){
+
+				unset($queryArgs['category']);
+
+			}
+
+			
+
 			$products = get_posts($queryArgs);
+
+
+			if(!$products){
+
+				unset($queryArgs['category']);
+				$products = get_posts($queryArgs);
+
+			}
 
 			foreach($products as $product){
 
@@ -484,7 +585,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 
 
 			}
-
+			
 			$output .= '</div>';
 
 		}
@@ -494,7 +595,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 			$product = get_post(url_to_post_id($this->props['product']));
 
 		}
-
+		
 		return $output;
 		
 	}

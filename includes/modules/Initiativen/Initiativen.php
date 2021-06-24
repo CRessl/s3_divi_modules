@@ -67,6 +67,21 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front'          => 3,
 			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
 			'columns'  => array(
 				'label'            => esc_html__( 'Columns', 's3dm-s3-divi-modules' ),
 				'type'             => 'select',
@@ -168,6 +183,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
         $initiatives = $this->props['initiatives'];
         $categories = $this->props['include_categories'];
 		$columns = $this->props['columns'];
+		$title_size = $this->props['title_size'];
 
         if($query_type === 'category'){
 
@@ -183,14 +199,16 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
             
             $output = $this->view->render('modules/Initiativen/multiple', array(
                 'initiatives' => $initiatives,
-				'columns' => $columns
+				'columns' => $columns,
+				'title_size' => $title_size
             ));
 
 
             if($post_number == '1'):
 
                 $output = $this->view->render('modules/Initiativen/single', array(
-                    'initiatives' => $initiatives
+                    'initiatives' => $initiatives,
+					'title_size' => $title_size
                 ));
 
             endif;

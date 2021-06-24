@@ -45,13 +45,34 @@ class S3DM_TeamList extends ET_Builder_Module {
 	
 
 	public function get_fields() {
-		return array();
+		return array(
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
+		);
 	}
 
+	function before_render() {
+		global $title_size;
+		$title_size = $this->props['title_size'];
+	}
 
 	public function render( $attrs, $content = null, $render_slug ) {
+		global $title_size;
 
-
+		
 		$content = $this->props['content'];
 
 		$output = sprintf( 

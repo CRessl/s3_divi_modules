@@ -37,6 +37,21 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 				),
 				'default'          => 3,
 			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
 			'columns' => array(
 				'label'            => esc_html__( 'Columns', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
@@ -125,10 +140,11 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 	public function render( $attrs, $content = null, $render_slug ) {
 
 	
-		$numberposts = $this->props['posts_number'];
-		$dateFormat = $this->props['meta_date'];
-		$button_text = $this->props['button_text'];
-		$columns = $this->props['columns'];
+		$numberposts 	= $this->props['posts_number'];
+		$dateFormat 	= $this->props['meta_date'];
+		$button_text 	= $this->props['button_text'];
+		$columns 		= $this->props['columns'];
+		$title_size		= $this->props['title_size'];
 
 		if(!$columns){
 			$columns = 3;
@@ -150,23 +166,26 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 		$data = tribe_get_events($args);
 			
 
-		$post_list = '<div uk-grid class="uk-grid-divider">';
+		$post_list = '<div uk-slider="finite:true"><ul class="uk-slider-items uk-grid-divider uk-child-width-1-'.$columns.'@m uk-child-width-1-3@s uk-child-width-1-1">';
 
 		foreach($data as $postObject){
 
 			$post_list .= $this->view->render('modules/EventList/partials/EventList_Item', array(
-				'columns' => $columns,
-				'date' => tribe_get_start_date( $postObject, true, $dateFormat ),
-				'title' => $postObject->post_title,
-				'link' => get_the_permalink($postObject->ID),
-				'button_text' => $button_text,
-				'prefix' => $this->slug
+				'columns' 		=> $columns,
+				'start_date' 	=> tribe_get_start_date( $postObject, true, $dateFormat ),
+				'end_date'		=> tribe_get_end_date( $postObject, true, $dateFormat ),
+				'title' 		=> $postObject->post_title,
+				'link' 			=> get_the_permalink($postObject->ID),
+				'button_text' 	=> $button_text,
+				'prefix' 		=> $this->slug,
+				'title_size' 	=> $title_size
 			));
 
 		}
-
+		
+		$post_list .= '</ul>';
+		$post_list .= '<a class="uk-position-center-left" href="" uk-slidenav-previous uk-slider-item="previous"></a><a class="uk-position-center-right" href="" uk-slidenav-next uk-slider-item="next"></a>';
 		$post_list .= '</div>';
-
 		$output = sprintf(
 			'<div class="%2$s">
 				%1$s

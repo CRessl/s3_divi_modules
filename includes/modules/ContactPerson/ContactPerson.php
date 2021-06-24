@@ -46,6 +46,21 @@ class S3DM_ContactPerson extends ET_Builder_Module {
                     'image_position'
                 )
 			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
             'show_meta' => array(
 				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -107,6 +122,7 @@ class S3DM_ContactPerson extends ET_Builder_Module {
 		$show_image = $this->props['show_image'];
 		$show_phone = $this->props['show_phone'];
 		$show_email = $this->props['show_email'];
+		$title_size = $this->props['title_size'];
 
 
 		/*
@@ -133,16 +149,17 @@ class S3DM_ContactPerson extends ET_Builder_Module {
 			$title = get_field('ehi_team_titel', $contactID);
 
 			$output .= $this->view->render('modules/ContactPerson/ContactPerson', array(
-				'title' => $title,
-				'name' => $name,
-				'image' => $image,
-				'phone' => $phone,
-				'email'	=> $email,
-				'show_meta' => $show_meta,
-				'position' => $position,
-				'show_email' => $show_email,
-				'show_image' => $show_image,
-				'show_phone' => $show_phone,
+				'title' 		=> $title,
+				'name' 			=> $name,
+				'image' 		=> $image,
+				'phone' 		=> $phone,
+				'email'			=> $email,
+				'show_meta' 	=> $show_meta,
+				'position' 		=> $position,
+				'show_email' 	=> $show_email,
+				'show_image' 	=> $show_image,
+				'show_phone' 	=> $show_phone,
+				'title_size' 	=> $title_size,
 			));
 
 		}

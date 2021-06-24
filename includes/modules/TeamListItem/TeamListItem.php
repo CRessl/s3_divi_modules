@@ -93,6 +93,7 @@ class S3DM_TeamListItem extends ET_Builder_Module {
     }
 
 	public function render( $attrs, $content = null, $render_slug ) {
+		global $title_size;
 
         $teamMemberID = url_to_postid($this->props['teammember']);
 
@@ -105,7 +106,8 @@ class S3DM_TeamListItem extends ET_Builder_Module {
             'name' => $name,
             'image' => $image,
             'email' => $email,
-            'attachment' => $attachment
+            'attachment' => $attachment,
+			'title_size' => $title_size
          ));
 		
 		
