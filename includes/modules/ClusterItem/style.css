@@ -36,7 +36,7 @@
 }
 
 .s3dm_cluster_item_title p {
-  font-size: 14px;
+  font-size: 15px;
   color: #fff;
   text-align: center;
   -webkit-hyphens: auto;
@@ -56,4 +56,17 @@
 
 .s3dm_cluster_container_grid .s3dm_cluster_item{
   transform: scale(1) !important;
+}
+
+.s3dm_cluster_container_grid .s3dm_cluster_item_title p{
+  font-size: 19px;
+}
+
+
+@media screen and (max-width: 640px) {
+
+  .s3dm_cluster_container_grid .s3dm_cluster_item_title p{
+    font-size: 17px;
+  }
+
 }

@@ -1,6 +1,6 @@
 
 
-<div class="s3dm_contact_person uk-padding uk-padding-remove-right">
+<div class="s3dm_contact_person uk-padding uk-padding-remove-horizontal">
    
         <?php if($image):?>
         <div class="s3dm_contact_person_image_container uk-margin">

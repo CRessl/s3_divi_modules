@@ -1,10 +1,11 @@
 
 .s3dm_contact_person{
-    background-color: #e6e6e6;
+    /*background-color: #e6e6e6;*/
     justify-content: center;
     position: relative;
+    border-top: 1px solid #878787;
 }
-
+/*
 .s3dm_contact_person::before{
     content: '';
     position: absolute;
@@ -14,7 +15,7 @@
     left: -100%;
     background: #e6e6e6;
     z-index: -1;
-}
+}*/
 
 .s3dm_contact_person_image_container img{
     max-width: 210px;

@@ -28,3 +28,16 @@ function get_full_size_image_url($src){
 	return $fullSizeUrl;
 
 }
+
+function image_size_exists($image_size){
+
+	global $_wp_additional_image_sizes;
+
+	if(array_key_exists($image_size, $_wp_additional_image_sizes)){
+		return true;
+	}
+
+	return false;
+
+
+}

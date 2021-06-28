@@ -161,7 +161,7 @@ class S3DM_ClusterItem extends ET_Builder_Module {
             'image'             => $image,
         );
 
-		$min = 0.8;
+		$min = 1;
 		$max = 1.3;
 		$step = 0.1;
 

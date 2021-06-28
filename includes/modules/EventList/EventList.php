@@ -129,7 +129,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 
 			$postData[$count]['date'] = tribe_get_start_date( $postObject, true, $dateFormat );
 			$postData[$count]['title'] = $postObject->post_title;
-			$postData[$count]['link'] = get_the_permalink($postObject->ID);
+			$postData[$count]['link'] = tribe_get_event_meta( $postObject->ID, '_EventURL', true );
 			$count++;
 		}
 
@@ -175,7 +175,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 				'start_date' 	=> tribe_get_start_date( $postObject, true, $dateFormat ),
 				'end_date'		=> tribe_get_end_date( $postObject, true, $dateFormat ),
 				'title' 		=> $postObject->post_title,
-				'link' 			=> get_the_permalink($postObject->ID),
+				'link' 			=> tribe_get_event_meta( $postObject->ID, '_EventURL', true ),
 				'button_text' 	=> $button_text,
 				'prefix' 		=> $this->slug,
 				'title_size' 	=> $title_size

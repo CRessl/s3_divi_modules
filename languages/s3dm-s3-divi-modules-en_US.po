@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: S3 Divi Modules 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-06-23 12:22:24+00:00\n"
+"POT-Creation-Date: 2021-06-24 14:38:53+00:00\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -245,39 +245,57 @@ msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:32
 #: includes/modules/PostList/PostList.php:103
-#: includes/modules/PostTabSlider/PostTabSlider.php:76
+#: includes/modules/PostTabSlider/PostTabSlider.php:91
 msgid "Show Featured Image"
 msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:41
+#: includes/modules/ContactPerson/ContactPerson.php:61
+#: includes/modules/EventList/EventList.php:52
+#: includes/modules/Initiativen/Initiativen.php:82
 #: includes/modules/PostList/PostList.php:112
-#: includes/modules/PostTabSlider/PostTabSlider.php:85
+#: includes/modules/PostList/PostList.php:147
+#: includes/modules/PostTabSlider/PostTabSlider.php:87
+#: includes/modules/PostTabSlider/PostTabSlider.php:100
 #: includes/modules/Products/Products.php:125
 #: includes/modules/Products/Products.php:140
+#: includes/modules/Products/Products.php:166
+#: includes/modules/Products/Products.php:181
+#: includes/modules/TeamList/TeamList.php:61
 msgid "This setting will turn on and off the featured image in the slider."
 msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:50
-#: includes/modules/PostList/PostList.php:152
-#: includes/modules/PostTabSlider/PostTabSlider.php:102
-#: includes/modules/Products/Products.php:191
+#: includes/modules/EventList/EventList.php:41
+#: includes/modules/Initiativen/Initiativen.php:71
+#: includes/modules/PostList/PostList.php:136
+#: includes/modules/PostTabSlider/PostTabSlider.php:76
+#: includes/modules/Products/Products.php:155
+#: includes/modules/TeamList/TeamList.php:50
+msgid "Title size"
+msgstr ""
+
+#: includes/modules/ContactPerson/ContactPerson.php:65
+#: includes/modules/PostList/PostList.php:167
+#: includes/modules/PostTabSlider/PostTabSlider.php:117
+#: includes/modules/Products/Products.php:221
 msgid "Show Post Meta"
 msgstr ""
 
-#: includes/modules/ContactPerson/ContactPerson.php:63
 #: includes/modules/ContactPerson/ContactPerson.php:78
 #: includes/modules/ContactPerson/ContactPerson.php:93
-#: includes/modules/PostList/PostList.php:165
-#: includes/modules/PostTabSlider/PostTabSlider.php:111
-#: includes/modules/Products/Products.php:205
+#: includes/modules/ContactPerson/ContactPerson.php:108
+#: includes/modules/PostList/PostList.php:180
+#: includes/modules/PostTabSlider/PostTabSlider.php:126
+#: includes/modules/Products/Products.php:235
 msgid "This setting will turn on and off the meta section."
 msgstr ""
 
-#: includes/modules/ContactPerson/ContactPerson.php:66
+#: includes/modules/ContactPerson/ContactPerson.php:81
 msgid "Show E-Mail"
 msgstr ""
 
-#: includes/modules/ContactPerson/ContactPerson.php:81
+#: includes/modules/ContactPerson/ContactPerson.php:96
 msgid "Show phone number"
 msgstr ""
 
@@ -298,10 +316,10 @@ msgid "Post Count"
 msgstr ""
 
 #: includes/modules/EventList/EventList.php:34
-#: includes/modules/EventList/EventList.php:44
+#: includes/modules/EventList/EventList.php:59
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
 #: includes/modules/Initiativen/Initiativen.php:61
-#: includes/modules/Initiativen/Initiativen.php:79
+#: includes/modules/Initiativen/Initiativen.php:94
 #: includes/modules/Products/Products.php:65
 #: includes/modules/Products/Products.php:84
 #: includes/modules/Products/Products.php:95
@@ -310,46 +328,46 @@ msgstr ""
 msgid "Choose how much posts you would like to display per page."
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:41
+#: includes/modules/EventList/EventList.php:56
 #: includes/modules/FACTFinder/FACTFinder.php:62
-#: includes/modules/Initiativen/Initiativen.php:71
+#: includes/modules/Initiativen/Initiativen.php:86
 msgid "Columns"
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:48
+#: includes/modules/EventList/EventList.php:63
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:68
 msgid "Show Read More Button"
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:58
+#: includes/modules/EventList/EventList.php:73
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:78
 msgid ""
 "Here you can define whether to show \"read more\" link after the excerpts or "
 "not."
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:62
+#: includes/modules/EventList/EventList.php:77
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:82
 msgid "Read More Button Text"
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:66
+#: includes/modules/EventList/EventList.php:81
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:86
 msgid "Here you can define which text the button should have"
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:69
+#: includes/modules/EventList/EventList.php:84
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:135
-#: includes/modules/PostList/PostList.php:186
-#: includes/modules/Products/Products.php:241
+#: includes/modules/PostList/PostList.php:201
+#: includes/modules/Products/Products.php:271
 msgid "Date Format"
 msgstr ""
 
-#: includes/modules/EventList/EventList.php:72
+#: includes/modules/EventList/EventList.php:87
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:150
-#: includes/modules/PostList/PostList.php:189
-#: includes/modules/Products/Products.php:244
+#: includes/modules/PostList/PostList.php:204
+#: includes/modules/Products/Products.php:274
 msgid ""
 "If you would like to adjust the date format, input the appropriate PHP date "
 "format here."
@@ -397,8 +415,8 @@ msgid "Turn on or off the author link."
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:100
-#: includes/modules/PostList/PostList.php:168
-#: includes/modules/Products/Products.php:223
+#: includes/modules/PostList/PostList.php:183
+#: includes/modules/Products/Products.php:253
 msgid "Show Date"
 msgstr ""
 
@@ -513,11 +531,11 @@ msgstr ""
 msgid "Choose which categories you would like to include in the slider."
 msgstr ""
 
-#: includes/modules/Initiativen/Initiativen.php:86
+#: includes/modules/Initiativen/Initiativen.php:101
 msgid "Initiative"
 msgstr ""
 
-#: includes/modules/Initiativen/Initiativen.php:89
+#: includes/modules/Initiativen/Initiativen.php:104
 msgid "Choose a initiative"
 msgstr ""
 
@@ -566,30 +584,30 @@ msgstr ""
 msgid "Between Meta and Excerpt"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:136
-#: includes/modules/PostTabSlider/PostTabSlider.php:89
-#: includes/modules/Products/Products.php:155
+#: includes/modules/PostList/PostList.php:151
+#: includes/modules/PostTabSlider/PostTabSlider.php:104
+#: includes/modules/Products/Products.php:185
 msgid "Show Excerpt"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:145
-#: includes/modules/PostTabSlider/PostTabSlider.php:98
-#: includes/modules/Products/Products.php:164
+#: includes/modules/PostList/PostList.php:160
+#: includes/modules/PostTabSlider/PostTabSlider.php:113
+#: includes/modules/Products/Products.php:194
 msgid "This setting will display the excerpt of the post"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:177
-#: includes/modules/Products/Products.php:232
+#: includes/modules/PostList/PostList.php:192
+#: includes/modules/Products/Products.php:262
 msgid "This setting will turn on and off the date section."
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:200
-#: includes/modules/Products/Products.php:255
+#: includes/modules/PostList/PostList.php:215
+#: includes/modules/Products/Products.php:285
 msgid "Show Tags"
 msgstr ""
 
-#: includes/modules/PostList/PostList.php:209
-#: includes/modules/Products/Products.php:264
+#: includes/modules/PostList/PostList.php:224
+#: includes/modules/Products/Products.php:294
 msgid "This setting will turn on and off the tag section."
 msgstr ""
 
@@ -625,11 +643,11 @@ msgstr ""
 msgid "Here you can adjust the order in which posts are displayed."
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:115
+#: includes/modules/PostTabSlider/PostTabSlider.php:130
 msgid "Featured Image Placement"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:126
+#: includes/modules/PostTabSlider/PostTabSlider.php:141
 msgid "Select how you would like to display the featured image in slides"
 msgstr ""
 
@@ -675,27 +693,31 @@ msgstr ""
 msgid "This setting will display the subtitle of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:167
+#: includes/modules/Products/Products.php:170
+msgid "Subtitle size"
+msgstr ""
+
+#: includes/modules/Products/Products.php:197
 msgid "Show Link"
 msgstr ""
 
-#: includes/modules/Products/Products.php:176
+#: includes/modules/Products/Products.php:206
 msgid "This setting will display the link of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:179
+#: includes/modules/Products/Products.php:209
 msgid "Show price"
 msgstr ""
 
-#: includes/modules/Products/Products.php:188
+#: includes/modules/Products/Products.php:218
 msgid "This setting will display the price of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:208
+#: includes/modules/Products/Products.php:238
 msgid "Show max pages and format"
 msgstr ""
 
-#: includes/modules/Products/Products.php:220
+#: includes/modules/Products/Products.php:250
 msgid "This setting will display the max pages and format of the post"
 msgstr ""
 

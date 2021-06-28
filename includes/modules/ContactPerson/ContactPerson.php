@@ -139,8 +139,12 @@ class S3DM_ContactPerson extends ET_Builder_Module {
 		foreach($contact as $contactPerson){
 
 			$contactID = $contactPerson->ID;
-
 			$image = wp_get_attachment_image(attachment_url_to_postid( get_field('ehi_team_bild', $contactID) ), 'medium', false, ['class' => 'uk-border-circle']);
+			
+			if(image_size_exists('contact_480')){
+				$image = wp_get_attachment_image(attachment_url_to_postid( get_field('ehi_team_bild', $contactID) ), 'contact_480', false, ['class' => 'uk-border-circle']);
+			}
+			
 			
 			$phone = get_field('ehi_team_telefon', $contactID);
 			$email = get_field('ehi_team_email', $contactID);
