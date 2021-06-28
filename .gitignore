@@ -10,7 +10,7 @@
 /scripts/bundle.min.js
 /styles/bundle.min.css
 asset-manifest.json
-s3-divi-modules.zip
+/s3-divi-modules.zip
 *.map
 
 # misc
