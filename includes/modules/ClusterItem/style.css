@@ -8,11 +8,9 @@
   justify-content: center;
   position: absolute;
   border-radius: 50%;
-  background-color: #d3d3d3;
   transition: background 0.3s ease-in-out;
-  will-change: transform
+  will-change: transform;
 }
-
 
 .s3dm_cluster_container .s3dm_cluster_item > div {
   width: 80%;
@@ -20,9 +18,8 @@
 }
 
 .s3dm_cluster_container .s3dm_cluster_item:hover {
-  background-color: #00b2b2 !important;
   transition: background 0.3s ease-in-out;
-  will-change: transform
+  will-change: transform;
 }
 
 .s3dm_cluster_item_image img {
@@ -45,28 +42,24 @@
   word-break: break-all;
 }
 
-
 /* GRID CSS */
-.s3dm_cluster_container_grid .s3dm_cluster_item > div{
-  background-color: #00b2b2 !important;
+.s3dm_cluster_container_grid .s3dm_cluster_item > div {
+  background-color: #00b2b2;
 }
-.s3dm_cluster_container_grid .s3dm_cluster_item_content{
+.s3dm_cluster_container_grid .s3dm_cluster_item_content {
   padding: 30px;
 }
 
-.s3dm_cluster_container_grid .s3dm_cluster_item{
+.s3dm_cluster_container_grid .s3dm_cluster_item {
   transform: scale(1) !important;
 }
 
-.s3dm_cluster_container_grid .s3dm_cluster_item_title p{
+.s3dm_cluster_container_grid .s3dm_cluster_item_title p {
   font-size: 19px;
 }
 
-
 @media screen and (max-width: 640px) {
-
-  .s3dm_cluster_container_grid .s3dm_cluster_item_title p{
+  .s3dm_cluster_container_grid .s3dm_cluster_item_title p {
     font-size: 17px;
   }
-
 }

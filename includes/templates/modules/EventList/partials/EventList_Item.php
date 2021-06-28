@@ -8,10 +8,18 @@
         </p> 
     </div>
     <div class="<?= $this->e($prefix) ?>_title <?= $this->e($title_size); ?>">
-        <a href="<?= $this->e($link) ?>" target="_blank">
+        <?php if($link): ?>
+            <a href="<?= $this->e($link) ?>" target="_blank">
+                <h3>
+                    <?= $this->e($title) ?>
+                </h3>
+            </a>
+        <?php else: ?>
+           
             <h3>
                 <?= $this->e($title) ?>
             </h3>
-        </a>
+
+        <?php endif; ?>
     </div>
 </li>

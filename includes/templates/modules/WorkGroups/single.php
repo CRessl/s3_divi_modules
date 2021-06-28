@@ -11,8 +11,8 @@
             ?>
 
             <div class="uk-width-expand@m uk-width-1-1 uk-flex-middle uk-flex uk-padding-remove-top uk-padding-remove-bottom uk-padding">
-                <div>
-                    <h2 class="s3dm_workgroups_title"><?= $workgroups->post_title; ?></h2>
+                <div <?php echo ($title_size) ? 'class="'.$title_size.'"' : '' ?>>
+                    <h3 class="s3dm_workgroups_title"><?= $workgroups->post_title; ?></h3>
                     <?= $content ?>
                 </div>
             </div>

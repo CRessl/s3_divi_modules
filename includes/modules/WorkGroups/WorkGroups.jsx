@@ -53,8 +53,8 @@ class S3DM_WorkGroups extends Component {
       <div className="s3dm_workgroups_item uk-grid-match" uk-grid="true" key={index}>
   
         <div className="uk-width-expand uk-flex-middle uk-flex uk-padding-remove-top uk-padding-remove-bottom uk-padding">
-            <div>
-                <h2>{item.title}</h2>
+            <div className={this.props.title_size}>
+                <h3>{item.title}</h3>
                 <p>{item.content}</p>
             </div>
         </div>
@@ -81,7 +81,7 @@ class S3DM_WorkGroups extends Component {
           
             
             <div className="uk-width-expand@m uk-width-1-1 uk-flex-middle uk-flex uk-padding-remove-top uk-padding-remove-bottom uk-padding">
-                <div>
+                <div className={this.props.title_size}>
                     <h3 className="uk-margin-small s3dm_workgroups_slider_item_contact_title">{item.title}</h3>
                     <p>{item.content}</p>
                 </div>

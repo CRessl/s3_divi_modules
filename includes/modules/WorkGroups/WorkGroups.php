@@ -67,6 +67,21 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 				),
 				'default_on_front'          => 3,
 			),
+			'title_size'              => array(
+				'label'            => esc_html__( 'Title size', 's3dm-s3-divi-modules' ),
+				'type'             => 'select',
+				'option_category'  => 'configuration',
+				'options'          => array(
+					'ehi-h1'  => et_builder_i18n( 'H1' ),
+					'ehi-h2' => et_builder_i18n( 'H2' ),
+					'ehi-h3'  => et_builder_i18n( 'H3' ),
+					'ehi-h4' => et_builder_i18n( 'H4' ),
+				),
+				'default_on_front' => 'ehi-h2',
+				'toggle_slug'      => 'elements',
+				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
+				'mobile_options'   => true,
+			),
             'workgroup' => array(
 				'label'            => esc_html__( 'Work group', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
@@ -98,6 +113,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
         $post_number = $args['posts_number'];
         $workgroup = $args['workgroup'];
         $categories = $args['include_categories'];
+		
 
 		$workgroupsData = [];
 
@@ -260,6 +276,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
         $post_number = $this->props['posts_number'];
         $workgroup = $this->props['workgroup'];
         $categories = $this->props['include_categories'];
+		$title_size = $this->props['title_size'];
 
 		if($query_type === 'category'){
 
@@ -274,14 +291,16 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
             $workgroups = get_posts($query_args);
             
             $output = $this->view->render('modules/WorkGroups/multiple', array(
-                'workgroups' => $workgroups
+                'workgroups' => $workgroups,
+				'title_size' => $title_size
             ));
 
 
             if($post_number == '1'):
 
                 $output = $this->view->render('modules/WorkGroups/single', array(
-                    'workgroups' => $workgroups
+                    'workgroups' => $workgroups,
+					'title_size' => $title_size
                 ));
 
             endif;
@@ -298,7 +317,8 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 			if($canGetPostID):
 				$workgroups = get_post($canGetPostID);
 				$output = $this->view->render('modules/WorkGroups/single', array(
-					'workgroups' => $workgroups
+					'workgroups' => $workgroups,
+					'title_size' => $title_size
 				));
 			endif;
 
