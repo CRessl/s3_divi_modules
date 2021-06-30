@@ -328,7 +328,6 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
 
         );
         
-        $is_product_list = $this->props['is_product_list'];
         $posts_per_page = $this->props['posts_number'];
         $categories = $this->props['include_categories'];
         $dateFormat = $this->props['date_format'];
@@ -344,7 +343,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             unset($queryArgs['category']);
         }
 
-        if($is_product_list == 'on' && get_post_type() == 'ehi_product'){
+        if(get_post_type() == 'ehi_product'){
 
             $currentPageID = get_the_ID();
 

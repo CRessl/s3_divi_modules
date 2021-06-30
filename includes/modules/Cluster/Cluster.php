@@ -1,12 +1,4 @@
 <?php
-/**
- * 
- * Add custom links as list, grid or bubble option
- * each link item can be positioned manually if bubble layout is selected
- * 
- * 
-*/
-
 
 class S3DM_Cluster extends ET_Builder_Module {
 

@@ -8,7 +8,7 @@
             <div class="s3dm_product_list_grid_product_image uk-position-relative">
             <?php if($settings['show_bubble']): ?>
 
-                <?php if($member_price == 0):?>
+                <?php if( $member_price === 0 && $price !== 0 || $price !== '0' && $member_price !== '0' ):?>
                     <div class="bubble">
                         <p class="uk-margin-small-bottom">Für EHI-Mitglieder kostenlos</p>
 
@@ -29,9 +29,9 @@
                         </svg>
 
                     </div>
-                    <?php elseif($member_price || $member_price > 0): ?>
+                    <?php elseif($member_price === 0 && $price === 0 || $member_price === '0' && $price === '0'): ?>
                         <div class="bubble">
-                            <p class="uk-margin-small-bottom">PDF zum sofortigem Download</p>
+                            <p class="uk-margin-small-bottom">kostenloser Download</p>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="31.338" height="28.408" viewBox="0 0 31.338 28.408">
                                 <g id="Gruppe_1" data-name="Gruppe 1" transform="translate(-265.163 -1182.972)">

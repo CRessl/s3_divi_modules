@@ -10,10 +10,10 @@ class S3DM_Products extends Component {
   static slug = 's3dm_products';
 
 
-  renderBubble(member_price){
+  renderBubble(member_price, price){
 
     if(this.props.show_bubble === 'on'){
-      if(member_price === 0 || member_price === '0'){
+      if((member_price === 0 || member_price === '0') && (price !== 0 || price !== '0')){
 
         return(
           <div className="bubble">
@@ -38,11 +38,11 @@ class S3DM_Products extends Component {
         );
       }
   
-      if(member_price !== 0 || member_price !== '0'){
+      if((member_price === 0 || member_price === '0') && (price === 0 || price === '0')){
         
         return (
           <div className="bubble">
-              <p className="uk-margin-small-bottom">PDF zum sofortigem Download</p>
+              <p className="uk-margin-small-bottom">kostenloser Download</p>
   
               <svg xmlns="http://www.w3.org/2000/svg" width="31.338" height="28.408" viewBox="0 0 31.338 28.408">
                   <g id="Gruppe_1" data-name="Gruppe 1" transform="translate(-265.163 -1182.972)">
@@ -65,13 +65,13 @@ class S3DM_Products extends Component {
 
   }
 
-  renderImage(packshot, alt, member_price){
+  renderImage(packshot, alt, member_price, price){
 
 
     if(this.props.show_image === 'on'){
       return (
         <div className="s3dm_product_list_grid_product_image uk-position-relative">
-          {this.renderBubble(member_price)}
+          {this.renderBubble(member_price, price)}
           <img className="s3dm_post_list_product_image" src={packshot} alt={alt} />
         </div>
       );
@@ -337,7 +337,7 @@ class S3DM_Products extends Component {
           return (
             <div className="s3dm_products_grid_item s3dm_product_list_product_container">
               <div className="uk-card-default">
-                {this.renderImage(packshot, title, member_price)}
+                {this.renderImage(packshot, title, member_price, price)}
                 <div className="uk-card-body uk-position-relative">  
                   <a href={permalink} className="uk-position-cover"> </a>
                   {this.renderTagsAndDate(tags, date)}
