@@ -430,7 +430,8 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                         'tags'  => get_the_tags($postID),
                         'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $postData[0]))),
                         'date' => get_the_date($dateFormat, $postID),
-                        'link' => get_the_permalink($postID), 
+                        'link' => get_the_permalink($postID),
+                        'settings' => $settings
                     ));
 
                 echo '</div>';
@@ -448,6 +449,7 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
                         'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
                         'date' => get_the_date($dateFormat, $postID),
                         'link' => get_the_permalink($postID),
+                        'settings' => $settings
                     ));
 
 

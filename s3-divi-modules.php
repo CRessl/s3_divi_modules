@@ -69,8 +69,18 @@ endif;
 
 function s3dm_add_image_sizes(){
 
-	add_image_size('link_list_bubble_image', 300, 9999, true, false);
+	add_image_size('link_list_bubble_image', 300, 9999, false);
+	add_image_size('post_tab_slider_image', 660, 660, true);
+	add_filter( 'image_size_names_choose', 's3dm_custom_sizes' );
+	
+}
 
+
+function s3dm_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'link_list_bubble_image'     => __( 'Cluster Image Size' ),
+		'post_tab_slider_image' 	 => __( 'Post Tab Slider Image')
+    ) );
 }
 
 

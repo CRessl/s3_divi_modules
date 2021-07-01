@@ -1,5 +1,5 @@
 
-    <div class="s3dm_workgroups_slider_item uk-padding uk-padding-remove-left">
+    <div class="s3dm_workgroups_slider_item s3dm_single_workgroup">
 
         <div class="s3dm_workgroups_item uk-flex-center" uk-grid>
             <?php

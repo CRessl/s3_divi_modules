@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
     $('.s3dm_extended_post_slider .s3dm_extended_post_slider_content').height(maxSlideHeight);
 
     setTimeout(function(){
-        var elms = document.getElementsByClassName('s3dm_extended_post_slider' );
+        var elms = document.getElementsByClassName('splide' );
             for ( var i = 0, len = elms.length; i < len; i++ ) {
                 new Splide( elms[ i ] ).mount();
             }

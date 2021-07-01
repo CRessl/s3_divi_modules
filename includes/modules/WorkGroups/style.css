@@ -12,10 +12,6 @@
     font-family: "SignikaNegative-SemiBold", sans-serif;
 }
 
-.s3dm_workgroups_slider_item{
-    padding-right: 10px!important;
-}
-
 .s3dm_workgroups_slider_item_contact_title{
     text-align:center;
     padding: 0;
@@ -74,4 +70,19 @@
     left: -7px;
     top: -7px;
     transition: all 0.3s ease-in-out;
+}
+
+/* SPLIDER OPTIONS */
+.s3dm_workgroups_container .splide__arrow--next{
+    right: -4em !important;
+}
+
+.s3dm_workgroups_container .splide__arrow--prev{
+    left: -4em !important;
+}
+
+.s3dm_workgroups_container .splide__arrow svg{
+    fill:#878787;
+    width:50%;
+    height:auto;
 }

@@ -98,6 +98,7 @@ class S3DM_TeamListItem extends ET_Builder_Module {
         $teamMemberID = url_to_postid($this->props['teammember']);
 
         $image = get_field('ehi_team_bild', $teamMemberID);
+		
         $name = trim(get_field('ehi_team_vorname', $teamMemberID)).' '.trim(get_field('ehi_team_nachname', $teamMemberID));
         $email = get_field('ehi_team_email', $teamMemberID);
         $attachment = wp_get_attachment_image(attachment_url_to_postid($image), 'contact_480', false, array('class' => 'uk-display-block'));

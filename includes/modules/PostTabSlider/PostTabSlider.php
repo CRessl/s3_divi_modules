@@ -194,7 +194,10 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 		foreach($posts as $sliderContents){
 
 			$categories = wp_get_post_categories($sliderContents->ID);
-
+			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'post_tab_slider_image');
+			if(!$imageURL):
+				$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');
+			endif;
             $cats = array();
      
             foreach($categories as $c){
@@ -206,7 +209,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 
 			$posts['postData'][$postCount]['title'] = get_the_title($sliderContents->ID);
 			$posts['postData'][$postCount]['excerpt'] = get_the_excerpt($sliderContents->ID);
-			$posts['postData'][$postCount]['image'] = get_the_post_thumbnail_url($sliderContents->ID, 'full');
+			$posts['postData'][$postCount]['image'] = $imageURL;
 			$posts['postData'][$postCount]['categories'] = $categoryList;
 			$posts['postData'][$postCount]['link'] = get_the_permalink($sliderContents->ID);
 			$posts['postData'][$postCount]['style'] = array('backgroundImage' => $posts['postData'][$postCount]['image']);
@@ -275,8 +278,17 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 
             $link = '<a href="'.get_the_permalink($sliderContentTab->ID).'">Zum Artikel</a>';
 			//Title, Category and Exerpt
-			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');
-			$wpImageHTML = get_the_post_thumbnail($sliderContentTab->ID, 'full');
+
+			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'post_tab_slider_image');
+			$wpImageHTML = get_the_post_thumbnail($sliderContentTab->ID, 'post_tab_slider_image');
+
+			if(!$imageURL):
+				$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');
+			endif;
+
+			if(!$wpImageHTML):
+				$wpImageHTML = get_the_post_thumbnail($sliderContentTab->ID, 'full');
+			endif;
 
             $cats = array();
      

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: S3 Divi Modules 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-06-25 08:44:39+00:00\n"
+"POT-Creation-Date: 2021-07-01 09:23:29+00:00\n"
 "PO-Revision-Date: 2021-06-07 14:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -190,22 +190,31 @@ msgstr ""
 "Sofern true wird die Such-Historie in den Browserverlauf übertragen. Dies "
 "funktioniert auch ohne die Suchparameter."
 
-#: includes/modules/Cluster/Cluster.php:24
+#: includes/modules/Cluster/Cluster.php:16
 #: includes/modules/ClusterItem/ClusterItem.php:24
 msgid "Cluster"
 msgstr "Cluster"
 
-#: includes/modules/Cluster/Cluster.php:30
+#: includes/modules/Cluster/Cluster.php:22
 #: includes/modules/ClusterItem/ClusterItem.php:31
+#: includes/modules/ProductInfo/ProductInfo.php:30
 #: includes/modules/TeamList/TeamList.php:30
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: includes/modules/Cluster/Cluster.php:51
+#: includes/modules/Cluster/Cluster.php:43
+msgid "Bubble Color"
+msgstr ""
+
+#: includes/modules/Cluster/Cluster.php:49
+msgid "Bubble Color hover"
+msgstr ""
+
+#: includes/modules/Cluster/Cluster.php:55
 msgid "Stroke Width"
 msgstr "Strichstärke"
 
-#: includes/modules/Cluster/Cluster.php:62
+#: includes/modules/Cluster/Cluster.php:66
 msgid "Stroke Color"
 msgstr "Strichfarbe"
 
@@ -287,11 +296,14 @@ msgstr "Zeige Beitragsbild"
 #: includes/modules/PostList/PostList.php:147
 #: includes/modules/PostTabSlider/PostTabSlider.php:87
 #: includes/modules/PostTabSlider/PostTabSlider.php:100
+#: includes/modules/ProductInfo/ProductInfo.php:52
+#: includes/modules/ProductInfo/ProductInfo.php:67
 #: includes/modules/Products/Products.php:125
 #: includes/modules/Products/Products.php:140
 #: includes/modules/Products/Products.php:166
 #: includes/modules/Products/Products.php:181
 #: includes/modules/TeamList/TeamList.php:61
+#: includes/modules/WorkGroups/WorkGroups.php:82 s3-divi-modules.php:129
 msgid "This setting will turn on and off the featured image in the slider."
 msgstr ""
 "Diese Einstellung aktiviert oder deaktiviert das Beitragsbild innerhalb des "
@@ -302,8 +314,10 @@ msgstr ""
 #: includes/modules/Initiativen/Initiativen.php:71
 #: includes/modules/PostList/PostList.php:136
 #: includes/modules/PostTabSlider/PostTabSlider.php:76
+#: includes/modules/ProductInfo/ProductInfo.php:41
 #: includes/modules/Products/Products.php:155
 #: includes/modules/TeamList/TeamList.php:50
+#: includes/modules/WorkGroups/WorkGroups.php:71 s3-divi-modules.php:118
 #, fuzzy
 msgid "Title size"
 msgstr "Titel: a-z"
@@ -353,11 +367,13 @@ msgstr "Beitragsanzahl"
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:45
 #: includes/modules/Initiativen/Initiativen.php:61
 #: includes/modules/Initiativen/Initiativen.php:94
+#: includes/modules/ProductInfo/ProductInfo.php:101
+#: includes/modules/ProductInfo/ProductInfo.php:112
 #: includes/modules/Products/Products.php:65
 #: includes/modules/Products/Products.php:84
 #: includes/modules/Products/Products.php:95
 #: includes/modules/WorkGroups/WorkGroups.php:61
-#: includes/modules/WorkGroups/WorkGroups.php:74
+#: includes/modules/WorkGroups/WorkGroups.php:89
 msgid "Choose how much posts you would like to display per page."
 msgstr "Wähle wie viele Beiträge du pro Seite anzeigen möchtest."
 
@@ -374,6 +390,8 @@ msgstr "Zeige weiterlesen-Button"
 
 #: includes/modules/EventList/EventList.php:73
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:78
+#: includes/modules/ProductInfo/ProductInfo.php:78
+#: includes/modules/ProductInfo/ProductInfo.php:94
 msgid ""
 "Here you can define whether to show \"read more\" link after the excerpts or "
 "not."
@@ -696,6 +714,42 @@ msgid "Select how you would like to display the featured image in slides"
 msgstr ""
 "Wähle wie du das Beitragsbild innerhalb der Elemente darstellen möchtest"
 
+#: includes/modules/ProductInfo/ProductInfo.php:25
+#, fuzzy
+msgid "Product Info"
+msgstr "Produkt"
+
+#: includes/modules/ProductInfo/ProductInfo.php:31
+msgid "Order Button Options"
+msgstr ""
+
+#: includes/modules/ProductInfo/ProductInfo.php:56
+#: includes/modules/Products/Products.php:170
+#, fuzzy
+msgid "Subtitle size"
+msgstr "Zeige Datum"
+
+#: includes/modules/ProductInfo/ProductInfo.php:71
+#: includes/modules/Products/Products.php:209
+#, fuzzy
+msgid "Show price"
+msgstr "Zeige Kategorien"
+
+#: includes/modules/ProductInfo/ProductInfo.php:83
+#, fuzzy
+msgid "Show \"To order\" Button"
+msgstr "Zeige weiterlesen-Button"
+
+#: includes/modules/ProductInfo/ProductInfo.php:98
+#, fuzzy
+msgid "Button Text"
+msgstr "Weiterlesen Text"
+
+#: includes/modules/ProductInfo/ProductInfo.php:108
+#, fuzzy
+msgid "Button Link"
+msgstr "Zeige E-Mail"
+
 #: includes/modules/Products/Products.php:25
 msgid "Products"
 msgstr "Produkte"
@@ -744,11 +798,6 @@ msgstr "Zeige Datum"
 msgid "This setting will display the subtitle of the post"
 msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
 
-#: includes/modules/Products/Products.php:170
-#, fuzzy
-msgid "Subtitle size"
-msgstr "Zeige Datum"
-
 #: includes/modules/Products/Products.php:197
 #, fuzzy
 msgid "Show Link"
@@ -758,11 +807,6 @@ msgstr "Zeige E-Mail"
 #, fuzzy
 msgid "This setting will display the link of the post"
 msgstr "Aktiviert oder deaktiviert die Darstellung des Auszugs"
-
-#: includes/modules/Products/Products.php:209
-#, fuzzy
-msgid "Show price"
-msgstr "Zeige Kategorien"
 
 #: includes/modules/Products/Products.php:218
 #, fuzzy
@@ -815,9 +859,18 @@ msgstr "Arbeitskreise"
 msgid "Query type"
 msgstr "Abfragetyp"
 
-#: includes/modules/WorkGroups/WorkGroups.php:71
+#: includes/modules/WorkGroups/WorkGroups.php:86
 msgid "Work group"
 msgstr "Arbeitskreis"
+
+#: s3-divi-modules.php:81
+msgid "Cluster Image Size"
+msgstr ""
+
+#: s3-divi-modules.php:82
+#, fuzzy
+msgid "Post Tab Slider Image"
+msgstr "Beitrags-Tab Slider"
 
 #. Plugin Name of the plugin/theme
 msgid "S3 Divi Modules"

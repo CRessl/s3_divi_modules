@@ -4,7 +4,7 @@
     
     <div class="uk-position-relative">
         <a href="<?= $this->e($link); ?>" class="uk-position-cover"></a>
-        <div class="s3dm_post_list_headline_wrapper <?= $this->e($title_size); ?>">    
+        <div class="s3dm_post_list_headline_wrapper <?= $this->e($settings['title_size']); ?>">    
           <h3 class="s3dm_post_list_headline"><?= $this->e($title); ?></h3>
         </div>
         <div class="tags-container uk-margin-bottom">
@@ -21,7 +21,7 @@
     <div class="uk-position-relative uk-margin-bottom s3dm_post_list_right_item">
         
         <a href="<?= $this->e($link); ?>" class="uk-position-cover"></a>    
-        <div class="s3dm_post_list_headline_wrapper <?= $this->e($title_size); ?>">    
+        <div class="s3dm_post_list_headline_wrapper <?= $this->e($settings['title_size']); ?>">    
           <h3 class="s3dm_post_list_headline"><?= $this->e($title); ?></h3>
         </div>
         <div class="tags-container">

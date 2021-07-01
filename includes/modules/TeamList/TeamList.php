@@ -56,7 +56,7 @@ class S3DM_TeamList extends ET_Builder_Module {
 					'ehi-h3'  => et_builder_i18n( 'H3' ),
 					'ehi-h4' => et_builder_i18n( 'H4' ),
 				),
-				'default_on_front' => 'ehi-h2',
+				'default_on_front' => 'ehi-h4',
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the featured image in the slider.', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,

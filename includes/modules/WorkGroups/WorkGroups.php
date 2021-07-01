@@ -253,6 +253,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 			}
 
 
+
 			$workgroupsData[] = array(
 				'title' => esc_html($workgroup->post_title),
 				'content' => esc_html($workgroup->post_content),
@@ -278,6 +279,22 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
         $categories = $this->props['include_categories'];
 		$title_size = $this->props['title_size'];
 
+
+		$slider_defaults = array(
+			'type' => 'fade',
+			'rewind' => true,
+			'speed' =>	600,
+			'autoHeight' => true,
+			'perPage'	=> 1,
+			'gap'	=> 0,
+			'padding'	=> 0,
+			'arrows'	=> true,
+			'autoplay'	=> false,
+			'drag' => true,
+		);
+
+		$slide_options = json_encode($slider_defaults, JSON_HEX_QUOT);
+
 		if($query_type === 'category'){
 
             $query_args = array(
@@ -292,7 +309,8 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
             
             $output = $this->view->render('modules/WorkGroups/multiple', array(
                 'workgroups' => $workgroups,
-				'title_size' => $title_size
+				'title_size' => $title_size,
+				'slide_options' => $slide_options
             ));
 
 
@@ -300,7 +318,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
                 $output = $this->view->render('modules/WorkGroups/single', array(
                     'workgroups' => $workgroups,
-					'title_size' => $title_size
+					'title_size' => $title_size,
                 ));
 
             endif;
@@ -317,8 +335,9 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 			if($canGetPostID):
 				$workgroups = get_post($canGetPostID);
 				$output = $this->view->render('modules/WorkGroups/single', array(
-					'workgroups' => $workgroups,
-					'title_size' => $title_size
+					'workgroups' 	=> $workgroups,
+					'title_size' 	=> $title_size,
+					
 				));
 			endif;
 
