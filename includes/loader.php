@@ -7,7 +7,7 @@ if ( ! class_exists( 'ET_Builder_Element' ) ) {
 require dirname( __FILE__, 2 ) . '/vendor/autoload.php';
 
 function Plates(){
-	return new League\Plates\Engine(dirname( __FILE__, 1 ).'/templates/');
+	return new League\Plates\Engine(dirname( __FILE__, 1 ).'/templates');
 }
 
 $module_files = glob( __DIR__ . '/modules/*/*.php' );

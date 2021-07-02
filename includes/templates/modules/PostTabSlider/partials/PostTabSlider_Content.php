@@ -11,11 +11,11 @@
         <?php endif; ?>
     </div>
 	<div class="s3dm_tab_content_post_link">
-    <?= $link ?>
+        <a href="<?= $this->e($link); ?>"><?= $this->e($linktext) ?></a>
     </div>
 </div>
 <div class="s3dm_grid_image uk-flex-first uk-flex-last@m">
-    <div class="s3dm_tab_content_post_image uk-background-cover uk-background-center-center" style="background-image: url(<?= $this->e($imageURL) ?>);">
+    <div class="s3dm_tab_content_post_image">
         <?= $imageHTML ?>
     </div>
 </div>

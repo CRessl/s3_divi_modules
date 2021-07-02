@@ -141,13 +141,18 @@ function s3dm_add_title_size_class($props, $attrs, $render_slug){
 
 
 	if(isset($props['title_size']) && $render_slug === 'et_pb_text'){
-		$props['module_class'] = $props['title_size'];
+
+		//get classes array to check for value
+		$classesArray = explode(' ', $props['module_class']);
+
+		if(!in_array($props['title_size'], $classesArray)){
+			$props['module_class'] = implode(' ',$classesArray).' '.$props['title_size'];
+		}
+
+		
 	}
 
 	return $props;
-	
-	
-	
 
 };
 

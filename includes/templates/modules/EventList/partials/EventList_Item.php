@@ -2,7 +2,7 @@
     <div class="<?= $this->e($prefix) ?>_date">
         <p class="<?= $this->e($prefix) ?>_date_text">
             <?= $this->e($start_date); ?>
-            <?php if($this->e($end_date)): ?>
+            <?php if($this->e($end_date) && $this->e($end_date) !== $this->e($start_date)): ?>
             - <?= $this->e($end_date); ?>
             <?php endif; ?>
         </p> 

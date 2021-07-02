@@ -9,11 +9,11 @@
             <?php if($settings['show_bubble']): ?>
 
                 <?php if( $member_price === 0 && $price !== 0 || $price !== '0' && $member_price === '0' ):?>
-                    <div class="bubble">
+                    <div class="bubble uk-flex uk-flex-middle">
                         <p class="uk-margin-remove">Für EHI-Mitglieder kostenlos</p>
                     </div>
                     <?php elseif($member_price === 0 && $price === 0 || $member_price === '0' && $price === '0'): ?>
-                        <div class="bubble">
+                        <div class="bubble uk-flex uk-flex-middle">
                             <p class="uk-margin-remove">kostenloser Download</p>
                         </div>
                     <?php endif; ?>

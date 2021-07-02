@@ -6,6 +6,7 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 	public $vb_support = 'on';
 	private $view;
 
+
 	protected $module_credits = array(
 		'module_uri' => '',
 		'author'     => 's3-advertising',
@@ -22,7 +23,10 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
     }
 
     public function setView(){
-        $this->view = Plates();
+        
+		$templateLoc = new League\Plates\Engine(get_base_plugin_path().'/templates/modules/PostTabSlider');
+		$this->view = $templateLoc;
+
     }
 
 	public function get_fields() {
@@ -113,6 +117,13 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				'description'      => esc_html__( 'This setting will display the excerpt of the post', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
 			),
+			'linktext' => array(
+				'label'            => esc_html__( 'Link Text', 's3dm-s3-divi-modules' ),
+				'type'             => 'text',
+				'option_category'  => 'configuration',
+				'description'      => esc_html__( 'Choose which Link Text you would like to display.', 's3dm-s3-divi-modules' ),
+				'toggle_slug'      => 'main_content',
+			),
             'show_meta'               => array(
 				'label'            => esc_html__( 'Show Post Meta', 's3dm-s3-divi-modules' ),
 				'type'             => 'yes_no_button',
@@ -125,20 +136,6 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 				'toggle_slug'      => 'elements',
 				'description'      => esc_html__( 'This setting will turn on and off the meta section.', 's3dm-s3-divi-modules' ),
 				'mobile_options'   => true,
-			),
-            'image_placement'         => array(
-				'label'            => esc_html__( 'Featured Image Placement', 's3dm-s3-divi-modules' ),
-				'type'             => 'select',
-				'option_category'  => 'configuration',
-				'options'          => array(
-					'background' => et_builder_i18n( 'Background' ),
-					'left'       => et_builder_i18n( 'Left' ),
-					'right'      => et_builder_i18n( 'Right' ),
-				),
-				'default_on_front' => 'right',
-				'depends_show_if'  => 'on',
-				'toggle_slug'      => 'featured_image',
-				'description'      => esc_html__( 'Select how you would like to display the featured image in slides', 's3dm-s3-divi-modules' ),
 			),
             '__posts'                 => array(
 				'type'                => 'computed',
@@ -194,10 +191,18 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 		foreach($posts as $sliderContents){
 
 			$categories = wp_get_post_categories($sliderContents->ID);
-			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'post_tab_slider_image');
+			$imageURL = get_the_post_thumbnail_url($sliderContents->ID, 'et-pb-portfolio-module-image');
+			
 			if(!$imageURL):
-				$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');
+				$imageURL = get_the_post_thumbnail_url($sliderContents->ID, 'full');
 			endif;
+
+			$wpImageHTML = get_the_post_thumbnail($sliderContents->ID, 'et-pb-portfolio-module-image');
+
+			if(!$wpImageHTML):
+				$wpImageHTML = get_the_post_thumbnail($sliderContents->ID, 'full');
+			endif;
+
             $cats = array();
      
             foreach($categories as $c){
@@ -207,9 +212,20 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 
             $categoryList = implode('', $cats);
 
+			if ( has_excerpt($sliderContents->ID) ) {
+
+				$trim_text = get_the_excerpt($sliderContents->ID);
+				$truncate = wordwrap($trim_text, 270, "\0");
+				$excerpt = '<p>'.preg_replace('/^(.*?)\0(.*)$/is', '$1', $truncate).' ...</p>';
+
+			} else {
+				$excerpt = wpautop( et_delete_post_first_video( strip_shortcodes( truncate_post( 270, false, $sliderContents, true ) ) ) );
+			}
+
 			$posts['postData'][$postCount]['title'] = get_the_title($sliderContents->ID);
-			$posts['postData'][$postCount]['excerpt'] = get_the_excerpt($sliderContents->ID);
+			$posts['postData'][$postCount]['excerpt'] = $excerpt;
 			$posts['postData'][$postCount]['image'] = $imageURL;
+			$posts['postData'][$postCount]['wpImageHTML'] = $wpImageHTML;
 			$posts['postData'][$postCount]['categories'] = $categoryList;
 			$posts['postData'][$postCount]['link'] = get_the_permalink($sliderContents->ID);
 			$posts['postData'][$postCount]['style'] = array('backgroundImage' => $posts['postData'][$postCount]['image']);
@@ -224,183 +240,26 @@ class S3DM_PostTabSlider extends ET_Builder_Module_Type_PostBased {
 	public function render( $attrs, $content = null, $render_slug ) {
 
         $args = array(
-            'numberposts'       => $this->props['posts_number'],
-			'category' 			=> $this->props['include_categories'],
-			'orderby'           => $this->props['orderby'],
+            'posts_number'       	=> $this->props['posts_number'],
+			'include_categories' 	=> $this->props['include_categories'],
+			'orderby'           	=> $this->props['orderby'],
         );
 
 		$title_size = $this->props['title_size'];
 
-        $slider_posts = get_posts($args);
+        $slider_posts = $this->get_slider_posts($args);
 
-        $nav = '<div class="s3dm_switcher s3dm_tab_navigation uk-grid uk-child-width-1-'.$this->props['posts_number'].'" uk-switcher="connect:.s3dm_tab_contents; animation: uk-animation-fade">';
-
-        foreach($slider_posts as $sliderContent){
-
-            $title = get_the_title($sliderContent->ID);
-            $categories = wp_get_post_categories($sliderContent->ID);
-
-            $cats = array();
-     
-            foreach($categories as $c){
-                $cat = get_category( $c );
-                $cats[] = '<div><span class="s3dm_tab_slider_category">'.$cat->name.'</span></div>';
-            }
-
-            $cat_list = implode('', $cats);
-
-			$nav .= $this->view->render('modules/PostTabSlider/partials/PostTabSlider_Nav', array(
-                   'categories' => $cat_list,
-				   'title' => $title
-            ));
-           
-
-        }
-
-        $nav .= '</div>';
+		$platesRender = $this->view->render('PostTabSlider', array(
+			'posts' => $slider_posts,
+			'title_size' => $title_size,
+			'posts_number' => $this->props['posts_number'],
+			'linktext' => $this->props['linktext']
+		));
 
 
-        $content = '<div class="uk-switcher s3dm_tab_contents">';
-        foreach($slider_posts as $sliderContentTab){
-
-            $title = get_the_title($sliderContentTab->ID);
-            $categories = wp_get_post_categories($sliderContentTab->ID);
- 
-			if ( has_excerpt($sliderContentTab->ID) ) {
-
-				$trim_text = get_the_excerpt($sliderContentTab->ID);
-				$truncate = wordwrap($trim_text, 270, "\0");
-				$excerpt = '<p>'.preg_replace('/^(.*?)\0(.*)$/is', '$1', $truncate).' ...</p>';
-
-			} else {
-				$excerpt = wpautop( et_delete_post_first_video( strip_shortcodes( truncate_post( 270, false, $sliderContentTab, true ) ) ) );
-			}
-
-            $link = '<a href="'.get_the_permalink($sliderContentTab->ID).'">Zum Artikel</a>';
-			//Title, Category and Exerpt
-
-			$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'post_tab_slider_image');
-			$wpImageHTML = get_the_post_thumbnail($sliderContentTab->ID, 'post_tab_slider_image');
-
-			if(!$imageURL):
-				$imageURL = get_the_post_thumbnail_url($sliderContentTab->ID, 'full');
-			endif;
-
-			if(!$wpImageHTML):
-				$wpImageHTML = get_the_post_thumbnail($sliderContentTab->ID, 'full');
-			endif;
-
-            $cats = array();
-     
-            foreach($categories as $c){
-                $cat = get_category( $c );
-                $cats[] = '<div><span class="s3dm_tab_slider_category">'.$cat->name.'</span></div>';
-            }
-
-            $cat_list = implode('', $cats);
-
-            $content .= '<div class="uk-grid uk-child-width-1-2@m uk-child-width-1-1 s3dm_grid_container" uk-grid>';
-        	
-			$content .= $this->view->render('modules/PostTabSlider/partials/PostTabSlider_Content', array(
-				'categories' => $cat_list,
-				'title' => $title,
-				'imageURL' => $imageURL,
-				'imageHTML' => $wpImageHTML,
-				'excerpt' => $excerpt,
-				'link' => $link,
-				'title_size' => $title_size
-		 	));
-			 
-            $content .= '</div>';
-
-
-        }
-
-        $content .= '</div>';
-
-		
-		$script = $this->getScript();
-
-
-        $output = sprintf(
-			'<div id="%4$s">
-				<div class="s3dm-tab-slider-content-container uk-margin-medium-bottom">
-					%1$s
-				</div>
-				<div class="s3dm-tab-slider-tab-nav-container">                
-					%2$s
-				</div>
-			</div>
-			%3$s
-			',
-            $content,
-			$nav,
-			$script,
-			's3dm_switcher_all_container_'
-		);
-
-		return $output;
+		return $platesRender;
 	}
 
-
-	public function getScript(){
-
-		$script = ob_start();?>
-
-		<script>
-		jQuery(document).ready(function(){
-
-			var $element = jQuery('.s3dm_tab_contents');
-
-			var initialContent = $element.find('.uk-active');
-			var initalContentText = initialContent.find('.s3dm_grid_content');
-			var initalContentImage = initialContent.find('.s3dm_grid_image');
-			console.log(initialContent);
-
-			if(initialContent.length > 0){
-				gsap.to(initalContentText, {x:0, opacity:1, duration: 0.5, delay:0.3});
-				gsap.to(initalContentImage, {x: 0,duration: 0.5,opacity: 1,delay: 0.3});
-			}
-
-			jQuery(document).on('shown', $element, function(event, element){
-				
-				var activeContentElement = event.target;
-				var navActive = element;
-
-				var text = jQuery(activeContentElement).find('.s3dm_grid_content');
-				var image = jQuery(activeContentElement).find('.s3dm_grid_image')
-
-				gsap.to(text, {x:0, opacity:1, duration: 0.5, delay:0.3});
-
-				gsap.to(image, {x: 0,duration: 0.5,opacity: 1,delay: 0.3});
-
-			});
-
-			jQuery(document).on('beforehide', $element, function(event, element){
-
-				var activeContentElement = event.target;
-				var navActive = element;
-
-				var text = jQuery(activeContentElement).find('.s3dm_grid_content');
-				var image = jQuery(activeContentElement).find('.s3dm_grid_image')
-
-				gsap.to(text, {x:-100, opacity:0, duration: 0.5, delay:0.3});
-
-				gsap.to(image, {x: 100, duration: 0.5,opacity: 0, delay: 0.3});
-
-			});
-
-		});
-
-		</script>
-
-		<?php
-
-		$scriptOutput = ob_get_clean();
-
-		return $scriptOutput;
-
-	}
 }
 
 new S3DM_PostTabSlider;

@@ -75,3 +75,12 @@ function get_category_link_by_slug($slug){
 
 
 }
+
+
+function get_base_plugin_path(){
+
+
+	return dirname(__FILE__, 2);
+
+
+}

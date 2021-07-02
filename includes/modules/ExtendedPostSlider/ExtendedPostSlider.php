@@ -225,7 +225,8 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
 
             foreach($categories as $c){
                 $cat = get_category( $c );
-                $cats[] = '<div><span class="'.$class_prefix.'_category">'.$cat->name.'</span></div>';
+				$category_link = get_category_link( $c );
+                $cats[] = '<div><a href="'.$category_link.'" target="_self"><span class="'.$class_prefix.'_category">'.$cat->name.'</span></a></div>';
             }
 
             $categoryList = implode('', $cats);

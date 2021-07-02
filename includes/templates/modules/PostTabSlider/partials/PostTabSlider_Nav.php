@@ -4,7 +4,7 @@
             <?= $categories ?>
         </div>
 		<div class="s3dm_tab_nav_post_title">
-            <?= $this->e($title); ?>
+            <h4><?= $this->e($title); ?></h4>
         </div>
 	</div>
 </div> 
