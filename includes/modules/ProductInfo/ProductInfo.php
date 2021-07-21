@@ -18,7 +18,9 @@ class S3DM_ProductInfo extends ET_Builder_Module_Type_PostBased{
     }
 
 	public function setView(){
-        $this->view = Plates();
+		
+		$this->view = Plates(s3dm_templatePath($this));
+
     }
 
 	public function init() {
@@ -183,7 +185,7 @@ class S3DM_ProductInfo extends ET_Builder_Module_Type_PostBased{
             );
             
     
-            $productInfo = $this->view->render('modules/ProductInfo/item', array(
+            $productInfo = $this->view->render('ProductInfo', array(
                 'settings'      => $settings,
                 'button_text'   => $button_text,
                 'post_type'     => $post_type,

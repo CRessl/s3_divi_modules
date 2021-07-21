@@ -1,11 +1,11 @@
 
 
-<div class="s3dm_products_grid_item s3dm_product_list_product_container">
+<li class="s3dm_products_grid_item s3dm_product_list_product_container">
     
     <div class="uk-card-default">
 
         <?php if($settings['show_image'] == 'on'): ?>
-            <div class="s3dm_product_list_grid_product_image uk-position-relative">
+            <div class="s3dm_product_list_grid_product_image uk-text-center uk-position-relative">
             <?php if($settings['show_bubble']): ?>
 
                 <?php if( $member_price === 0 && $price !== 0 || $price !== '0' && $member_price === '0' ):?>
@@ -106,4 +106,4 @@
 
 
 
-</div>
+</li>

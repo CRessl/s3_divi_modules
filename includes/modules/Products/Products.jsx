@@ -16,7 +16,7 @@ class S3DM_Products extends Component {
       if((member_price === 0 || member_price === '0') && (price !== 0 || price !== '0')){
 
         return(
-          <div className="bubble">
+          <div className="bubble uk-flex uk-flex-middle">
               <p className="uk-margin-small-bottom">Für EHI-Mitglieder kostenlos</p>
           </div>
         );
@@ -25,7 +25,7 @@ class S3DM_Products extends Component {
       if((member_price === 0 || member_price === '0') && (price === 0 || price === '0')){
         
         return (
-          <div className="bubble">
+          <div className="bubble uk-flex uk-flex-middle">
               <p className="uk-margin-small-bottom">kostenloser Download</p>  
           </div>
         );
@@ -309,7 +309,7 @@ class S3DM_Products extends Component {
 
       products = productsData.map(({title, subtitle, packshot, tags, excerpt, date, permalink, price, member_price, format, max_pages}, index) => {
           return (
-            <div className="s3dm_products_grid_item s3dm_product_list_product_container">
+            <li className="s3dm_products_grid_item s3dm_product_list_product_container">
               <div className="uk-card-default">
                 {this.renderImage(packshot, title, member_price, price)}
                 <div className="uk-card-body uk-position-relative">  
@@ -321,7 +321,7 @@ class S3DM_Products extends Component {
                   {this.renderPrice(price, member_price)}
                 </div>
               </div>
-            </div>
+            </li>
           );
       });
 
@@ -330,8 +330,16 @@ class S3DM_Products extends Component {
 
 
     return (
-      <div className={"uk-child-width-1-1 uk-child-width-1-"+this.props.columns+"@m"} uk-height-match="target: .s3dm_products_grid_item .uk-card-body" uk-grid="true">
-        {products}
+      <div className="s3dm_products_slider_container" uk-slider="finite:true;">
+        <div class="uk-position-relative">
+          <div class="uk-slider-container">
+            <ul className={"uk-slider-items uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-"+this.props.columns+"@l"} uk-height-match="target: .s3dm_products_grid_item .uk-card-body" uk-grid="true">
+              {products}
+            </ul>
+          </div>
+          <a class="uk-position-center-left-out" href="#prev" uk-slider-item="previous"> </a>
+          <a class="uk-position-center-right-out" href="#next" uk-slider-item="next"> </a>
+        </div>
       </div>
     );
   }

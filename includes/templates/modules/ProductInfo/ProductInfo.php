@@ -46,7 +46,7 @@
                 <?php endif; ?>
 
                 <?php if($product['format']): ?>
-                    <li><b>Format</b> <?= $this->e($product['format']); ?></li> 
+                    <li><b>Format:</b> <?= $this->e($product['format']); ?></li> 
                 <?php endif; ?>
             </ul>
         </div>

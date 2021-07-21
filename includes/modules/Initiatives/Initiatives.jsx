@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import './style.css';
 
 
-class S3DM_Initiativen extends Component {
+class S3DM_Initiatives extends Component {
 
   static slug = 's3dm_initiativen';
 
@@ -89,4 +89,4 @@ class S3DM_Initiativen extends Component {
   }
 }
 
-export default S3DM_Initiativen;
+export default S3DM_Initiatives;

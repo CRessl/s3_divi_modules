@@ -36,10 +36,8 @@
   font-size: 15px;
   color: #fff;
   text-align: center;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-break: break-all;
+  word-break: break-word !important;
+  line-height: 17px !important;
 }
 
 /* GRID CSS */

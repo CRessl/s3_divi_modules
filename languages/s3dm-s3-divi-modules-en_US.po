@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: S3 Divi Modules 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/s3-divi-modules\n"
-"POT-Creation-Date: 2021-07-02 09:21:12+00:00\n"
+"POT-Creation-Date: 2021-07-08 13:43:00+00:00\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,8 +231,8 @@ msgstr ""
 #: includes/modules/ClusterItem/ClusterItem.php:96
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:56
 #: includes/modules/PostList/PostList.php:61
-#: includes/modules/PostTabSlider/PostTabSlider.php:48
-#: includes/modules/Products/Products.php:48
+#: includes/modules/PostTabSlider/PostTabSlider.php:49
+#: includes/modules/Products/Products.php:53
 msgid "Current Category"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:32
 #: includes/modules/PostList/PostList.php:103
-#: includes/modules/PostTabSlider/PostTabSlider.php:94
+#: includes/modules/PostTabSlider/PostTabSlider.php:95
 msgid "Show Featured Image"
 msgstr ""
 
@@ -264,14 +264,14 @@ msgstr ""
 #: includes/modules/Initiativen/Initiativen.php:82
 #: includes/modules/PostList/PostList.php:112
 #: includes/modules/PostList/PostList.php:147
-#: includes/modules/PostTabSlider/PostTabSlider.php:90
-#: includes/modules/PostTabSlider/PostTabSlider.php:103
+#: includes/modules/PostTabSlider/PostTabSlider.php:91
+#: includes/modules/PostTabSlider/PostTabSlider.php:104
 #: includes/modules/ProductInfo/ProductInfo.php:52
 #: includes/modules/ProductInfo/ProductInfo.php:67
-#: includes/modules/Products/Products.php:125
-#: includes/modules/Products/Products.php:140
-#: includes/modules/Products/Products.php:166
-#: includes/modules/Products/Products.php:181
+#: includes/modules/Products/Products.php:130
+#: includes/modules/Products/Products.php:145
+#: includes/modules/Products/Products.php:171
+#: includes/modules/Products/Products.php:186
 #: includes/modules/TeamList/TeamList.php:61
 #: includes/modules/WorkGroups/WorkGroups.php:82 s3-divi-modules.php:129
 msgid "This setting will turn on and off the featured image in the slider."
@@ -281,9 +281,9 @@ msgstr ""
 #: includes/modules/EventList/EventList.php:41
 #: includes/modules/Initiativen/Initiativen.php:71
 #: includes/modules/PostList/PostList.php:136
-#: includes/modules/PostTabSlider/PostTabSlider.php:79
+#: includes/modules/PostTabSlider/PostTabSlider.php:80
 #: includes/modules/ProductInfo/ProductInfo.php:41
-#: includes/modules/Products/Products.php:155
+#: includes/modules/Products/Products.php:160
 #: includes/modules/TeamList/TeamList.php:50
 #: includes/modules/WorkGroups/WorkGroups.php:71 s3-divi-modules.php:118
 msgid "Title size"
@@ -291,8 +291,8 @@ msgstr ""
 
 #: includes/modules/ContactPerson/ContactPerson.php:65
 #: includes/modules/PostList/PostList.php:167
-#: includes/modules/PostTabSlider/PostTabSlider.php:120
-#: includes/modules/Products/Products.php:221
+#: includes/modules/PostTabSlider/PostTabSlider.php:128
+#: includes/modules/Products/Products.php:226
 msgid "Show Post Meta"
 msgstr ""
 
@@ -300,8 +300,8 @@ msgstr ""
 #: includes/modules/ContactPerson/ContactPerson.php:93
 #: includes/modules/ContactPerson/ContactPerson.php:108
 #: includes/modules/PostList/PostList.php:180
-#: includes/modules/PostTabSlider/PostTabSlider.php:129
-#: includes/modules/Products/Products.php:235
+#: includes/modules/PostTabSlider/PostTabSlider.php:137
+#: includes/modules/Products/Products.php:240
 msgid "This setting will turn on and off the meta section."
 msgstr ""
 
@@ -322,9 +322,9 @@ msgstr ""
 #: includes/modules/Initiativen/Initiativen.php:31
 #: includes/modules/Initiativen/Initiativen.php:58
 #: includes/modules/PostList/PostList.php:32
-#: includes/modules/PostTabSlider/PostTabSlider.php:34
-#: includes/modules/Products/Products.php:31
-#: includes/modules/Products/Products.php:62
+#: includes/modules/PostTabSlider/PostTabSlider.php:35
+#: includes/modules/Products/Products.php:36
+#: includes/modules/Products/Products.php:67
 #: includes/modules/WorkGroups/WorkGroups.php:58
 msgid "Post Count"
 msgstr ""
@@ -336,9 +336,9 @@ msgstr ""
 #: includes/modules/Initiativen/Initiativen.php:94
 #: includes/modules/ProductInfo/ProductInfo.php:101
 #: includes/modules/ProductInfo/ProductInfo.php:112
-#: includes/modules/Products/Products.php:65
-#: includes/modules/Products/Products.php:84
-#: includes/modules/Products/Products.php:95
+#: includes/modules/Products/Products.php:70
+#: includes/modules/Products/Products.php:89
+#: includes/modules/Products/Products.php:100
 #: includes/modules/WorkGroups/WorkGroups.php:61
 #: includes/modules/WorkGroups/WorkGroups.php:89
 msgid "Choose how much posts you would like to display per page."
@@ -377,7 +377,7 @@ msgstr ""
 #: includes/modules/EventList/EventList.php:84
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:135
 #: includes/modules/PostList/PostList.php:201
-#: includes/modules/Products/Products.php:271
+#: includes/modules/Products/Products.php:276
 msgid "Date Format"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:138
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:150
 #: includes/modules/PostList/PostList.php:204
-#: includes/modules/Products/Products.php:274
+#: includes/modules/Products/Products.php:279
 msgid ""
 "If you would like to adjust the date format, input the appropriate PHP date "
 "format here."
@@ -408,15 +408,15 @@ msgstr ""
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:52
 #: includes/modules/Initiativen/Initiativen.php:45
 #: includes/modules/PostList/PostList.php:57
-#: includes/modules/PostTabSlider/PostTabSlider.php:44
-#: includes/modules/Products/Products.php:46
+#: includes/modules/PostTabSlider/PostTabSlider.php:45
+#: includes/modules/Products/Products.php:51
 #: includes/modules/WorkGroups/WorkGroups.php:45
 msgid "Included Categories"
 msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:55
 #: includes/modules/PostList/PostList.php:60
-#: includes/modules/PostTabSlider/PostTabSlider.php:47
+#: includes/modules/PostTabSlider/PostTabSlider.php:48
 msgid "All Categories"
 msgstr ""
 
@@ -434,7 +434,7 @@ msgstr ""
 
 #: includes/modules/ExtendedPostSlider/ExtendedPostSlider.php:100
 #: includes/modules/PostList/PostList.php:183
-#: includes/modules/Products/Products.php:253
+#: includes/modules/Products/Products.php:258
 msgid "Show Date"
 msgstr ""
 
@@ -523,13 +523,13 @@ msgid "Initiatives"
 msgstr ""
 
 #: includes/modules/Initiativen/Initiativen.php:34
-#: includes/modules/Products/Products.php:35
+#: includes/modules/Products/Products.php:40
 #: includes/modules/WorkGroups/WorkGroups.php:34
 msgid "Category"
 msgstr ""
 
 #: includes/modules/Initiativen/Initiativen.php:35
-#: includes/modules/Products/Products.php:36
+#: includes/modules/Products/Products.php:41
 #: includes/modules/WorkGroups/WorkGroups.php:35
 msgid "Single select"
 msgstr ""
@@ -543,8 +543,8 @@ msgstr ""
 
 #: includes/modules/Initiativen/Initiativen.php:48
 #: includes/modules/PostList/PostList.php:64
-#: includes/modules/PostTabSlider/PostTabSlider.php:51
-#: includes/modules/Products/Products.php:52
+#: includes/modules/PostTabSlider/PostTabSlider.php:52
+#: includes/modules/Products/Products.php:57
 #: includes/modules/WorkGroups/WorkGroups.php:48
 msgid "Choose which categories you would like to include in the slider."
 msgstr ""
@@ -562,7 +562,7 @@ msgid "Post List"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:35
-#: includes/modules/PostTabSlider/PostTabSlider.php:37
+#: includes/modules/PostTabSlider/PostTabSlider.php:38
 msgid "Choose how many posts you would like to display in the slider."
 msgstr ""
 
@@ -603,70 +603,70 @@ msgid "Between Meta and Excerpt"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:151
-#: includes/modules/PostTabSlider/PostTabSlider.php:107
-#: includes/modules/Products/Products.php:185
+#: includes/modules/PostTabSlider/PostTabSlider.php:108
+#: includes/modules/Products/Products.php:190
 msgid "Show Excerpt"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:160
-#: includes/modules/PostTabSlider/PostTabSlider.php:116
-#: includes/modules/Products/Products.php:194
+#: includes/modules/PostTabSlider/PostTabSlider.php:117
+#: includes/modules/Products/Products.php:199
 msgid "This setting will display the excerpt of the post"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:192
-#: includes/modules/Products/Products.php:262
+#: includes/modules/Products/Products.php:267
 msgid "This setting will turn on and off the date section."
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:215
-#: includes/modules/Products/Products.php:285
+#: includes/modules/Products/Products.php:290
 msgid "Show Tags"
 msgstr ""
 
 #: includes/modules/PostList/PostList.php:224
-#: includes/modules/Products/Products.php:294
+#: includes/modules/Products/Products.php:299
 msgid "This setting will turn on and off the tag section."
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:16
+#: includes/modules/PostTabSlider/PostTabSlider.php:17
 msgid "Post Tab Slider"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:58
+#: includes/modules/PostTabSlider/PostTabSlider.php:59
 msgid "Order By"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:62
+#: includes/modules/PostTabSlider/PostTabSlider.php:63
 msgid "Date: new to old"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:63
+#: includes/modules/PostTabSlider/PostTabSlider.php:64
 msgid "Date: old to new"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:64
+#: includes/modules/PostTabSlider/PostTabSlider.php:65
 msgid "Title: a-z"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:65
+#: includes/modules/PostTabSlider/PostTabSlider.php:66
 msgid "Title: z-a"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:66
+#: includes/modules/PostTabSlider/PostTabSlider.php:67
 msgid "Random"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:69
+#: includes/modules/PostTabSlider/PostTabSlider.php:70
 msgid "Here you can adjust the order in which posts are displayed."
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:133
-msgid "Featured Image Placement"
+#: includes/modules/PostTabSlider/PostTabSlider.php:121
+msgid "Link Text"
 msgstr ""
 
-#: includes/modules/PostTabSlider/PostTabSlider.php:144
-msgid "Select how you would like to display the featured image in slides"
+#: includes/modules/PostTabSlider/PostTabSlider.php:124
+msgid "Choose which Link Text you would like to display."
 msgstr ""
 
 #: includes/modules/ProductInfo/ProductInfo.php:25
@@ -678,12 +678,12 @@ msgid "Order Button Options"
 msgstr ""
 
 #: includes/modules/ProductInfo/ProductInfo.php:56
-#: includes/modules/Products/Products.php:170
+#: includes/modules/Products/Products.php:175
 msgid "Subtitle size"
 msgstr ""
 
 #: includes/modules/ProductInfo/ProductInfo.php:71
-#: includes/modules/Products/Products.php:209
+#: includes/modules/Products/Products.php:214
 msgid "Show price"
 msgstr ""
 
@@ -699,65 +699,65 @@ msgstr ""
 msgid "Button Link"
 msgstr ""
 
-#: includes/modules/Products/Products.php:25
+#: includes/modules/Products/Products.php:29
 msgid "Products"
 msgstr ""
 
-#: includes/modules/Products/Products.php:42
+#: includes/modules/Products/Products.php:47
 msgid ""
 "Choose which selection you would prefer (Category = current Category | "
 "Single select = Select one Workgroup"
 msgstr ""
 
-#: includes/modules/Products/Products.php:76
+#: includes/modules/Products/Products.php:81
 msgid "Spalten"
 msgstr ""
 
-#: includes/modules/Products/Products.php:92
+#: includes/modules/Products/Products.php:97
 msgid "Linktext"
 msgstr ""
 
-#: includes/modules/Products/Products.php:99
+#: includes/modules/Products/Products.php:104
 msgid "Product"
 msgstr ""
 
-#: includes/modules/Products/Products.php:102
+#: includes/modules/Products/Products.php:107
 msgid "Wähle eine Initiative aus"
 msgstr ""
 
-#: includes/modules/Products/Products.php:113
+#: includes/modules/Products/Products.php:118
 msgid "Show Product Image"
 msgstr ""
 
-#: includes/modules/Products/Products.php:128
+#: includes/modules/Products/Products.php:133
 msgid "Show price bubble"
 msgstr ""
 
-#: includes/modules/Products/Products.php:143
+#: includes/modules/Products/Products.php:148
 msgid "Show Subtitle"
 msgstr ""
 
-#: includes/modules/Products/Products.php:152
+#: includes/modules/Products/Products.php:157
 msgid "This setting will display the subtitle of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:197
+#: includes/modules/Products/Products.php:202
 msgid "Show Link"
 msgstr ""
 
-#: includes/modules/Products/Products.php:206
+#: includes/modules/Products/Products.php:211
 msgid "This setting will display the link of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:218
+#: includes/modules/Products/Products.php:223
 msgid "This setting will display the price of the post"
 msgstr ""
 
-#: includes/modules/Products/Products.php:238
+#: includes/modules/Products/Products.php:243
 msgid "Show max pages and format"
 msgstr ""
 
-#: includes/modules/Products/Products.php:250
+#: includes/modules/Products/Products.php:255
 msgid "This setting will display the max pages and format of the post"
 msgstr ""
 

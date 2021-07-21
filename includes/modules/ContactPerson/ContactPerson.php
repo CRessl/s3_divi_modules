@@ -22,7 +22,7 @@ class S3DM_ContactPerson extends ET_Builder_Module {
     }
 
     public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
     public function get_fields(){
@@ -135,6 +135,10 @@ class S3DM_ContactPerson extends ET_Builder_Module {
 		$contact = get_field('ehi_post_contact', $currentPost);
 		
 		$output = '';
+		
+		if(!$contact):
+			return;
+		endif;
 
 		foreach($contact as $contactPerson){
 
@@ -145,14 +149,13 @@ class S3DM_ContactPerson extends ET_Builder_Module {
 				$image = wp_get_attachment_image(attachment_url_to_postid( get_field('ehi_team_bild', $contactID) ), 'contact_480', false, ['class' => 'uk-border-circle']);
 			}
 			
-			
 			$phone = get_field('ehi_team_telefon', $contactID);
 			$email = get_field('ehi_team_email', $contactID);
 			$name = get_field('ehi_team_vorname', $contactID).' '.get_field('ehi_team_nachname', $contactID);
 			$position = get_field('ehi_team_position', $contactID);
 			$title = get_field('ehi_team_titel', $contactID);
 
-			$output .= $this->view->render('modules/ContactPerson/ContactPerson', array(
+			$output .= $this->view->render('ContactPerson', array(
 				'title' 		=> $title,
 				'name' 			=> $name,
 				'image' 		=> $image,
@@ -173,5 +176,6 @@ class S3DM_ContactPerson extends ET_Builder_Module {
     }//end of render function
 
 }
-
+if (!class_exists('ACF')) {
 new S3DM_ContactPerson;
+}

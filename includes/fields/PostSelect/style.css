@@ -1,0 +1,7 @@
+div.s3dm-post-select-testdiv{
+    background: red !important;
+    height: 20px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 20px;
+}

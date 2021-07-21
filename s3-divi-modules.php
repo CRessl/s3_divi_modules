@@ -47,22 +47,37 @@ function s3dm_initialize_extension() {
 }
 add_action( 'divi_extensions_init', 's3dm_initialize_extension' );
 
+add_action('admin_enqueue_scripts', 's3dm_load_admin_scripts');
+
+function s3dm_load_admin_scripts(){
+
+	wp_register_script('s3dm_fields_js', plugins_url('/assets/js/s3dm_fields.js'), array ('jquery', 'jquery-ui'), false, false);
+	wp_add_inline_script( 's3dm_fields_js', 'var s3dm_admin = ' . json_encode( array(
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+	) ), 'before' );
+
+	wp_enqueue_script('s3dm_fields_js');
+
+
+}
+
 function s3dm_load_assets(){
 
-	wp_enqueue_style( 'uikit-v3', plugins_url('/assets/css/uikit.min.css', __FILE__) );
-	wp_enqueue_style( 'factfinder', plugins_url('/assets/css/factfinder.css', __FILE__) );
+	wp_enqueue_style( 'uikit-v3', 'https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css');
+	//wp_enqueue_style( 'factfinder', plugins_url('/assets/css/factfinder.css', __FILE__) );
 	wp_enqueue_style( 'splider', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/themes/splide-default.min.css');
 
-	wp_enqueue_script( 'uikit-v3', plugins_url('/assets/js/uikit.min.js', __FILE__), array('jquery'), false, false );
+	wp_enqueue_script( 'uikit-v3', 'https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit.min.js', array('jquery'), false, false );
+	wp_enqueue_script( 'uikit-v3-icons', 'https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit-icons.min.js', array('jquery'), false, false );
 	
 	wp_enqueue_script( 'splider' , 'https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js', false, false);
-	wp_enqueue_script( 'modules', plugins_url('/assets/js/modules.js', __FILE__), array('jquery'), false, false );
 	
 	// for ze cool animations
 	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js', array(), false,  false);
 	wp_enqueue_script('gsap-cssrule', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js', array(), false,  false);
 	wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js', array(), false,  false);
 	wp_enqueue_script('gsap-easepack', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/EasePack.min.js', array(), false,  false);
+
 }
 
 endif;

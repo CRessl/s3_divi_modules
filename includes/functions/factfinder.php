@@ -12,9 +12,9 @@ function header_fact_finder(){
 
     ?>
     <!-- Do not change the order of the scripts to ensure all required polyfills are loaded before our script -->
-    <script src="<?= plugins_url('/assets/factfinder/dist/vendor/custom-elements-es5-adapter.js', dirname(__FILE__, 2)) ?>"></script>
-    <script src="<?= plugins_url('/assets/factfinder/dist/vendor/webcomponents-loader.js',dirname(__FILE__, 2)) ?>"></script>
-    <script defer src="<?= plugins_url('/assets/factfinder/dist/bundle.js', dirname(__FILE__, 2)) ?>"></script>
+    <script src="<?= plugins_url('/scripts/factfinder/dist/vendor/custom-elements-es5-adapter.js', dirname(__FILE__, 2)) ?>"></script>
+    <script src="<?= plugins_url('/scripts/factfinder/dist/vendor/webcomponents-loader.js',dirname(__FILE__, 2)) ?>"></script>
+    <script defer src="<?= plugins_url('/scripts/factfinder/dist/bundle.js', dirname(__FILE__, 2)) ?>"></script>
     <?php
     }; 
 

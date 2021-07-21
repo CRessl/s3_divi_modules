@@ -1,8 +1,8 @@
 // External Dependencies
 import React, { Component } from 'react';
 import $ from 'jquery';
-import UIkit from '../../../assets/js/uikit.min.js';
-import gsap from '../../../assets/js/gsap.min.js';
+import UIkit from '../../../scripts/uikit.min.js';
+import { gsap } from "gsap";
 //Components (Nav and Content)
 import PostTabSliderContent from './PostTabSliderContent';
 import PostTabSliderNav from './PostTabSliderNav';
@@ -48,7 +48,6 @@ class S3DM_PostTabSlider extends Component {
       gsap.to(image, {x: 100,duration: 0.5,opacity: 0,delay: 0.3});
 
     });
-
 
   }
 

@@ -35,14 +35,8 @@ class S3DM_TeamList extends ET_Builder_Module {
 
 	public function __construct(){
         parent::__construct(); 
-        $this->setView();
+ 
     }
-
-    public function setView(){
-        $this->view = Plates();
-    }
-
-	
 
 	public function get_fields() {
 		return array(

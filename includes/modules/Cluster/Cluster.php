@@ -31,7 +31,7 @@ class S3DM_Cluster extends ET_Builder_Module {
     }
 
     public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 	
@@ -144,7 +144,7 @@ class S3DM_Cluster extends ET_Builder_Module {
         ) );
 
 
-		$output = $this->view->render('modules/Cluster/Cluster', $content);
+		$output = $this->view->render('Cluster', $content);
 		
 
 		return $output;

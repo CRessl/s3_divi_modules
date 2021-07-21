@@ -18,7 +18,7 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 	public function init() {
@@ -274,7 +274,10 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
         $show_date = $this->props['show_date'];
         $show_author = $this->props['show_author'];
 		$show_button = $this->props['show_more'];
+		$button_text = $this->props['button_text'];
+		
 		$show_arrows = $this->props['show_arrows'];
+
 
         $interval = $this->props['slider_duration'];
 		$autoplay = $this->props['autoplay'];
@@ -285,35 +288,6 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
         else:
             $interval = '3000';
         endif;
-
-        
-
-        $slider = '<div class="splide__track">';
-		$slider.= 	'<ul class="splide__list">';
-		
-
-        foreach($sliderPosts['posts'] as $postData){
-
-            $slider .= $this->view->render('modules/ExtendedPostSlider/partials/ExtendedPostSlider_Item', array(
-				'class_prefix' => $class_prefix,
-				'title' => $postData['title'],
-				'imageSrc' =>$postData['imageSrc'],
-				'excerpt' => $postData['excerpt'],
-				'date' => $postData['date'],
-				'link' => $postData['link'],
-				'categories' => $postData['categories'],
-				'author' => $postData['author'],
-				'button_text' => $this->props['button_text'],
-				'show_date' => $show_date,
-				'show_categories' => $show_categories,
-				'show_button' => $show_button,
-				'module_text_color' => $this->props['module_text_color'],
-			));
-
-        }
-
-		$slider .= 	'</ul>';
-        $slider .= '</div>';
 
 		$splideOptions = array(
 			'interval'			=> $interval,
@@ -331,20 +305,34 @@ class S3DM_ExtendedPostSlider extends ET_Builder_Module_Type_PostBased {
 			$splideOptions['autoplay'] = true;
 		endif;
 
-		$splideJSON = "'".json_encode($splideOptions, JSON_HEX_QUOT)."'";
-        
-        $moduleID = $sliderPosts['moduleID'];
+		$splideJSON = json_encode($splideOptions, JSON_HEX_QUOT);
 
-        $output = sprintf(
-			'<div id="%2$s" class="splide '.$this->slug.'" data-splide=%3$s>
-			    %1$s
-			</div>',
-            $slider,
-			$moduleID,
-			$splideJSON
+		$settings = array(
+
+			'module_text_color' => $this->props['module_text_color'],
+			'splideOptions' =>  $splideJSON,
+			'show_date' => $show_date,
+			'show_categories' => $show_categories,
+			'show_button' => $show_button,
+			'button_text' => $button_text,
+
 		);
 
-	
+		
+
+		$slider = $this->view->render('ExtendedPostSlider', array(
+			'class_prefix' => $class_prefix,
+			'postData' => $sliderPosts['posts'],
+			'settings'	=> $settings,
+		));
+
+		$output = sprintf(
+			'<div class="%2$s">
+				%1$s
+			</div>',
+			$slider,
+			$this->module_classname($render_slug)
+		);
 
 		return $output;
 	}

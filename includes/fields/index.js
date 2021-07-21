@@ -1,7 +1,6 @@
-import Select from './Select/Select';
-import Input from './Input/Input';
+
+import S3DM_PostSelect from './PostSelect/PostSelect';
 
 export default [
-    Select,
-    Input
+    S3DM_PostSelect,
 ];

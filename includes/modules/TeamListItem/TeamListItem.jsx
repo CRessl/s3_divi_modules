@@ -8,7 +8,7 @@ import './style.css';
 
 class S3DM_TeamListItem extends Component {
 
-  static slug = 's3dm_teamlist_item';
+  static slug = 's3dm_team_list_item';
 
   
   render() {

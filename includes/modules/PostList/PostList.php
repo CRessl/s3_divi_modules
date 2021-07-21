@@ -22,12 +22,21 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
     }
 
     public function setView(){
-        $this->view = Plates();
+		
+		$this->view = Plates(s3dm_templatePath($this));
+
     }
 
     public function get_fields(){
 
         $fields = array(
+            'testfeld' => array(
+                'label'            => esc_html__( 'Select Test', 's3dm-s3-divi-modules' ),
+				'type'             => 's3dm_input',
+				'option_category'  => 'configuration',
+				'description'      => esc_html__( 'Choose how many posts you would like to display in the slider.', 's3dm-s3-divi-modules' ),
+				'toggle_slug'      => 'main_content',
+            ),
             'posts_number' => array(
 				'label'            => esc_html__( 'Post Count', 's3dm-s3-divi-modules' ),
 				'type'             => 'text',
@@ -343,7 +352,8 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
             unset($queryArgs['category']);
         }
 
-        if(get_post_type() == 'ehi_product'){
+        //if site is a single post then skip the current post for the list and get the categories of current post for the query (skippable probably)
+        if(get_post_type() == 'post' && !is_category()){
 
             $currentPageID = get_the_ID();
 
@@ -355,118 +365,64 @@ class S3DM_PostList extends ET_Builder_Module_Type_PostBased {
         }
 
         $postData = get_posts($queryArgs);
+        $templateData = array();
+
+        $templateData['layout'] = $layout;
+        $templateData['columns'] = $this->props['columns'];
+        $templateData['post_type'] = get_post_type();
+        
+        $counter = 0;
+
+        foreach($postData as $data){
+
+            $postID = $data->ID;
+            $tags = get_the_tags($postID);
+            $tagData = [];
+            
+            if($tags){
+                foreach($tags as $tag){
+    
+                    $tagData[] = '<span className="tags">'.$tag->name.'</span>';
+        
+                }
+            }
+           
+    
+            $tagRender = implode(' ', $tagData);
+
+            $templateData['items'][$counter] = array(
+                'title'         => get_the_title($postID),
+                'image'         => get_the_post_thumbnail($postID, 'full'),
+                'tags'          => $tagRender,
+                'excerpt'       => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
+                'link'          => get_the_permalink($postID),
+                'date'          => get_the_date($dateFormat, $postID),
+                'settings'      => $settings,
+            );
+
+            if($counter == 0):
+                    
+                $templateData['items'][$counter]['first_post'] = true;             
+            
+            else:
+                
+                $templateData['items'][$counter]['first_post'] = false;  
+            
+            endif;
+            
+
+            $counter++;
+
+        }
+        $templateData['settings'] = $settings;
+        $templateRender = $this->view->render('PostList', $templateData);
 
         
-        if($layout === 'default'):
-            
-            ob_start();
-            echo '<ul class="uk-list" style="list-style-type:none;">';
-            foreach($postData as $data){
-                $postID = $data->ID;
-
-                echo $this->view->render('modules/PostList/partials/'.$layout, array(
-                    'title' => get_the_title($postID),
-                    'image' => get_the_post_thumbnail($postID, 'full'),
-                    'tags'  => get_the_tags($postID),
-                    'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
-                    'date' => get_the_date($dateFormat, $postID),
-                    'link' => get_the_permalink($postID),
-                    'settings' => $settings
-                ));
-            }
-            echo '</ul>';
-
-            $layoutOutput = ob_get_clean();
-         
-        endif;
-
-
-        if($layout === 'grid'):
-
-            ob_start();
-            echo '<div class="s3dm_post_list_grid uk-grid uk-grid-match uk-child-width-1-1 uk-child-width-1-'.$this->props['columns'].'@m" uk-grid>';
-            foreach($postData as $data){
-                $postID = $data->ID;
-
-                $templateData = array(
-                    'title' => get_the_title($postID),
-                    'image' => get_the_post_thumbnail($postID, 'full'),
-                    'tags'  => get_the_tags($postID),
-                    'packshot' => get_field('ehi_product_image', $postID),
-                    'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
-                    'link' => get_the_permalink($postID),
-                    'date' => get_the_date($dateFormat, $postID),
-                    'settings' => $settings,
-                    'price' => get_field('ehi_product_price', $postID),
-                    'memberprice' => get_field('ehi_product_member_price', $postID),
-                    'format' => get_field('ehi_product_format', $postID),
-                    'subtitle' => get_field('ehi_product_subtitle', $postID),
-                    'page' => get_field('ehi_product_max_pages', $postID),
-                );
-                
-
-
-                echo $this->view->render('modules/PostList/partials/'.$layout, $templateData);
-            }
-            echo '</div>';
-
-            $layoutOutput = ob_get_clean();
-            
-        endif;
-
-
-        if($layout === 'first_post_left'):
-            $count = 0;
-
-            ob_start();
-            echo '<div class="topics-news uk-child-width-1-2@m uk-child-width" uk-grid>';
-                echo '<div>';
-                    $postID = $postData[0]->ID;
-                        
-                    echo $this->view->render('modules/PostList/partials/'.$layout, array(
-                        'first_post' => true,
-                        'title' => get_the_title($postID),
-                        'image' => get_the_post_thumbnail($postID, 'full'),
-                        'tags'  => get_the_tags($postID),
-                        'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $postData[0]))),
-                        'date' => get_the_date($dateFormat, $postID),
-                        'link' => get_the_permalink($postID),
-                        'settings' => $settings
-                    ));
-
-                echo '</div>';
-                echo '<div>';
-                unset($postData[0]);
-                foreach($postData as $data){
-
-                    $postID = $data->ID;
-
-                    echo $this->view->render('modules/PostList/partials/'.$layout, array(
-                        'first_post' => false,
-                        'title' => get_the_title($postID),
-                        'image' => get_the_post_thumbnail($postID, 'full'),
-                        'tags'  => get_the_tags($postID),
-                        'excerpt' => strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $data))),
-                        'date' => get_the_date($dateFormat, $postID),
-                        'link' => get_the_permalink($postID),
-                        'settings' => $settings
-                    ));
-
-
-                }
-                echo '</div>';
-            echo '</div>';
-
-            $layoutOutput = ob_get_clean();
-
-
-        endif;
-
-
         $output = sprintf(
             '<div>%1$s</div>',
-            $layoutOutput
+            $templateRender
         );
+        
 
         return $output;
 

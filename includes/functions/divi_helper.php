@@ -84,3 +84,13 @@ function get_base_plugin_path(){
 
 
 }
+
+function s3dm_get_classname($class){
+
+	return str_replace('S3DM_', '',get_class($class));
+
+}
+
+function s3dm_templatePath($class){
+	return get_base_plugin_path().'/templates/modules/'.s3dm_get_classname($class);
+}

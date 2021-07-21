@@ -5,6 +5,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 	public $slug       = 's3dm_products';
 	public $vb_support = 'on';
 	private $view;
+	private $currClassName;
 	
 	protected $module_credits = array(
 		'module_uri' => '',
@@ -18,11 +19,14 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function setView(){
-        $this->view = Plates();
+		
+		$this->view = Plates(s3dm_templatePath($this));
+
     }
 
 	public function init() {
 		$this->name = esc_html__( 'Products', 's3dm-s3-divi-modules' );
+		
 	}
 
 	public function get_fields() {
@@ -454,6 +458,7 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 		$posts_number 				= $this->props['posts_number'];
 		$columns					= $this->props['columns'];
 		$date_format				= $this->props['date_format'];
+		$product					= url_to_postid($this->props['product']);	
 
 		//settings for all elements
 		$linktext 					= $this->props['linktext'];
@@ -488,113 +493,114 @@ class S3DM_Products extends ET_Builder_Module_Type_PostBased {
 
 
 		);
+		$templateData = array();
+		$templateData['query_type'] = $query_type;
+		$templateData['columns'] = $columns;
 
+		if($include_categories === 'current' && get_post_type() != 'ehi_product'){
 
-		if($query_type === 'category'){
+			$category = get_queried_object();
+			$include_categories = $category->term_id;
 
-			$output = '<div class="uk-child-width-1-1 uk-child-width-1-'.$columns.'" uk-height-match="target: .s3dm_products_grid_item .uk-card-body" uk-grid>';
+		}
 
-			if($include_categories === 'current' && get_post_type() != 'ehi_product'){
+		if($include_categories === 'current' && get_post_type() == 'ehi_product'){
 
-				$category = get_queried_object();
-				$include_categories = $category->term_id;
+			$category = wp_get_post_categories( get_the_ID(), array( 'fields' => 'ids' ) );
+			$include_categories = implode(',', $category);
 
-			}
+		}
 
-			if($include_categories === 'current' && get_post_type() == 'ehi_product'){
+		$queryArgs = array(
+			'post_type' 	=> 'ehi_product',
+			'numberposts' 	=> $posts_number,
+			'post_status' 	=> 'publish',
+			'category' 		=> $include_categories
+		);
 
-				$category = wp_get_post_categories( get_the_ID(), array( 'fields' => 'ids' ) );
-				$include_categories = implode(',', $category);
+		if(get_post_type() == 'ehi_product'){
+			$queryArgs['post__not_in'] = array(get_the_ID());
+		}
 
-			}
+		if(!$include_categories){
 
-			$queryArgs = array(
-				'post_type' 	=> 'ehi_product',
-				'numberposts' 	=> $posts_number,
-				'post_status' 	=> 'publish',
-				'category' 		=> $include_categories
-			);
+			unset($queryArgs['category']);
 
-			if(get_post_type() == 'ehi_product'){
-				$queryArgs['post__not_in'] = array(get_the_ID());
-			}
-
-			if(!$include_categories){
-
-				unset($queryArgs['category']);
-
-			}
-
-			
+		}
+		if($query_type === 'category'):
 
 			$products = get_posts($queryArgs);
 
-
-			if(!$products){
-
-				unset($queryArgs['category']);
-				$products = get_posts($queryArgs);
-
-			}
-
-			foreach($products as $product){
-
-				$productData = array();
-				$productID = $product->ID;
-
-				$title = get_the_title($productID);
-				$subtitle = get_field('ehi_product_subtitle', $productID);
-				$permalink = get_the_permalink($productID);
-				$tags = get_the_tags($productID);
-				$date = get_the_date($date_format, $productID);
-				
-				//gets image html from image field
-				$packshot = wp_get_attachment_image(get_field('ehi_product_image', $productID), 'full', false, array('class' => 's3dm_post_list_product_image'));
-				$price = get_field('ehi_product_price', $productID);
-				$member_price = get_field('ehi_product_member_price', $productID);
-				$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
-
-				if(!$excerpt){
-					$truncate = truncate_post( 270, false, $product, true );
-					$excerpt = $truncate;
-				}
-
-
-
-				$max_pages = get_field('ehi_product_max_pages', $productID);
-				$format = get_field('ehi_product_format', $productID);
-
-				$templateData = array(
-					
-					'packshot' 		=> $packshot,
-					'date'			=> $date,
-					'title' 		=> $title,
-					'subtitle' 		=> $subtitle,
-					'tags' 			=> $tags,
-					'format'		=> $format,
-					'max_pages'		=> $max_pages,
-					'excerpt'		=> $excerpt,
-					'price'			=> $price,
-					'member_price'	=> $member_price,
-					'permalink' 	=> $permalink,
-					'settings'		=> $settings,
-
-				);
-
-				$output .= $this->view->render('modules/Products/multiple', $templateData); 
-
-
-			}
-			
-			$output .= '</div>';
-
-		}
+		endif;
 
 		if($query_type === 'select'){
 
-			$product = get_post(url_to_post_id($this->props['product']));
+			$queryArgs = array(
+				'post_type' 	=> 'ehi_product',
+				'numberposts' 	=> 1,
+				'post_status' 	=> 'publish',
+				'included'      => array($product)
+			);
+
+			$products = get_posts($queryArgs);
 
 		}
+
+
+		if(!$products){
+
+			unset($queryArgs['category']);
+			$products = get_posts($queryArgs);
+
+		}
+
+		foreach($products as $product){
+
+			$productID = $product->ID;
+
+			$title = get_the_title($productID);
+			$subtitle = get_field('ehi_product_subtitle', $productID);
+			$permalink = get_the_permalink($productID);
+			$tags = get_the_tags($productID);
+			$date = get_the_date($date_format, $productID);
+			
+			//gets image html from image field
+			$packshot = wp_get_attachment_image(get_field('ehi_product_image', $productID), 'full', false, array('class' => 's3dm_post_list_product_image'));
+			$price = get_field('ehi_product_price', $productID);
+			$member_price = get_field('ehi_product_member_price', $productID);
+			$excerpt = strip_tags(apply_filters('the_excerpt', get_post_field('post_excerpt', $product)));
+
+			if(!$excerpt){
+				$truncate = truncate_post( 270, false, $product, true );
+				$excerpt = $truncate;
+			}
+
+			$max_pages = get_field('ehi_product_max_pages', $productID);
+			$format = get_field('ehi_product_format', $productID);
+
+			$templateData['items'][] = array(
+				
+				'packshot' 		=> $packshot,
+				'date'			=> $date,
+				'title' 		=> $title,
+				'subtitle' 		=> $subtitle,
+				'tags' 			=> $tags,
+				'format'		=> $format,
+				'max_pages'		=> $max_pages,
+				'excerpt'		=> $excerpt,
+				'price'			=> $price,
+				'member_price'	=> $member_price,
+				'permalink' 	=> $permalink,
+				'settings'		=> $settings
+
+			);
+
+		}
+
+		$output = $this->view->render('products', $templateData);
+	
+
+
 		
 		return $output;
 		

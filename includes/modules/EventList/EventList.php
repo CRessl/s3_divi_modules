@@ -18,7 +18,7 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 	public function init() {
@@ -58,27 +58,6 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose how much posts you would like to display per page.', 's3dm-s3-divi-modules' ),
 				'default'          => 3,
-			),
-            'show_more'                     => array(
-				'label'            => esc_html__( 'Show Read More Button', 'et_builder' ),
-				'type'             => 'yes_no_button',
-				'option_category'  => 'configuration',
-				'options'          => array(
-					'off' => et_builder_i18n( 'No' ),
-					'on'  => et_builder_i18n( 'Yes' ),
-				),
-				'affects'	=> array(
-					'button_text',
-				),
-				'description'      => esc_html__( 'Here you can define whether to show "read more" link after the excerpts or not.', 's3dm-s3-divi-modules' ),
-				'default_on_front' => 'off',
-			),
-			'button_text'                     => array(
-				'label'            => esc_html__( 'Read More Button Text', 'et_builder' ),
-				'type'             => 'text',
-				'option_category'  => 'configuration',
-				'depends_show_if'  => 'on',
-				'description'      => esc_html__( 'Here you can define which text the button should have', 'et_builder' ),
 			),
             'meta_date'                     => array(
 				'label'            => esc_html__( 'Date Format', 'et_builder' ),
@@ -142,17 +121,12 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 	
 		$numberposts 	= $this->props['posts_number'];
 		$dateFormat 	= $this->props['meta_date'];
-		$button_text 	= $this->props['button_text'];
 		$columns 		= $this->props['columns'];
 		$title_size		= $this->props['title_size'];
 
 		if(!$columns){
 			$columns = 3;
 		}
-
-		if(!$button_text):
-			$button_text = 'Zum Event';
-		endif;
 
 		if(!$numberposts):
 			$numberposts = 5;
@@ -166,40 +140,16 @@ class S3DM_EventList extends ET_Builder_Module_Type_PostBased {
 		$data = tribe_get_events($args);
 			
 
-		$post_list = '<div uk-slider="finite:true"><ul class="uk-slider-items uk-grid-divider uk-child-width-1-'.$columns.'@m uk-child-width-1-3@s uk-child-width-1-1">';
+		$post_list = $this->view->render('EventList', array(
+			'columns' => $columns,
+			'data' => $data,
+			'prefix' => $this->slug,
+			'dateFormat' => $dateFormat,
+			'title_size' => $title_size,
+			'module_classname' => $this->module_classname( $render_slug ),
+		));
 
-		foreach($data as $postObject){
-
-			$post_list .= $this->view->render('modules/EventList/partials/EventList_Item', array(
-				'columns' 		=> $columns,
-				'start_date' 	=> tribe_get_start_date( $postObject, true, $dateFormat ),
-				'end_date'		=> tribe_get_end_date( $postObject, true, $dateFormat ),
-				'title' 		=> $postObject->post_title,
-				'link' 			=> tribe_get_event_meta( $postObject->ID, '_EventURL', true ),
-				'button_text' 	=> $button_text,
-				'prefix' 		=> $this->slug,
-				'title_size' 	=> $title_size
-			));
-
-		}
-		
-		$post_list .= '</ul>';
-		$post_list .= '<a class="uk-position-center-left" href="" uk-slidenav-previous uk-slider-item="previous"></a><a class="uk-position-center-right" href="" uk-slidenav-next uk-slider-item="next"></a>';
-		$post_list .= '</div>';
-		$output = sprintf(
-			'<div class="%2$s">
-				%1$s
-			</div>
-			',
-            $post_list,
-			$this->slug
-		);
-
-
-		return $output;
-		
-
-
+		return $post_list;
 		
 	}
 

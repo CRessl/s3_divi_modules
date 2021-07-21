@@ -18,7 +18,7 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 	public function init() {
@@ -99,13 +99,12 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 			),
             'initiatives' => array(
 				'label'            => esc_html__( 'Initiative', 's3dm-s3-divi-modules' ),
-				'type'             => 'text',
+				'type'             => 's3dm_post_select',
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Choose a initiative', 's3dm-s3-divi-modules' ),
 				'computed_affects' => array(
 					'__initiativeData',
 				),
-				'dynamic_content' => 'url',
                 'show_if'          => array(
                     'query_type'   => 'select'
                 ),
@@ -132,16 +131,20 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
 		if($query_type === 'select'){
 
-			$initiativesID = getIdFromDynamicLinkfield($args['initiatives']);
+			$initiativesID = $args['initiatives'];
+
+			if(!is_numeric($args['initiatives'])):
+			$initiativesID = getIdFromDynamicLinkfield($args['initiatives']); //if it is my custom field we dont need this anymore
+			endif;
+
 			$initiatives = get_post($initiativesID);
 
 			$initiativesData = array(
 				'title' 	=> esc_html($initiatives->post_title),
 				'image' 	=> get_the_post_thumbnail_url($initiatives->ID, 'medium_large'),
-				'content' 	=> esc_html($initiatives->post_content)
+				'content' 	=> esc_html($initiatives->post_content),
+				'link'		=> get_the_permalink($initiatives->ID)
 			);
-
-			
 
 
 		}else{
@@ -161,7 +164,8 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
 
 				$initiativesData[] = array(
 					'title' => esc_html($initiative->post_title),
-					'image' => get_the_post_thumbnail_url($initiative->ID, 'medium_large')
+					'image' => get_the_post_thumbnail_url($initiative->ID, 'medium_large'),
+					'link'		=> get_the_permalink($initiatives->ID)
 				);
 
 
@@ -181,55 +185,30 @@ class S3DM_Initiatives extends ET_Builder_Module_Type_PostBased {
         $query_type = $this->props['query_type'];
         $post_number = $this->props['posts_number'];
         $initiatives = $this->props['initiatives'];
+
         $categories = $this->props['include_categories'];
 		$columns = $this->props['columns'];
 		$title_size = $this->props['title_size'];
 
-        if($query_type === 'category'){
+		$args = array(
 
-            $query_args = array( 
-                'numberposts'   => $post_number,
-                'category'      => $categories,
-                'post_type'     => 'initiatives',
-                'post_status'   => 'publish'
-			);
+			'query_type' 	=> $query_type,
+			'numberposts'   => $post_number,
+			'category'      => $categories,
+			'post_type'     => 'initiatives',
+			'post_status'   => 'publish'
 
+		);
 
-            $initiatives = get_posts($query_args);
-            
-            $output = $this->view->render('modules/Initiativen/multiple', array(
-                'initiatives' => $initiatives,
-				'columns' => $columns,
-				'title_size' => $title_size
-            ));
+       	$initiatives = $this->get_initiatives($args);
 
-
-            if($post_number == '1'):
-
-                $output = $this->view->render('modules/Initiativen/single', array(
-                    'initiatives' => $initiatives,
-					'title_size' => $title_size
-                ));
-
-            endif;
+		$output = $this->view->render('Initiatives', array(
+			'initiatives' => $initiatives, 
+			'columns' => $columns,
+			'title_size' => $title_size,
+			'moduleclass' => $this->module_classname( $render_slug )
+		));
 		
-
-        }
-
-		if($query_type === 'select'):
-
-			$canGetPostID = url_to_postid($initiatives);
-
-			$output = "Couldn't fetch ID";
-
-			if($canGetPostID):
-				$initiatives = get_post($canGetPostID);
-				$output = $this->view->render('modules/Initiativen/single', array(
-					'initiatives' => $initiatives
-				));
-			endif;
-
-		endif;
 
 		return $output;
 		

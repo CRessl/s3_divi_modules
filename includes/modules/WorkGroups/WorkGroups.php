@@ -18,7 +18,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
     }
 
 	public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 	public function init() {
@@ -280,6 +280,7 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 		$title_size = $this->props['title_size'];
 
 
+		
 		$slider_defaults = array(
 			'type' => 'fade',
 			'rewind' => true,
@@ -295,9 +296,10 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
 		$slide_options = json_encode($slider_defaults, JSON_HEX_QUOT);
 
+
 		if($query_type === 'category'){
 
-            $query_args = array(
+			$query_args = array(
                 'numberposts'   => $post_number,
                 'category'      => $categories,
                 'post_type'     => 'workgroup',
@@ -306,42 +308,32 @@ class S3DM_WorkGroups extends ET_Builder_Module_Type_PostBased {
 
 
             $workgroups = get_posts($query_args);
-            
-            $output = $this->view->render('modules/WorkGroups/multiple', array(
-                'workgroups' => $workgroups,
-				'title_size' => $title_size,
-				'slide_options' => $slide_options
-            ));
 
+		}
 
-            if($post_number == '1'):
-
-                $output = $this->view->render('modules/WorkGroups/single', array(
-                    'workgroups' => $workgroups,
-					'title_size' => $title_size,
-                ));
-
-            endif;
-		
-
-        }
-
-		if($query_type === 'select'):
+		if($query_type === 'select'){
 
 			$canGetPostID = url_to_postid($workgroup);
 
 			$output = "Couldn't fetch ID";
 
-			if($canGetPostID):
+			if($canGetPostID){
 				$workgroups = get_post($canGetPostID);
-				$output = $this->view->render('modules/WorkGroups/single', array(
-					'workgroups' 	=> $workgroups,
-					'title_size' 	=> $title_size,
-					
-				));
-			endif;
+			}
 
-		endif;
+		}
+
+
+
+
+		$output = $this->view->render('WorkGroups', array(
+
+			'query_type' => $query_type,
+			'workgroups' => $workgroups,
+			'title_size' => $title_size,
+			'slide_options' => $slide_options
+
+		));
 
 		return $output;
 		

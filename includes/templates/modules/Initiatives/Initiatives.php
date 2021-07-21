@@ -1,13 +1,20 @@
-<?php 
+<div class="<?= $moduleclass; ?>">
 
-$initiativeID = $initiatives->ID;
-$thumbURL = get_the_post_thumbnail_url($initiativeID, 'medium_large');
-$link = get_field('ehi_initiative_link', $initiativeID);
+    <?php if(is_array($initiatives) && count($initiatives) > 1): ?>
 
-?>
+        <?php foreach($initiatives as $initiative): ?>
+            <?php $this->insert('partials/InitiativesItem', array(
+                'columns' => $columns,
+                'title_size' => $title_size,
+                'initiative' => $initiative,
+            ));
+            ?>
+        <?php endforeach; ?>
+
+    <?php else: ?>
 
 
-<div class="s3dm_initiative uk-grid-match uk-child-width-1-2@m uk-child-width-1-1 uk-grid-collapse" uk-grid>
+    <div class="s3dm_initiative uk-grid-match uk-child-width-1-2@m uk-child-width-1-1 uk-grid-collapse" uk-grid>
         <?php if($link):?>
 
             <a href="<?= $link; ?>" class="uk-cover" target="_blank"></a>
@@ -26,4 +33,9 @@ $link = get_field('ehi_initiative_link', $initiativeID);
         <div class="s3dm_initiative_image uk-background-cover uk-flex-first uk-flex-last@m" style="background-image:url(<?= $thumbURL; ?>);">
             <img src="<?= $thumbURL; ?>" class="uk-invisible">
         </div>
+    </div>
+
+    <?php endif; ?> 
+
+
 </div>

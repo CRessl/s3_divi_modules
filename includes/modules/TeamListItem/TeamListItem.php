@@ -33,7 +33,7 @@ class S3DM_TeamListItem extends ET_Builder_Module {
     }
 
     public function setView(){
-        $this->view = Plates();
+        $this->view = Plates(s3dm_templatePath($this));
     }
 
 
@@ -103,7 +103,7 @@ class S3DM_TeamListItem extends ET_Builder_Module {
         $email = get_field('ehi_team_email', $teamMemberID);
         $attachment = wp_get_attachment_image(attachment_url_to_postid($image), 'contact_480', false, array('class' => 'uk-display-block'));
 
-        $output = $this->view->render('modules/TeamListItem/TeamListItem', array(
+        $output = $this->view->render('TeamListItem', array(
             'name' => $name,
             'image' => $image,
             'email' => $email,
